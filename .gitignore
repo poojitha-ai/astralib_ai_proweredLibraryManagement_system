@@ -1,0 +1,36 @@
+config.ps1
+
+node_modules/
+**/node_modules/
+
+target/
+**/target/
+
+__pycache__/
+*.pyc
+
+hs_err_pid*.log
+replay_pid*.log
+
+database/astralib_before_duplicate_cleanup.sql
+database/astralib_before_portability_fix.sql
+
+.env
+.env.*
+!.env.example
+
+# Generated frontend build
+astralib-frontend/dist/
+
+# Local editor / OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Local API test bodies / credentials
+astralib-backend/login_admin.json
+astralib-backend/login_user.json
+astralib-backend/test_admin_login.json
+astralib-backend/test_admin_reg.json
+astralib-backend/test_user_reg.json

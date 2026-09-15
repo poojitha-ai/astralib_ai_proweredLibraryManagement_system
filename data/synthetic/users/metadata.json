@@ -1,0 +1,34 @@
+{
+  "dataset_name": "AstraLib Synthetic User Profiles & Activity Logs",
+  "category": "D. SYNTHETIC USER DATA",
+  "source": "AstraLib Synthetic Activity Generator",
+  "license": "MIT / Open Project License (Zero PII)",
+  "last_updated": "2026-08-01T22:26:54.742696",
+  "record_counts": {
+    "users": 200,
+    "user_interests": 200,
+    "reading_history": 5000,
+    "favorites": 1500,
+    "search_history": 3000,
+    "interactions": 8000
+  },
+  "files": [
+    "users.json",
+    "user_interests.json",
+    "reading_history.json",
+    "favorites.json",
+    "search_history.json",
+    "interactions.json"
+  ],
+  "storage_size_mb": 4.5,
+  "schema_fields": [
+    "user_id",
+    "username",
+    "email",
+    "full_name",
+    "role",
+    "department",
+    "academic_level",
+    "created_at"
+  ]
+}

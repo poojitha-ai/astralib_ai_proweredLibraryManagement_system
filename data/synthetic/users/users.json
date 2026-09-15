@@ -1,0 +1,2002 @@
+[
+  {
+    "user_id": "USR-0001",
+    "username": "chen.patel13",
+    "email": "chen.patel13@astralib.edu",
+    "full_name": "Chen Patel",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-03-19T22:26:43.349205"
+  },
+  {
+    "user_id": "USR-0002",
+    "username": "ananya.sharma21",
+    "email": "ananya.sharma21@astralib.edu",
+    "full_name": "Ananya Sharma",
+    "role": "Postgraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-11-06T22:26:43.349617"
+  },
+  {
+    "user_id": "USR-0003",
+    "username": "noah.rodriguez45",
+    "email": "noah.rodriguez45@astralib.edu",
+    "full_name": "Noah Rodriguez",
+    "role": "Undergraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-12-18T22:26:43.349657"
+  },
+  {
+    "user_id": "USR-0004",
+    "username": "liam.patel55",
+    "email": "liam.patel55@astralib.edu",
+    "full_name": "Liam Patel",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-03-09T22:26:43.349690"
+  },
+  {
+    "user_id": "USR-0005",
+    "username": "rohan.davis47",
+    "email": "rohan.davis47@astralib.edu",
+    "full_name": "Rohan Davis",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-01-18T22:26:43.349726"
+  },
+  {
+    "user_id": "USR-0006",
+    "username": "rohan.ali39",
+    "email": "rohan.ali39@astralib.edu",
+    "full_name": "Rohan Ali",
+    "role": "Undergraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-03-02T22:26:43.349756"
+  },
+  {
+    "user_id": "USR-0007",
+    "username": "ava.tanaka41",
+    "email": "ava.tanaka41@astralib.edu",
+    "full_name": "Ava Tanaka",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-01-09T22:26:43.349790"
+  },
+  {
+    "user_id": "USR-0008",
+    "username": "fatima.verma50",
+    "email": "fatima.verma50@astralib.edu",
+    "full_name": "Fatima Verma",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-06-19T22:26:43.349821"
+  },
+  {
+    "user_id": "USR-0009",
+    "username": "vikram.joshi27",
+    "email": "vikram.joshi27@astralib.edu",
+    "full_name": "Vikram Joshi",
+    "role": "Postgraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-10-20T22:26:43.349852"
+  },
+  {
+    "user_id": "USR-0010",
+    "username": "ethan.garcia21",
+    "email": "ethan.garcia21@astralib.edu",
+    "full_name": "Ethan Garcia",
+    "role": "Undergraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-05-05T22:26:43.349884"
+  },
+  {
+    "user_id": "USR-0011",
+    "username": "ethan.joshi80",
+    "email": "ethan.joshi80@astralib.edu",
+    "full_name": "Ethan Joshi",
+    "role": "Undergraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-08-07T22:26:43.349916"
+  },
+  {
+    "user_id": "USR-0012",
+    "username": "aarav.tanaka43",
+    "email": "aarav.tanaka43@astralib.edu",
+    "full_name": "Aarav Tanaka",
+    "role": "Associate Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-11-05T22:26:43.349947"
+  },
+  {
+    "user_id": "USR-0013",
+    "username": "sophia.sato30",
+    "email": "sophia.sato30@astralib.edu",
+    "full_name": "Sophia Sato",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-07-22T22:26:43.349978"
+  },
+  {
+    "user_id": "USR-0014",
+    "username": "kavya.hassan82",
+    "email": "kavya.hassan82@astralib.edu",
+    "full_name": "Kavya Hassan",
+    "role": "Undergraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-11-16T22:26:43.350014"
+  },
+  {
+    "user_id": "USR-0015",
+    "username": "ethan.ali87",
+    "email": "ethan.ali87@astralib.edu",
+    "full_name": "Ethan Ali",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-10-19T22:26:43.350046"
+  },
+  {
+    "user_id": "USR-0016",
+    "username": "priya.deshmukh38",
+    "email": "priya.deshmukh38@astralib.edu",
+    "full_name": "Priya Deshmukh",
+    "role": "Undergraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-07-12T22:26:43.350078"
+  },
+  {
+    "user_id": "USR-0017",
+    "username": "rohan.hassan14",
+    "email": "rohan.hassan14@astralib.edu",
+    "full_name": "Rohan Hassan",
+    "role": "PhD Scholar",
+    "department": "Computer Science & Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-11-01T22:26:43.350108"
+  },
+  {
+    "user_id": "USR-0018",
+    "username": "vikram.tanaka83",
+    "email": "vikram.tanaka83@astralib.edu",
+    "full_name": "Vikram Tanaka",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-03-20T22:26:43.350137"
+  },
+  {
+    "user_id": "USR-0019",
+    "username": "emma.jones16",
+    "email": "emma.jones16@astralib.edu",
+    "full_name": "Emma Jones",
+    "role": "Research Fellow",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-06-21T22:26:43.350170"
+  },
+  {
+    "user_id": "USR-0020",
+    "username": "ava.jones27",
+    "email": "ava.jones27@astralib.edu",
+    "full_name": "Ava Jones",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-03-02T22:26:43.350199"
+  },
+  {
+    "user_id": "USR-0021",
+    "username": "chen.davis11",
+    "email": "chen.davis11@astralib.edu",
+    "full_name": "Chen Davis",
+    "role": "Undergraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-04-28T22:26:43.350231"
+  },
+  {
+    "user_id": "USR-0022",
+    "username": "aarav.williams43",
+    "email": "aarav.williams43@astralib.edu",
+    "full_name": "Aarav Williams",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-12-18T22:26:43.350265"
+  },
+  {
+    "user_id": "USR-0023",
+    "username": "ananya.verma84",
+    "email": "ananya.verma84@astralib.edu",
+    "full_name": "Ananya Verma",
+    "role": "Assistant Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-10-24T22:26:43.350303"
+  },
+  {
+    "user_id": "USR-0024",
+    "username": "isabella.gupta96",
+    "email": "isabella.gupta96@astralib.edu",
+    "full_name": "Isabella Gupta",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-05-22T22:26:43.350335"
+  },
+  {
+    "user_id": "USR-0025",
+    "username": "omar.joshi36",
+    "email": "omar.joshi36@astralib.edu",
+    "full_name": "Omar Joshi",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-03-22T22:26:43.350367"
+  },
+  {
+    "user_id": "USR-0026",
+    "username": "omar.sato19",
+    "email": "omar.sato19@astralib.edu",
+    "full_name": "Omar Sato",
+    "role": "Undergraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-09-07T22:26:43.350401"
+  },
+  {
+    "user_id": "USR-0027",
+    "username": "aditya.rao54",
+    "email": "aditya.rao54@astralib.edu",
+    "full_name": "Aditya Rao",
+    "role": "Undergraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-01-14T22:26:43.350431"
+  },
+  {
+    "user_id": "USR-0028",
+    "username": "omar.li23",
+    "email": "omar.li23@astralib.edu",
+    "full_name": "Omar Li",
+    "role": "Postgraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-05-24T22:26:43.350464"
+  },
+  {
+    "user_id": "USR-0029",
+    "username": "yuki.smith36",
+    "email": "yuki.smith36@astralib.edu",
+    "full_name": "Yuki Smith",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-11-06T22:26:43.350496"
+  },
+  {
+    "user_id": "USR-0030",
+    "username": "aarav.smith26",
+    "email": "aarav.smith26@astralib.edu",
+    "full_name": "Aarav Smith",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-05-01T22:26:43.350529"
+  },
+  {
+    "user_id": "USR-0031",
+    "username": "lucas.davis28",
+    "email": "lucas.davis28@astralib.edu",
+    "full_name": "Lucas Davis",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-07-01T22:26:43.350563"
+  },
+  {
+    "user_id": "USR-0032",
+    "username": "wei.patel55",
+    "email": "wei.patel55@astralib.edu",
+    "full_name": "Wei Patel",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-09-08T22:26:43.350599"
+  },
+  {
+    "user_id": "USR-0033",
+    "username": "aarav.nair52",
+    "email": "aarav.nair52@astralib.edu",
+    "full_name": "Aarav Nair",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-03-08T22:26:43.350631"
+  },
+  {
+    "user_id": "USR-0034",
+    "username": "kavya.iyer68",
+    "email": "kavya.iyer68@astralib.edu",
+    "full_name": "Kavya Iyer",
+    "role": "PhD Scholar",
+    "department": "Information Technology",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-03-28T22:26:43.350662"
+  },
+  {
+    "user_id": "USR-0035",
+    "username": "zaid.gupta45",
+    "email": "zaid.gupta45@astralib.edu",
+    "full_name": "Zaid Gupta",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-12-30T22:26:43.350692"
+  },
+  {
+    "user_id": "USR-0036",
+    "username": "isabella.brown54",
+    "email": "isabella.brown54@astralib.edu",
+    "full_name": "Isabella Brown",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-12-11T22:26:43.350726"
+  },
+  {
+    "user_id": "USR-0037",
+    "username": "yuki.brown10",
+    "email": "yuki.brown10@astralib.edu",
+    "full_name": "Yuki Brown",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-08-05T22:26:43.350757"
+  },
+  {
+    "user_id": "USR-0038",
+    "username": "hao.hassan48",
+    "email": "hao.hassan48@astralib.edu",
+    "full_name": "Hao Hassan",
+    "role": "Associate Professor",
+    "department": "Information Technology",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-08-15T22:26:43.350789"
+  },
+  {
+    "user_id": "USR-0039",
+    "username": "emma.li58",
+    "email": "emma.li58@astralib.edu",
+    "full_name": "Emma Li",
+    "role": "Research Fellow",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-09-10T22:26:43.350820"
+  },
+  {
+    "user_id": "USR-0040",
+    "username": "emma.khan84",
+    "email": "emma.khan84@astralib.edu",
+    "full_name": "Emma Khan",
+    "role": "Associate Professor",
+    "department": "Information Technology",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-11-26T22:26:43.350852"
+  },
+  {
+    "user_id": "USR-0041",
+    "username": "ethan.li91",
+    "email": "ethan.li91@astralib.edu",
+    "full_name": "Ethan Li",
+    "role": "Associate Professor",
+    "department": "Information Technology",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-06-05T22:26:43.350887"
+  },
+  {
+    "user_id": "USR-0042",
+    "username": "aarav.verma41",
+    "email": "aarav.verma41@astralib.edu",
+    "full_name": "Aarav Verma",
+    "role": "Assistant Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-06-15T22:26:43.350919"
+  },
+  {
+    "user_id": "USR-0043",
+    "username": "liam.deshmukh28",
+    "email": "liam.deshmukh28@astralib.edu",
+    "full_name": "Liam Deshmukh",
+    "role": "Research Fellow",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-05-29T22:26:43.350955"
+  },
+  {
+    "user_id": "USR-0044",
+    "username": "omar.ali25",
+    "email": "omar.ali25@astralib.edu",
+    "full_name": "Omar Ali",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-11-27T22:26:43.350987"
+  },
+  {
+    "user_id": "USR-0045",
+    "username": "hao.ali70",
+    "email": "hao.ali70@astralib.edu",
+    "full_name": "Hao Ali",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-03-18T22:26:43.351021"
+  },
+  {
+    "user_id": "USR-0046",
+    "username": "kavya.joshi52",
+    "email": "kavya.joshi52@astralib.edu",
+    "full_name": "Kavya Joshi",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-06-11T22:26:43.351052"
+  },
+  {
+    "user_id": "USR-0047",
+    "username": "emma.brown52",
+    "email": "emma.brown52@astralib.edu",
+    "full_name": "Emma Brown",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-12-22T22:26:43.351083"
+  },
+  {
+    "user_id": "USR-0048",
+    "username": "zaid.hassan83",
+    "email": "zaid.hassan83@astralib.edu",
+    "full_name": "Zaid Hassan",
+    "role": "Assistant Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-07-19T22:26:43.351112"
+  },
+  {
+    "user_id": "USR-0049",
+    "username": "kavya.joshi65",
+    "email": "kavya.joshi65@astralib.edu",
+    "full_name": "Kavya Joshi",
+    "role": "Assistant Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-01-04T22:26:43.351143"
+  },
+  {
+    "user_id": "USR-0050",
+    "username": "ava.sharma60",
+    "email": "ava.sharma60@astralib.edu",
+    "full_name": "Ava Sharma",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-08-17T22:26:43.351176"
+  },
+  {
+    "user_id": "USR-0051",
+    "username": "neha.verma43",
+    "email": "neha.verma43@astralib.edu",
+    "full_name": "Neha Verma",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-04-05T22:26:43.351201"
+  },
+  {
+    "user_id": "USR-0052",
+    "username": "olivia.sharma79",
+    "email": "olivia.sharma79@astralib.edu",
+    "full_name": "Olivia Sharma",
+    "role": "Undergraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-03-30T22:26:43.351230"
+  },
+  {
+    "user_id": "USR-0053",
+    "username": "siddharth.ahmed12",
+    "email": "siddharth.ahmed12@astralib.edu",
+    "full_name": "Siddharth Ahmed",
+    "role": "Associate Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-03-22T22:26:43.351259"
+  },
+  {
+    "user_id": "USR-0054",
+    "username": "mei.johnson31",
+    "email": "mei.johnson31@astralib.edu",
+    "full_name": "Mei Johnson",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-05-25T22:26:43.351295"
+  },
+  {
+    "user_id": "USR-0055",
+    "username": "lucas.li58",
+    "email": "lucas.li58@astralib.edu",
+    "full_name": "Lucas Li",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-06-14T22:26:43.351326"
+  },
+  {
+    "user_id": "USR-0056",
+    "username": "tariq.rodriguez15",
+    "email": "tariq.rodriguez15@astralib.edu",
+    "full_name": "Tariq Rodriguez",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-12-15T22:26:43.351357"
+  },
+  {
+    "user_id": "USR-0057",
+    "username": "fatima.garcia23",
+    "email": "fatima.garcia23@astralib.edu",
+    "full_name": "Fatima Garcia",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-08-31T22:26:43.351391"
+  },
+  {
+    "user_id": "USR-0058",
+    "username": "emma.ahmed85",
+    "email": "emma.ahmed85@astralib.edu",
+    "full_name": "Emma Ahmed",
+    "role": "PhD Scholar",
+    "department": "Information Technology",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-03-19T22:26:43.351425"
+  },
+  {
+    "user_id": "USR-0059",
+    "username": "lucas.martinez95",
+    "email": "lucas.martinez95@astralib.edu",
+    "full_name": "Lucas Martinez",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-07-08T22:26:43.351458"
+  },
+  {
+    "user_id": "USR-0060",
+    "username": "aisha.martinez99",
+    "email": "aisha.martinez99@astralib.edu",
+    "full_name": "Aisha Martinez",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-07-17T22:26:43.351491"
+  },
+  {
+    "user_id": "USR-0061",
+    "username": "yuki.garcia92",
+    "email": "yuki.garcia92@astralib.edu",
+    "full_name": "Yuki Garcia",
+    "role": "Research Fellow",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-12-05T22:26:43.351521"
+  },
+  {
+    "user_id": "USR-0062",
+    "username": "yuki.deshmukh49",
+    "email": "yuki.deshmukh49@astralib.edu",
+    "full_name": "Yuki Deshmukh",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-01-15T22:26:43.351550"
+  },
+  {
+    "user_id": "USR-0063",
+    "username": "aditya.kulkarni42",
+    "email": "aditya.kulkarni42@astralib.edu",
+    "full_name": "Aditya Kulkarni",
+    "role": "Postgraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-04-15T22:26:43.351586"
+  },
+  {
+    "user_id": "USR-0064",
+    "username": "hao.garcia45",
+    "email": "hao.garcia45@astralib.edu",
+    "full_name": "Hao Garcia",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-10-27T22:26:43.351624"
+  },
+  {
+    "user_id": "USR-0065",
+    "username": "neha.kulkarni11",
+    "email": "neha.kulkarni11@astralib.edu",
+    "full_name": "Neha Kulkarni",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-05-19T22:26:43.351654"
+  },
+  {
+    "user_id": "USR-0066",
+    "username": "zaid.sharma83",
+    "email": "zaid.sharma83@astralib.edu",
+    "full_name": "Zaid Sharma",
+    "role": "PhD Scholar",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-11-19T22:26:43.351690"
+  },
+  {
+    "user_id": "USR-0067",
+    "username": "liam.garcia19",
+    "email": "liam.garcia19@astralib.edu",
+    "full_name": "Liam Garcia",
+    "role": "Associate Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-05-06T22:26:43.351723"
+  },
+  {
+    "user_id": "USR-0068",
+    "username": "mei.brown87",
+    "email": "mei.brown87@astralib.edu",
+    "full_name": "Mei Brown",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-03-29T22:26:43.351757"
+  },
+  {
+    "user_id": "USR-0069",
+    "username": "isabella.tanaka22",
+    "email": "isabella.tanaka22@astralib.edu",
+    "full_name": "Isabella Tanaka",
+    "role": "Postgraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-03-09T22:26:43.351792"
+  },
+  {
+    "user_id": "USR-0070",
+    "username": "rohan.nair10",
+    "email": "rohan.nair10@astralib.edu",
+    "full_name": "Rohan Nair",
+    "role": "Assistant Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-08-04T22:26:43.351821"
+  },
+  {
+    "user_id": "USR-0071",
+    "username": "rohan.li39",
+    "email": "rohan.li39@astralib.edu",
+    "full_name": "Rohan Li",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-08-18T22:26:43.351856"
+  },
+  {
+    "user_id": "USR-0072",
+    "username": "vikram.hussein44",
+    "email": "vikram.hussein44@astralib.edu",
+    "full_name": "Vikram Hussein",
+    "role": "Postgraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-06-22T22:26:43.351885"
+  },
+  {
+    "user_id": "USR-0073",
+    "username": "noah.zhang48",
+    "email": "noah.zhang48@astralib.edu",
+    "full_name": "Noah Zhang",
+    "role": "Research Fellow",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-03-05T22:26:43.351916"
+  },
+  {
+    "user_id": "USR-0074",
+    "username": "rohan.deshmukh96",
+    "email": "rohan.deshmukh96@astralib.edu",
+    "full_name": "Rohan Deshmukh",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-07-12T22:26:43.351950"
+  },
+  {
+    "user_id": "USR-0075",
+    "username": "omar.joshi33",
+    "email": "omar.joshi33@astralib.edu",
+    "full_name": "Omar Joshi",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-08-31T22:26:43.351982"
+  },
+  {
+    "user_id": "USR-0076",
+    "username": "zaid.nair52",
+    "email": "zaid.nair52@astralib.edu",
+    "full_name": "Zaid Nair",
+    "role": "Assistant Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-02-25T22:26:43.352014"
+  },
+  {
+    "user_id": "USR-0077",
+    "username": "zaid.miller10",
+    "email": "zaid.miller10@astralib.edu",
+    "full_name": "Zaid Miller",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-11-28T22:26:43.352049"
+  },
+  {
+    "user_id": "USR-0078",
+    "username": "mei.verma36",
+    "email": "mei.verma36@astralib.edu",
+    "full_name": "Mei Verma",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-05-16T22:26:43.352248"
+  },
+  {
+    "user_id": "USR-0079",
+    "username": "chen.martinez40",
+    "email": "chen.martinez40@astralib.edu",
+    "full_name": "Chen Martinez",
+    "role": "Research Fellow",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-02-13T22:26:43.352289"
+  },
+  {
+    "user_id": "USR-0080",
+    "username": "noah.patel92",
+    "email": "noah.patel92@astralib.edu",
+    "full_name": "Noah Patel",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-02-23T22:26:43.352315"
+  },
+  {
+    "user_id": "USR-0081",
+    "username": "ava.rao59",
+    "email": "ava.rao59@astralib.edu",
+    "full_name": "Ava Rao",
+    "role": "Postgraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-11-04T22:26:43.352536"
+  },
+  {
+    "user_id": "USR-0082",
+    "username": "fatima.sharma46",
+    "email": "fatima.sharma46@astralib.edu",
+    "full_name": "Fatima Sharma",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-09-25T22:26:43.352585"
+  },
+  {
+    "user_id": "USR-0083",
+    "username": "noah.hussein51",
+    "email": "noah.hussein51@astralib.edu",
+    "full_name": "Noah Hussein",
+    "role": "Postgraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-10-03T22:26:43.352617"
+  },
+  {
+    "user_id": "USR-0084",
+    "username": "yuki.hussein58",
+    "email": "yuki.hussein58@astralib.edu",
+    "full_name": "Yuki Hussein",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-11-11T22:26:43.352655"
+  },
+  {
+    "user_id": "USR-0085",
+    "username": "priya.miller68",
+    "email": "priya.miller68@astralib.edu",
+    "full_name": "Priya Miller",
+    "role": "Undergraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-12-25T22:26:43.352684"
+  },
+  {
+    "user_id": "USR-0086",
+    "username": "chen.gupta52",
+    "email": "chen.gupta52@astralib.edu",
+    "full_name": "Chen Gupta",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-01-09T22:26:43.352724"
+  },
+  {
+    "user_id": "USR-0087",
+    "username": "kavya.tanaka21",
+    "email": "kavya.tanaka21@astralib.edu",
+    "full_name": "Kavya Tanaka",
+    "role": "Assistant Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-09-01T22:26:43.352759"
+  },
+  {
+    "user_id": "USR-0088",
+    "username": "alex.khan17",
+    "email": "alex.khan17@astralib.edu",
+    "full_name": "Alex Khan",
+    "role": "PhD Scholar",
+    "department": "Information Technology",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-01-12T22:26:43.352789"
+  },
+  {
+    "user_id": "USR-0089",
+    "username": "rohan.martinez58",
+    "email": "rohan.martinez58@astralib.edu",
+    "full_name": "Rohan Martinez",
+    "role": "Associate Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-11-10T22:26:43.352826"
+  },
+  {
+    "user_id": "USR-0090",
+    "username": "wei.sharma69",
+    "email": "wei.sharma69@astralib.edu",
+    "full_name": "Wei Sharma",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-05-03T22:26:43.352863"
+  },
+  {
+    "user_id": "USR-0091",
+    "username": "noah.ali48",
+    "email": "noah.ali48@astralib.edu",
+    "full_name": "Noah Ali",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-11-17T22:26:43.352894"
+  },
+  {
+    "user_id": "USR-0092",
+    "username": "aarav.ahmed94",
+    "email": "aarav.ahmed94@astralib.edu",
+    "full_name": "Aarav Ahmed",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-07-18T22:26:43.352918"
+  },
+  {
+    "user_id": "USR-0093",
+    "username": "kavya.wang34",
+    "email": "kavya.wang34@astralib.edu",
+    "full_name": "Kavya Wang",
+    "role": "Associate Professor",
+    "department": "Information Technology",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-08-09T22:26:43.352943"
+  },
+  {
+    "user_id": "USR-0094",
+    "username": "ananya.rodriguez56",
+    "email": "ananya.rodriguez56@astralib.edu",
+    "full_name": "Ananya Rodriguez",
+    "role": "Research Fellow",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-06-06T22:26:43.352973"
+  },
+  {
+    "user_id": "USR-0095",
+    "username": "tariq.davis56",
+    "email": "tariq.davis56@astralib.edu",
+    "full_name": "Tariq Davis",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-03-05T22:26:43.353007"
+  },
+  {
+    "user_id": "USR-0096",
+    "username": "tariq.patel69",
+    "email": "tariq.patel69@astralib.edu",
+    "full_name": "Tariq Patel",
+    "role": "Undergraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-03-29T22:26:43.353035"
+  },
+  {
+    "user_id": "USR-0097",
+    "username": "noah.johnson96",
+    "email": "noah.johnson96@astralib.edu",
+    "full_name": "Noah Johnson",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-09-26T22:26:43.353072"
+  },
+  {
+    "user_id": "USR-0098",
+    "username": "aisha.davis51",
+    "email": "aisha.davis51@astralib.edu",
+    "full_name": "Aisha Davis",
+    "role": "Associate Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-08-25T22:26:43.353102"
+  },
+  {
+    "user_id": "USR-0099",
+    "username": "vikram.verma14",
+    "email": "vikram.verma14@astralib.edu",
+    "full_name": "Vikram Verma",
+    "role": "PhD Scholar",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-05-24T22:26:43.353132"
+  },
+  {
+    "user_id": "USR-0100",
+    "username": "sophia.li99",
+    "email": "sophia.li99@astralib.edu",
+    "full_name": "Sophia Li",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-09-25T22:26:43.353160"
+  },
+  {
+    "user_id": "USR-0101",
+    "username": "aditya.verma98",
+    "email": "aditya.verma98@astralib.edu",
+    "full_name": "Aditya Verma",
+    "role": "PhD Scholar",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-12-07T22:26:43.353198"
+  },
+  {
+    "user_id": "USR-0102",
+    "username": "ananya.williams45",
+    "email": "ananya.williams45@astralib.edu",
+    "full_name": "Ananya Williams",
+    "role": "Postgraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-12-02T22:26:43.353238"
+  },
+  {
+    "user_id": "USR-0103",
+    "username": "tariq.smith41",
+    "email": "tariq.smith41@astralib.edu",
+    "full_name": "Tariq Smith",
+    "role": "Postgraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-04-08T22:26:43.353278"
+  },
+  {
+    "user_id": "USR-0104",
+    "username": "alex.sato28",
+    "email": "alex.sato28@astralib.edu",
+    "full_name": "Alex Sato",
+    "role": "Associate Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-03-03T22:26:43.353307"
+  },
+  {
+    "user_id": "USR-0105",
+    "username": "wei.ali13",
+    "email": "wei.ali13@astralib.edu",
+    "full_name": "Wei Ali",
+    "role": "Postgraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-01-20T22:26:43.353340"
+  },
+  {
+    "user_id": "USR-0106",
+    "username": "hao.brown77",
+    "email": "hao.brown77@astralib.edu",
+    "full_name": "Hao Brown",
+    "role": "Undergraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-11-21T22:26:43.353374"
+  },
+  {
+    "user_id": "USR-0107",
+    "username": "noah.wang13",
+    "email": "noah.wang13@astralib.edu",
+    "full_name": "Noah Wang",
+    "role": "Undergraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-12-29T22:26:43.353412"
+  },
+  {
+    "user_id": "USR-0108",
+    "username": "isabella.rao18",
+    "email": "isabella.rao18@astralib.edu",
+    "full_name": "Isabella Rao",
+    "role": "Postgraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-09-06T22:26:43.353464"
+  },
+  {
+    "user_id": "USR-0109",
+    "username": "priya.khan99",
+    "email": "priya.khan99@astralib.edu",
+    "full_name": "Priya Khan",
+    "role": "Undergraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-04-03T22:26:43.353547"
+  },
+  {
+    "user_id": "USR-0110",
+    "username": "hao.patel50",
+    "email": "hao.patel50@astralib.edu",
+    "full_name": "Hao Patel",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-08-16T22:26:43.353703"
+  },
+  {
+    "user_id": "USR-0111",
+    "username": "fatima.gupta21",
+    "email": "fatima.gupta21@astralib.edu",
+    "full_name": "Fatima Gupta",
+    "role": "Assistant Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-01-13T22:26:43.353797"
+  },
+  {
+    "user_id": "USR-0112",
+    "username": "sophia.ali95",
+    "email": "sophia.ali95@astralib.edu",
+    "full_name": "Sophia Ali",
+    "role": "Assistant Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-02-25T22:26:43.353882"
+  },
+  {
+    "user_id": "USR-0113",
+    "username": "wei.garcia38",
+    "email": "wei.garcia38@astralib.edu",
+    "full_name": "Wei Garcia",
+    "role": "Undergraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-10-11T22:26:43.353979"
+  },
+  {
+    "user_id": "USR-0114",
+    "username": "zaid.davis89",
+    "email": "zaid.davis89@astralib.edu",
+    "full_name": "Zaid Davis",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-07-09T22:26:43.354016"
+  },
+  {
+    "user_id": "USR-0115",
+    "username": "aarav.nair28",
+    "email": "aarav.nair28@astralib.edu",
+    "full_name": "Aarav Nair",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-06-17T22:26:43.354045"
+  },
+  {
+    "user_id": "USR-0116",
+    "username": "noah.smith30",
+    "email": "noah.smith30@astralib.edu",
+    "full_name": "Noah Smith",
+    "role": "PhD Scholar",
+    "department": "Information Technology",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-02-06T22:26:43.354077"
+  },
+  {
+    "user_id": "USR-0117",
+    "username": "ananya.li20",
+    "email": "ananya.li20@astralib.edu",
+    "full_name": "Ananya Li",
+    "role": "PhD Scholar",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-08-18T22:26:43.354109"
+  },
+  {
+    "user_id": "USR-0118",
+    "username": "priya.johnson65",
+    "email": "priya.johnson65@astralib.edu",
+    "full_name": "Priya Johnson",
+    "role": "Undergraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-08-09T22:26:43.354150"
+  },
+  {
+    "user_id": "USR-0119",
+    "username": "siddharth.kulkarni37",
+    "email": "siddharth.kulkarni37@astralib.edu",
+    "full_name": "Siddharth Kulkarni",
+    "role": "Postgraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-02-24T22:26:43.354190"
+  },
+  {
+    "user_id": "USR-0120",
+    "username": "liam.davis39",
+    "email": "liam.davis39@astralib.edu",
+    "full_name": "Liam Davis",
+    "role": "Associate Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-08-14T22:26:43.354223"
+  },
+  {
+    "user_id": "USR-0121",
+    "username": "aarav.jones19",
+    "email": "aarav.jones19@astralib.edu",
+    "full_name": "Aarav Jones",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-12-15T22:26:43.354259"
+  },
+  {
+    "user_id": "USR-0122",
+    "username": "fatima.zhang56",
+    "email": "fatima.zhang56@astralib.edu",
+    "full_name": "Fatima Zhang",
+    "role": "Undergraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-05-29T22:26:43.354296"
+  },
+  {
+    "user_id": "USR-0123",
+    "username": "hao.smith38",
+    "email": "hao.smith38@astralib.edu",
+    "full_name": "Hao Smith",
+    "role": "PhD Scholar",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-06-13T22:26:43.354329"
+  },
+  {
+    "user_id": "USR-0124",
+    "username": "kavya.patel28",
+    "email": "kavya.patel28@astralib.edu",
+    "full_name": "Kavya Patel",
+    "role": "PhD Scholar",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-04-25T22:26:43.354360"
+  },
+  {
+    "user_id": "USR-0125",
+    "username": "wei.hussein82",
+    "email": "wei.hussein82@astralib.edu",
+    "full_name": "Wei Hussein",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-02-07T22:26:43.354394"
+  },
+  {
+    "user_id": "USR-0126",
+    "username": "tariq.joshi85",
+    "email": "tariq.joshi85@astralib.edu",
+    "full_name": "Tariq Joshi",
+    "role": "Undergraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-11-05T22:26:43.354426"
+  },
+  {
+    "user_id": "USR-0127",
+    "username": "sophia.ahmed46",
+    "email": "sophia.ahmed46@astralib.edu",
+    "full_name": "Sophia Ahmed",
+    "role": "Undergraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-09-11T22:26:43.354465"
+  },
+  {
+    "user_id": "USR-0128",
+    "username": "omar.khan83",
+    "email": "omar.khan83@astralib.edu",
+    "full_name": "Omar Khan",
+    "role": "Research Fellow",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-02-08T22:26:43.354505"
+  },
+  {
+    "user_id": "USR-0129",
+    "username": "kavya.zhang66",
+    "email": "kavya.zhang66@astralib.edu",
+    "full_name": "Kavya Zhang",
+    "role": "Assistant Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-10-28T22:26:43.354542"
+  },
+  {
+    "user_id": "USR-0130",
+    "username": "wei.martinez16",
+    "email": "wei.martinez16@astralib.edu",
+    "full_name": "Wei Martinez",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-06-19T22:26:43.354579"
+  },
+  {
+    "user_id": "USR-0131",
+    "username": "alex.gupta84",
+    "email": "alex.gupta84@astralib.edu",
+    "full_name": "Alex Gupta",
+    "role": "Research Fellow",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-01-24T22:26:43.354614"
+  },
+  {
+    "user_id": "USR-0132",
+    "username": "ava.williams92",
+    "email": "ava.williams92@astralib.edu",
+    "full_name": "Ava Williams",
+    "role": "PhD Scholar",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-08-13T22:26:43.354636"
+  },
+  {
+    "user_id": "USR-0133",
+    "username": "meera.nair37",
+    "email": "meera.nair37@astralib.edu",
+    "full_name": "Meera Nair",
+    "role": "PhD Scholar",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-04-15T22:26:43.354654"
+  },
+  {
+    "user_id": "USR-0134",
+    "username": "wei.smith89",
+    "email": "wei.smith89@astralib.edu",
+    "full_name": "Wei Smith",
+    "role": "Postgraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-01-11T22:26:43.354679"
+  },
+  {
+    "user_id": "USR-0135",
+    "username": "ananya.brown56",
+    "email": "ananya.brown56@astralib.edu",
+    "full_name": "Ananya Brown",
+    "role": "Research Fellow",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-12-07T22:26:43.354703"
+  },
+  {
+    "user_id": "USR-0136",
+    "username": "sophia.li83",
+    "email": "sophia.li83@astralib.edu",
+    "full_name": "Sophia Li",
+    "role": "Assistant Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-02-28T22:26:43.354736"
+  },
+  {
+    "user_id": "USR-0137",
+    "username": "ananya.wang71",
+    "email": "ananya.wang71@astralib.edu",
+    "full_name": "Ananya Wang",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-05-31T22:26:43.354769"
+  },
+  {
+    "user_id": "USR-0138",
+    "username": "noah.hassan75",
+    "email": "noah.hassan75@astralib.edu",
+    "full_name": "Noah Hassan",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-06-06T22:26:43.354799"
+  },
+  {
+    "user_id": "USR-0139",
+    "username": "ananya.williams74",
+    "email": "ananya.williams74@astralib.edu",
+    "full_name": "Ananya Williams",
+    "role": "PhD Scholar",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-01-06T22:26:43.354832"
+  },
+  {
+    "user_id": "USR-0140",
+    "username": "omar.patel93",
+    "email": "omar.patel93@astralib.edu",
+    "full_name": "Omar Patel",
+    "role": "PhD Scholar",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-05-13T22:26:43.354864"
+  },
+  {
+    "user_id": "USR-0141",
+    "username": "mei.zhang70",
+    "email": "mei.zhang70@astralib.edu",
+    "full_name": "Mei Zhang",
+    "role": "Assistant Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-07-20T22:26:43.354898"
+  },
+  {
+    "user_id": "USR-0142",
+    "username": "ava.tanaka87",
+    "email": "ava.tanaka87@astralib.edu",
+    "full_name": "Ava Tanaka",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-05-27T22:26:43.354926"
+  },
+  {
+    "user_id": "USR-0143",
+    "username": "chen.khan89",
+    "email": "chen.khan89@astralib.edu",
+    "full_name": "Chen Khan",
+    "role": "Assistant Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-05-27T22:26:43.354948"
+  },
+  {
+    "user_id": "USR-0144",
+    "username": "aarav.martinez55",
+    "email": "aarav.martinez55@astralib.edu",
+    "full_name": "Aarav Martinez",
+    "role": "Postgraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-12-21T22:26:43.354982"
+  },
+  {
+    "user_id": "USR-0145",
+    "username": "ava.miller74",
+    "email": "ava.miller74@astralib.edu",
+    "full_name": "Ava Miller",
+    "role": "Associate Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-01-04T22:26:43.355011"
+  },
+  {
+    "user_id": "USR-0146",
+    "username": "sophia.deshmukh94",
+    "email": "sophia.deshmukh94@astralib.edu",
+    "full_name": "Sophia Deshmukh",
+    "role": "Research Fellow",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-09-28T22:26:43.355044"
+  },
+  {
+    "user_id": "USR-0147",
+    "username": "fatima.sato97",
+    "email": "fatima.sato97@astralib.edu",
+    "full_name": "Fatima Sato",
+    "role": "Assistant Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-09-02T22:26:43.355075"
+  },
+  {
+    "user_id": "USR-0148",
+    "username": "siddharth.verma35",
+    "email": "siddharth.verma35@astralib.edu",
+    "full_name": "Siddharth Verma",
+    "role": "Undergraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-02-14T22:26:43.355100"
+  },
+  {
+    "user_id": "USR-0149",
+    "username": "sophia.ali16",
+    "email": "sophia.ali16@astralib.edu",
+    "full_name": "Sophia Ali",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-03-05T22:26:43.355134"
+  },
+  {
+    "user_id": "USR-0150",
+    "username": "aisha.williams53",
+    "email": "aisha.williams53@astralib.edu",
+    "full_name": "Aisha Williams",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-08-02T22:26:43.355173"
+  },
+  {
+    "user_id": "USR-0151",
+    "username": "emma.gupta65",
+    "email": "emma.gupta65@astralib.edu",
+    "full_name": "Emma Gupta",
+    "role": "Associate Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-10-16T22:26:43.355207"
+  },
+  {
+    "user_id": "USR-0152",
+    "username": "isabella.zhang64",
+    "email": "isabella.zhang64@astralib.edu",
+    "full_name": "Isabella Zhang",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-01-24T22:26:43.355239"
+  },
+  {
+    "user_id": "USR-0153",
+    "username": "rohan.li91",
+    "email": "rohan.li91@astralib.edu",
+    "full_name": "Rohan Li",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-11-02T22:26:43.355269"
+  },
+  {
+    "user_id": "USR-0154",
+    "username": "vikram.gupta40",
+    "email": "vikram.gupta40@astralib.edu",
+    "full_name": "Vikram Gupta",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-01-18T22:26:43.355306"
+  },
+  {
+    "user_id": "USR-0155",
+    "username": "mei.gupta83",
+    "email": "mei.gupta83@astralib.edu",
+    "full_name": "Mei Gupta",
+    "role": "Postgraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-01-16T22:26:43.355430"
+  },
+  {
+    "user_id": "USR-0156",
+    "username": "neha.garcia76",
+    "email": "neha.garcia76@astralib.edu",
+    "full_name": "Neha Garcia",
+    "role": "Assistant Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-05-23T22:26:43.355469"
+  },
+  {
+    "user_id": "USR-0157",
+    "username": "priya.rao19",
+    "email": "priya.rao19@astralib.edu",
+    "full_name": "Priya Rao",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-12-07T22:26:43.355504"
+  },
+  {
+    "user_id": "USR-0158",
+    "username": "ava.davis47",
+    "email": "ava.davis47@astralib.edu",
+    "full_name": "Ava Davis",
+    "role": "PhD Scholar",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-08-30T22:26:43.355536"
+  },
+  {
+    "user_id": "USR-0159",
+    "username": "tariq.rao40",
+    "email": "tariq.rao40@astralib.edu",
+    "full_name": "Tariq Rao",
+    "role": "Assistant Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-01-19T22:26:43.355571"
+  },
+  {
+    "user_id": "USR-0160",
+    "username": "liam.zhang71",
+    "email": "liam.zhang71@astralib.edu",
+    "full_name": "Liam Zhang",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-12-25T22:26:43.355609"
+  },
+  {
+    "user_id": "USR-0161",
+    "username": "wei.miller54",
+    "email": "wei.miller54@astralib.edu",
+    "full_name": "Wei Miller",
+    "role": "Postgraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-08-29T22:26:43.355640"
+  },
+  {
+    "user_id": "USR-0162",
+    "username": "ethan.rao48",
+    "email": "ethan.rao48@astralib.edu",
+    "full_name": "Ethan Rao",
+    "role": "Postgraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-02-07T22:26:43.355673"
+  },
+  {
+    "user_id": "USR-0163",
+    "username": "siddharth.wang80",
+    "email": "siddharth.wang80@astralib.edu",
+    "full_name": "Siddharth Wang",
+    "role": "PhD Scholar",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-09-05T22:26:43.355703"
+  },
+  {
+    "user_id": "USR-0164",
+    "username": "wei.martinez87",
+    "email": "wei.martinez87@astralib.edu",
+    "full_name": "Wei Martinez",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-07-01T22:26:43.355736"
+  },
+  {
+    "user_id": "USR-0165",
+    "username": "mei.rodriguez63",
+    "email": "mei.rodriguez63@astralib.edu",
+    "full_name": "Mei Rodriguez",
+    "role": "Associate Professor",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-11-10T22:26:43.355766"
+  },
+  {
+    "user_id": "USR-0166",
+    "username": "rohan.zhang17",
+    "email": "rohan.zhang17@astralib.edu",
+    "full_name": "Rohan Zhang",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-12-22T22:26:43.355799"
+  },
+  {
+    "user_id": "USR-0167",
+    "username": "hao.ali54",
+    "email": "hao.ali54@astralib.edu",
+    "full_name": "Hao Ali",
+    "role": "Assistant Professor",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-01-14T22:26:43.355831"
+  },
+  {
+    "user_id": "USR-0168",
+    "username": "noah.deshmukh28",
+    "email": "noah.deshmukh28@astralib.edu",
+    "full_name": "Noah Deshmukh",
+    "role": "Undergraduate Student",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-02-24T22:26:43.355865"
+  },
+  {
+    "user_id": "USR-0169",
+    "username": "mei.nair73",
+    "email": "mei.nair73@astralib.edu",
+    "full_name": "Mei Nair",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-11-09T22:26:43.355900"
+  },
+  {
+    "user_id": "USR-0170",
+    "username": "lucas.johnson16",
+    "email": "lucas.johnson16@astralib.edu",
+    "full_name": "Lucas Johnson",
+    "role": "Undergraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-11-11T22:26:43.355932"
+  },
+  {
+    "user_id": "USR-0171",
+    "username": "hao.johnson61",
+    "email": "hao.johnson61@astralib.edu",
+    "full_name": "Hao Johnson",
+    "role": "PhD Scholar",
+    "department": "Computer Science & Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-12-29T22:26:43.355965"
+  },
+  {
+    "user_id": "USR-0172",
+    "username": "ethan.jones80",
+    "email": "ethan.jones80@astralib.edu",
+    "full_name": "Ethan Jones",
+    "role": "PhD Scholar",
+    "department": "Computational Linguistics",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-08-08T22:26:43.355995"
+  },
+  {
+    "user_id": "USR-0173",
+    "username": "ava.johnson28",
+    "email": "ava.johnson28@astralib.edu",
+    "full_name": "Ava Johnson",
+    "role": "Postgraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-11-04T22:26:43.356024"
+  },
+  {
+    "user_id": "USR-0174",
+    "username": "vikram.martinez75",
+    "email": "vikram.martinez75@astralib.edu",
+    "full_name": "Vikram Martinez",
+    "role": "Postgraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-09-12T22:26:43.356061"
+  },
+  {
+    "user_id": "USR-0175",
+    "username": "ethan.ahmed75",
+    "email": "ethan.ahmed75@astralib.edu",
+    "full_name": "Ethan Ahmed",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-10-07T22:26:43.356092"
+  },
+  {
+    "user_id": "USR-0176",
+    "username": "emma.rodriguez49",
+    "email": "emma.rodriguez49@astralib.edu",
+    "full_name": "Emma Rodriguez",
+    "role": "Research Fellow",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-09-20T22:26:43.356124"
+  },
+  {
+    "user_id": "USR-0177",
+    "username": "neha.miller90",
+    "email": "neha.miller90@astralib.edu",
+    "full_name": "Neha Miller",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-01-09T22:26:43.356166"
+  },
+  {
+    "user_id": "USR-0178",
+    "username": "noah.smith63",
+    "email": "noah.smith63@astralib.edu",
+    "full_name": "Noah Smith",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2025-08-03T22:26:43.356199"
+  },
+  {
+    "user_id": "USR-0179",
+    "username": "ethan.iyer81",
+    "email": "ethan.iyer81@astralib.edu",
+    "full_name": "Ethan Iyer",
+    "role": "PhD Scholar",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-10-26T22:26:43.356232"
+  },
+  {
+    "user_id": "USR-0180",
+    "username": "siddharth.deshmukh45",
+    "email": "siddharth.deshmukh45@astralib.edu",
+    "full_name": "Siddharth Deshmukh",
+    "role": "Associate Professor",
+    "department": "Information Technology",
+    "academic_level": "Associate Professor",
+    "created_at": "2026-03-29T22:26:43.356270"
+  },
+  {
+    "user_id": "USR-0181",
+    "username": "sophia.davis45",
+    "email": "sophia.davis45@astralib.edu",
+    "full_name": "Sophia Davis",
+    "role": "PhD Scholar",
+    "department": "Computer Science & Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-10-02T22:26:43.356306"
+  },
+  {
+    "user_id": "USR-0182",
+    "username": "yuki.gupta54",
+    "email": "yuki.gupta54@astralib.edu",
+    "full_name": "Yuki Gupta",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-11-19T22:26:43.356338"
+  },
+  {
+    "user_id": "USR-0183",
+    "username": "vikram.patel88",
+    "email": "vikram.patel88@astralib.edu",
+    "full_name": "Vikram Patel",
+    "role": "Research Fellow",
+    "department": "Computational Linguistics",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-03-22T22:26:43.356368"
+  },
+  {
+    "user_id": "USR-0184",
+    "username": "kavya.verma22",
+    "email": "kavya.verma22@astralib.edu",
+    "full_name": "Kavya Verma",
+    "role": "Assistant Professor",
+    "department": "Information Technology",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-11-23T22:26:43.356397"
+  },
+  {
+    "user_id": "USR-0185",
+    "username": "olivia.wang35",
+    "email": "olivia.wang35@astralib.edu",
+    "full_name": "Olivia Wang",
+    "role": "PhD Scholar",
+    "department": "Information Technology",
+    "academic_level": "PhD Scholar",
+    "created_at": "2026-02-26T22:26:43.356428"
+  },
+  {
+    "user_id": "USR-0186",
+    "username": "emma.hassan32",
+    "email": "emma.hassan32@astralib.edu",
+    "full_name": "Emma Hassan",
+    "role": "Undergraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-11-11T22:26:43.356463"
+  },
+  {
+    "user_id": "USR-0187",
+    "username": "lucas.martinez23",
+    "email": "lucas.martinez23@astralib.edu",
+    "full_name": "Lucas Martinez",
+    "role": "PhD Scholar",
+    "department": "Information Technology",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-12-02T22:26:43.356491"
+  },
+  {
+    "user_id": "USR-0188",
+    "username": "alex.nair68",
+    "email": "alex.nair68@astralib.edu",
+    "full_name": "Alex Nair",
+    "role": "Research Fellow",
+    "department": "Information Technology",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-04-18T22:26:43.356522"
+  },
+  {
+    "user_id": "USR-0189",
+    "username": "neha.martinez91",
+    "email": "neha.martinez91@astralib.edu",
+    "full_name": "Neha Martinez",
+    "role": "Assistant Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Assistant Professor",
+    "created_at": "2025-11-01T22:26:43.356555"
+  },
+  {
+    "user_id": "USR-0190",
+    "username": "olivia.smith41",
+    "email": "olivia.smith41@astralib.edu",
+    "full_name": "Olivia Smith",
+    "role": "Undergraduate Student",
+    "department": "Information Technology",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-01-07T22:26:43.356585"
+  },
+  {
+    "user_id": "USR-0191",
+    "username": "aditya.wang56",
+    "email": "aditya.wang56@astralib.edu",
+    "full_name": "Aditya Wang",
+    "role": "Research Fellow",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-06-21T22:26:43.356616"
+  },
+  {
+    "user_id": "USR-0192",
+    "username": "wei.miller49",
+    "email": "wei.miller49@astralib.edu",
+    "full_name": "Wei Miller",
+    "role": "Research Fellow",
+    "department": "Computer Science & Engineering",
+    "academic_level": "Research Fellow",
+    "created_at": "2025-08-29T22:26:43.356643"
+  },
+  {
+    "user_id": "USR-0193",
+    "username": "vikram.jones87",
+    "email": "vikram.jones87@astralib.edu",
+    "full_name": "Vikram Jones",
+    "role": "PhD Scholar",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "PhD Scholar",
+    "created_at": "2025-10-14T22:26:43.356671"
+  },
+  {
+    "user_id": "USR-0194",
+    "username": "noah.miller56",
+    "email": "noah.miller56@astralib.edu",
+    "full_name": "Noah Miller",
+    "role": "Undergraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-05-26T22:26:43.356701"
+  },
+  {
+    "user_id": "USR-0195",
+    "username": "zaid.miller66",
+    "email": "zaid.miller66@astralib.edu",
+    "full_name": "Zaid Miller",
+    "role": "Undergraduate Student",
+    "department": "Artificial Intelligence & Data Science",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2025-09-27T22:26:43.356736"
+  },
+  {
+    "user_id": "USR-0196",
+    "username": "noah.rodriguez17",
+    "email": "noah.rodriguez17@astralib.edu",
+    "full_name": "Noah Rodriguez",
+    "role": "Associate Professor",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Associate Professor",
+    "created_at": "2025-08-12T22:26:43.356765"
+  },
+  {
+    "user_id": "USR-0197",
+    "username": "emma.johnson99",
+    "email": "emma.johnson99@astralib.edu",
+    "full_name": "Emma Johnson",
+    "role": "Undergraduate Student",
+    "department": "Computational Linguistics",
+    "academic_level": "Undergraduate Student",
+    "created_at": "2026-06-22T22:26:43.356794"
+  },
+  {
+    "user_id": "USR-0198",
+    "username": "mei.rao92",
+    "email": "mei.rao92@astralib.edu",
+    "full_name": "Mei Rao",
+    "role": "Research Fellow",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Research Fellow",
+    "created_at": "2026-01-12T22:26:43.356822"
+  },
+  {
+    "user_id": "USR-0199",
+    "username": "priya.nair78",
+    "email": "priya.nair78@astralib.edu",
+    "full_name": "Priya Nair",
+    "role": "Assistant Professor",
+    "department": "Computational Linguistics",
+    "academic_level": "Assistant Professor",
+    "created_at": "2026-05-18T22:26:43.356857"
+  },
+  {
+    "user_id": "USR-0200",
+    "username": "ava.williams39",
+    "email": "ava.williams39@astralib.edu",
+    "full_name": "Ava Williams",
+    "role": "Postgraduate Student",
+    "department": "Electrical & Computer Engineering",
+    "academic_level": "Postgraduate Student",
+    "created_at": "2026-01-26T22:26:43.356885"
+  }
+]

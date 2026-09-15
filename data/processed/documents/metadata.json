@@ -1,0 +1,27 @@
+{
+  "dataset_name": "arXiv Full-Text Open Access Document Corpus",
+  "category": "C. DOCUMENT DATA",
+  "source": "arXiv API & Open Access Repository",
+  "source_url": "https://export.arxiv.org/api/query",
+  "license": "CC BY 4.0 / Public Domain",
+  "last_updated": "2026-08-01T22:26:54.742696",
+  "record_count": 100,
+  "files": [
+    "documents_catalog.json",
+    "documents_full_rag.json",
+    "extracted_text/*.md"
+  ],
+  "storage_size_mb": 1.09,
+  "schema_fields": [
+    "document_id",
+    "arxiv_id",
+    "title",
+    "authors",
+    "publication_date",
+    "categories",
+    "abstract",
+    "pdf_url",
+    "extracted_text_path",
+    "chunks"
+  ]
+}

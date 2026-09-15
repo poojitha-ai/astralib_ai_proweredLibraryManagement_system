@@ -1,0 +1,26 @@
+{
+  "dataset_name": "Open Library Curated Book Corpus",
+  "category": "A. BOOK/CATALOGUE DATA",
+  "source": "Open Library (Internet Archive)",
+  "source_url": "https://openlibrary.org/developers/api",
+  "license": "CC0 1.0 Universal / Public Domain",
+  "last_updated": "2026-08-01T22:26:54.742696",
+  "record_count": 3000,
+  "files": [
+    "books_raw.json",
+    "books_cleaned.json"
+  ],
+  "storage_size_mb": 4.22,
+  "schema_fields": [
+    "resource_id",
+    "open_library_key",
+    "title",
+    "authors",
+    "first_publish_year",
+    "publisher",
+    "subjects",
+    "isbn",
+    "language",
+    "description"
+  ]
+}

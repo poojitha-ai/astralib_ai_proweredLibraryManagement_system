@@ -1,0 +1,13 @@
+{
+  "dataset_name": "AstraLib Processed & Graph Unified Index",
+  "category": "PROCESSED INDEX",
+  "source": "AstraLib Data Normalization Pipeline",
+  "last_updated": "2026-08-01T22:26:54.742696",
+  "files": [
+    "unified_catalog.json",
+    "knowledge_graph_nodes.json",
+    "knowledge_graph_edges.json",
+    "rag_chunks_sample.json"
+  ],
+  "storage_size_mb": 8.75
+}

@@ -1,0 +1,28 @@
+{
+  "dataset_name": "OpenAlex Scholarly Works Corpus",
+  "category": "B. SCHOLARLY DATA",
+  "source": "OpenAlex",
+  "source_url": "https://api.openalex.org/works",
+  "license": "CC0 1.0 Universal",
+  "last_updated": "2026-08-01T22:26:54.742696",
+  "record_count": 3000,
+  "files": [
+    "scholarly_raw.json",
+    "scholarly_cleaned.json"
+  ],
+  "storage_size_mb": 7.95,
+  "schema_fields": [
+    "resource_id",
+    "openalex_id",
+    "doi",
+    "title",
+    "publication_year",
+    "authors",
+    "concepts",
+    "cited_by_count",
+    "referenced_works",
+    "abstract",
+    "venue",
+    "pdf_url"
+  ]
+}

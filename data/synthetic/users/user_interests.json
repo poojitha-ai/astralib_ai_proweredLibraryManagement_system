@@ -1,0 +1,2520 @@
+[
+  {
+    "user_id": "USR-0001",
+    "primary_interests": [
+      "Distributed Systems",
+      "Bioinformatics",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0002",
+    "primary_interests": [
+      "Software Engineering",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0003",
+    "primary_interests": [
+      "Algorithms & Data Structures",
+      "Computer Vision",
+      "Reinforcement Learning",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0004",
+    "primary_interests": [
+      "Robotics",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0005",
+    "primary_interests": [
+      "Computer Vision",
+      "Deep Learning",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0006",
+    "primary_interests": [
+      "Bioinformatics",
+      "Computer Vision",
+      "Database Systems",
+      "Large Language Models",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0007",
+    "primary_interests": [
+      "Cybersecurity",
+      "Quantum Computing",
+      "Database Systems",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0008",
+    "primary_interests": [
+      "Quantum Computing",
+      "Reinforcement Learning",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0009",
+    "primary_interests": [
+      "Large Language Models",
+      "Robotics",
+      "Cloud Computing",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0010",
+    "primary_interests": [
+      "Large Language Models",
+      "Cloud Computing",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0011",
+    "primary_interests": [
+      "Quantum Computing",
+      "Natural Language Processing",
+      "Distributed Systems",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0012",
+    "primary_interests": [
+      "Cloud Computing",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0013",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Deep Learning",
+      "Natural Language Processing",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0014",
+    "primary_interests": [
+      "Distributed Systems",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0015",
+    "primary_interests": [
+      "Cloud Computing",
+      "Software Engineering",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0016",
+    "primary_interests": [
+      "Cybersecurity",
+      "Deep Learning",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0017",
+    "primary_interests": [
+      "Algorithms & Data Structures",
+      "Quantum Computing",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0018",
+    "primary_interests": [
+      "Large Language Models",
+      "Reinforcement Learning",
+      "Natural Language Processing",
+      "Human-Computer Interaction",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0019",
+    "primary_interests": [
+      "Quantum Computing",
+      "Graph Neural Networks",
+      "Large Language Models",
+      "Natural Language Processing",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0020",
+    "primary_interests": [
+      "Cybersecurity",
+      "Large Language Models",
+      "Natural Language Processing",
+      "Human-Computer Interaction",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0021",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Cybersecurity",
+      "Reinforcement Learning",
+      "Software Engineering",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0022",
+    "primary_interests": [
+      "Distributed Systems",
+      "Reinforcement Learning",
+      "Human-Computer Interaction",
+      "Robotics",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0023",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Algorithms & Data Structures",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0024",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Cloud Computing",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0025",
+    "primary_interests": [
+      "Graph Neural Networks",
+      "Computer Vision",
+      "Quantum Computing",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0026",
+    "primary_interests": [
+      "Computer Vision",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0027",
+    "primary_interests": [
+      "Database Systems",
+      "Cybersecurity",
+      "Large Language Models",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0028",
+    "primary_interests": [
+      "Distributed Systems",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0029",
+    "primary_interests": [
+      "Algorithms & Data Structures",
+      "Robotics",
+      "Large Language Models",
+      "Deep Learning",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0030",
+    "primary_interests": [
+      "Large Language Models",
+      "Algorithms & Data Structures",
+      "Deep Learning",
+      "Natural Language Processing",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0031",
+    "primary_interests": [
+      "Bioinformatics",
+      "Robotics",
+      "Graph Neural Networks",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0032",
+    "primary_interests": [
+      "Cybersecurity",
+      "Large Language Models",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0033",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Software Engineering",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0034",
+    "primary_interests": [
+      "Deep Learning",
+      "Quantum Computing",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0035",
+    "primary_interests": [
+      "Deep Learning",
+      "Natural Language Processing",
+      "Distributed Systems",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0036",
+    "primary_interests": [
+      "Graph Neural Networks",
+      "Robotics"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0037",
+    "primary_interests": [
+      "Bioinformatics",
+      "Software Engineering",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0038",
+    "primary_interests": [
+      "Quantum Computing",
+      "Software Engineering",
+      "Bioinformatics",
+      "Distributed Systems",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0039",
+    "primary_interests": [
+      "Graph Neural Networks",
+      "Algorithms & Data Structures",
+      "Large Language Models",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0040",
+    "primary_interests": [
+      "Robotics",
+      "Quantum Computing",
+      "Reinforcement Learning",
+      "Algorithms & Data Structures",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0041",
+    "primary_interests": [
+      "Cloud Computing",
+      "Reinforcement Learning",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0042",
+    "primary_interests": [
+      "Large Language Models",
+      "Robotics",
+      "Quantum Computing",
+      "Cloud Computing",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0043",
+    "primary_interests": [
+      "Cybersecurity",
+      "Computer Vision",
+      "Graph Neural Networks",
+      "Bioinformatics",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0044",
+    "primary_interests": [
+      "Robotics",
+      "Cloud Computing",
+      "Large Language Models",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0045",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Quantum Computing",
+      "Reinforcement Learning",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0046",
+    "primary_interests": [
+      "Distributed Systems",
+      "Reinforcement Learning",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0047",
+    "primary_interests": [
+      "Software Engineering",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0048",
+    "primary_interests": [
+      "Cloud Computing",
+      "Graph Neural Networks",
+      "Software Engineering",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0049",
+    "primary_interests": [
+      "Graph Neural Networks",
+      "Bioinformatics",
+      "Computer Vision",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0050",
+    "primary_interests": [
+      "Computer Vision",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0051",
+    "primary_interests": [
+      "Quantum Computing",
+      "Database Systems",
+      "Graph Neural Networks",
+      "Software Engineering",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0052",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0053",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Quantum Computing",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0054",
+    "primary_interests": [
+      "Cloud Computing",
+      "Natural Language Processing",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0055",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Bioinformatics",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0056",
+    "primary_interests": [
+      "Computer Vision",
+      "Algorithms & Data Structures",
+      "Quantum Computing",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0057",
+    "primary_interests": [
+      "Distributed Systems",
+      "Software Engineering",
+      "Computer Vision",
+      "Bioinformatics",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0058",
+    "primary_interests": [
+      "Algorithms & Data Structures",
+      "Robotics"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0059",
+    "primary_interests": [
+      "Quantum Computing",
+      "Computer Vision",
+      "Cybersecurity",
+      "Reinforcement Learning",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0060",
+    "primary_interests": [
+      "Computer Vision",
+      "Reinforcement Learning",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0061",
+    "primary_interests": [
+      "Computer Vision",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0062",
+    "primary_interests": [
+      "Bioinformatics",
+      "Software Engineering",
+      "Human-Computer Interaction",
+      "Algorithms & Data Structures",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0063",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Bioinformatics",
+      "Algorithms & Data Structures",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0064",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Large Language Models",
+      "Human-Computer Interaction",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0065",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Deep Learning",
+      "Algorithms & Data Structures",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0066",
+    "primary_interests": [
+      "Quantum Computing",
+      "Computer Vision",
+      "Deep Learning",
+      "Distributed Systems",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0067",
+    "primary_interests": [
+      "Cloud Computing",
+      "Natural Language Processing",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0068",
+    "primary_interests": [
+      "Robotics",
+      "Human-Computer Interaction",
+      "Cybersecurity",
+      "Distributed Systems",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0069",
+    "primary_interests": [
+      "Database Systems",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0070",
+    "primary_interests": [
+      "Cloud Computing",
+      "Deep Learning",
+      "Reinforcement Learning",
+      "Distributed Systems",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0071",
+    "primary_interests": [
+      "Large Language Models",
+      "Natural Language Processing",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0072",
+    "primary_interests": [
+      "Cloud Computing",
+      "Human-Computer Interaction",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0073",
+    "primary_interests": [
+      "Robotics",
+      "Natural Language Processing",
+      "Cloud Computing",
+      "Deep Learning",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0074",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Graph Neural Networks",
+      "Robotics",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0075",
+    "primary_interests": [
+      "Computer Vision",
+      "Cybersecurity",
+      "Database Systems",
+      "Software Engineering",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0076",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Cybersecurity",
+      "Human-Computer Interaction",
+      "Database Systems",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0077",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Reinforcement Learning",
+      "Algorithms & Data Structures",
+      "Database Systems",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0078",
+    "primary_interests": [
+      "Robotics",
+      "Human-Computer Interaction",
+      "Bioinformatics",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0079",
+    "primary_interests": [
+      "Large Language Models",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0080",
+    "primary_interests": [
+      "Large Language Models",
+      "Human-Computer Interaction",
+      "Cybersecurity",
+      "Robotics"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0081",
+    "primary_interests": [
+      "Computer Vision",
+      "Distributed Systems",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0082",
+    "primary_interests": [
+      "Distributed Systems",
+      "Cybersecurity",
+      "Algorithms & Data Structures",
+      "Robotics",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0083",
+    "primary_interests": [
+      "Cybersecurity",
+      "Large Language Models",
+      "Graph Neural Networks",
+      "Software Engineering",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0084",
+    "primary_interests": [
+      "Distributed Systems",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0085",
+    "primary_interests": [
+      "Computer Vision",
+      "Cybersecurity",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0086",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Large Language Models",
+      "Algorithms & Data Structures",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0087",
+    "primary_interests": [
+      "Robotics",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0088",
+    "primary_interests": [
+      "Distributed Systems",
+      "Reinforcement Learning",
+      "Algorithms & Data Structures",
+      "Software Engineering",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0089",
+    "primary_interests": [
+      "Cybersecurity",
+      "Human-Computer Interaction",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0090",
+    "primary_interests": [
+      "Robotics",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0091",
+    "primary_interests": [
+      "Cybersecurity",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0092",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0093",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Robotics",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0094",
+    "primary_interests": [
+      "Quantum Computing",
+      "Bioinformatics",
+      "Software Engineering",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0095",
+    "primary_interests": [
+      "Algorithms & Data Structures",
+      "Robotics",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0096",
+    "primary_interests": [
+      "Bioinformatics",
+      "Natural Language Processing",
+      "Graph Neural Networks",
+      "Software Engineering",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0097",
+    "primary_interests": [
+      "Bioinformatics",
+      "Natural Language Processing",
+      "Quantum Computing",
+      "Reinforcement Learning",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0098",
+    "primary_interests": [
+      "Robotics",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0099",
+    "primary_interests": [
+      "Cybersecurity",
+      "Robotics"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0100",
+    "primary_interests": [
+      "Large Language Models",
+      "Quantum Computing",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0101",
+    "primary_interests": [
+      "Cybersecurity",
+      "Large Language Models",
+      "Database Systems",
+      "Natural Language Processing",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0102",
+    "primary_interests": [
+      "Software Engineering",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0103",
+    "primary_interests": [
+      "Software Engineering",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0104",
+    "primary_interests": [
+      "Distributed Systems",
+      "Algorithms & Data Structures",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0105",
+    "primary_interests": [
+      "Quantum Computing",
+      "Deep Learning",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0106",
+    "primary_interests": [
+      "Bioinformatics",
+      "Algorithms & Data Structures",
+      "Cloud Computing",
+      "Natural Language Processing",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0107",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Cybersecurity",
+      "Bioinformatics",
+      "Robotics",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0108",
+    "primary_interests": [
+      "Graph Neural Networks",
+      "Cloud Computing",
+      "Algorithms & Data Structures",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0109",
+    "primary_interests": [
+      "Robotics",
+      "Human-Computer Interaction",
+      "Reinforcement Learning",
+      "Software Engineering",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0110",
+    "primary_interests": [
+      "Bioinformatics",
+      "Computer Vision",
+      "Quantum Computing",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0111",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Cloud Computing",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0112",
+    "primary_interests": [
+      "Bioinformatics",
+      "Natural Language Processing",
+      "Cloud Computing",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0113",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Graph Neural Networks",
+      "Distributed Systems",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0114",
+    "primary_interests": [
+      "Deep Learning",
+      "Computer Vision",
+      "Distributed Systems",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0115",
+    "primary_interests": [
+      "Deep Learning",
+      "Natural Language Processing",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0116",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0117",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Cloud Computing",
+      "Cybersecurity",
+      "Software Engineering",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0118",
+    "primary_interests": [
+      "Cloud Computing",
+      "Deep Learning",
+      "Reinforcement Learning",
+      "Software Engineering",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0119",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Deep Learning",
+      "Cybersecurity",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0120",
+    "primary_interests": [
+      "Computer Vision",
+      "Software Engineering",
+      "Large Language Models",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0121",
+    "primary_interests": [
+      "Large Language Models",
+      "Distributed Systems",
+      "Natural Language Processing",
+      "Software Engineering",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0122",
+    "primary_interests": [
+      "Large Language Models",
+      "Cloud Computing",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0123",
+    "primary_interests": [
+      "Software Engineering",
+      "Robotics"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0124",
+    "primary_interests": [
+      "Computer Vision",
+      "Human-Computer Interaction",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0125",
+    "primary_interests": [
+      "Distributed Systems",
+      "Cybersecurity",
+      "Natural Language Processing",
+      "Robotics"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0126",
+    "primary_interests": [
+      "Cloud Computing",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0127",
+    "primary_interests": [
+      "Robotics",
+      "Cloud Computing",
+      "Algorithms & Data Structures",
+      "Graph Neural Networks",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0128",
+    "primary_interests": [
+      "Distributed Systems",
+      "Deep Learning",
+      "Cybersecurity",
+      "Natural Language Processing",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0129",
+    "primary_interests": [
+      "Bioinformatics",
+      "Database Systems",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0130",
+    "primary_interests": [
+      "Reinforcement Learning",
+      "Algorithms & Data Structures",
+      "Quantum Computing",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0131",
+    "primary_interests": [
+      "Graph Neural Networks",
+      "Computer Vision",
+      "Cloud Computing",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0132",
+    "primary_interests": [
+      "Large Language Models",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0133",
+    "primary_interests": [
+      "Distributed Systems",
+      "Computer Vision",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0134",
+    "primary_interests": [
+      "Database Systems",
+      "Computer Vision",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0135",
+    "primary_interests": [
+      "Robotics",
+      "Reinforcement Learning",
+      "Algorithms & Data Structures",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0136",
+    "primary_interests": [
+      "Large Language Models",
+      "Computer Vision",
+      "Human-Computer Interaction",
+      "Reinforcement Learning",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0137",
+    "primary_interests": [
+      "Cloud Computing",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0138",
+    "primary_interests": [
+      "Robotics",
+      "Human-Computer Interaction",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0139",
+    "primary_interests": [
+      "Bioinformatics",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0140",
+    "primary_interests": [
+      "Cloud Computing",
+      "Robotics"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0141",
+    "primary_interests": [
+      "Deep Learning",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0142",
+    "primary_interests": [
+      "Cybersecurity",
+      "Distributed Systems",
+      "Natural Language Processing",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0143",
+    "primary_interests": [
+      "Deep Learning",
+      "Quantum Computing",
+      "Algorithms & Data Structures",
+      "Cloud Computing",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0144",
+    "primary_interests": [
+      "Computer Vision",
+      "Algorithms & Data Structures",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0145",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Quantum Computing",
+      "Software Engineering",
+      "Database Systems",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0146",
+    "primary_interests": [
+      "Distributed Systems",
+      "Deep Learning",
+      "Database Systems",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0147",
+    "primary_interests": [
+      "Distributed Systems",
+      "Natural Language Processing",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0148",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Distributed Systems",
+      "Deep Learning",
+      "Graph Neural Networks",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0149",
+    "primary_interests": [
+      "Bioinformatics",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0150",
+    "primary_interests": [
+      "Bioinformatics",
+      "Robotics",
+      "Graph Neural Networks",
+      "Algorithms & Data Structures",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0151",
+    "primary_interests": [
+      "Quantum Computing",
+      "Natural Language Processing",
+      "Robotics",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0152",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Bioinformatics",
+      "Large Language Models",
+      "Database Systems",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0153",
+    "primary_interests": [
+      "Deep Learning",
+      "Computer Vision",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0154",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Cloud Computing",
+      "Computer Vision",
+      "Quantum Computing",
+      "Cybersecurity"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0155",
+    "primary_interests": [
+      "Quantum Computing",
+      "Human-Computer Interaction",
+      "Distributed Systems",
+      "Reinforcement Learning",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0156",
+    "primary_interests": [
+      "Algorithms & Data Structures",
+      "Bioinformatics",
+      "Cybersecurity",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0157",
+    "primary_interests": [
+      "Quantum Computing",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0158",
+    "primary_interests": [
+      "Bioinformatics",
+      "Algorithms & Data Structures",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0159",
+    "primary_interests": [
+      "Robotics",
+      "Graph Neural Networks",
+      "Algorithms & Data Structures",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0160",
+    "primary_interests": [
+      "Distributed Systems",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0161",
+    "primary_interests": [
+      "Distributed Systems",
+      "Software Engineering",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0162",
+    "primary_interests": [
+      "Bioinformatics",
+      "Algorithms & Data Structures",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0163",
+    "primary_interests": [
+      "Computer Vision",
+      "Algorithms & Data Structures",
+      "Quantum Computing",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0164",
+    "primary_interests": [
+      "Computer Vision",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0165",
+    "primary_interests": [
+      "Cloud Computing",
+      "Cybersecurity",
+      "Reinforcement Learning",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0166",
+    "primary_interests": [
+      "Robotics",
+      "Reinforcement Learning",
+      "Database Systems",
+      "Cloud Computing",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0167",
+    "primary_interests": [
+      "Quantum Computing",
+      "Reinforcement Learning"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0168",
+    "primary_interests": [
+      "Large Language Models",
+      "Reinforcement Learning",
+      "Human-Computer Interaction",
+      "Computer Vision",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0169",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Deep Learning",
+      "Natural Language Processing",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0170",
+    "primary_interests": [
+      "Cloud Computing",
+      "Algorithms & Data Structures",
+      "Deep Learning",
+      "Natural Language Processing",
+      "Software Engineering"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0171",
+    "primary_interests": [
+      "Software Engineering",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0172",
+    "primary_interests": [
+      "Distributed Systems",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0173",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Deep Learning",
+      "Robotics",
+      "Computer Vision",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0174",
+    "primary_interests": [
+      "Database Systems",
+      "Software Engineering",
+      "Cloud Computing",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0175",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Large Language Models",
+      "Deep Learning",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0176",
+    "primary_interests": [
+      "Algorithms & Data Structures",
+      "Quantum Computing",
+      "Graph Neural Networks",
+      "Large Language Models",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0177",
+    "primary_interests": [
+      "Cybersecurity",
+      "Deep Learning",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0178",
+    "primary_interests": [
+      "Large Language Models",
+      "Algorithms & Data Structures",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0179",
+    "primary_interests": [
+      "Quantum Computing",
+      "Computer Vision",
+      "Cybersecurity",
+      "Algorithms & Data Structures",
+      "Database Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0180",
+    "primary_interests": [
+      "Cloud Computing",
+      "Bioinformatics",
+      "Reinforcement Learning",
+      "Robotics"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0181",
+    "primary_interests": [
+      "Graph Neural Networks",
+      "Large Language Models",
+      "Database Systems",
+      "Human-Computer Interaction",
+      "Computer Vision"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0182",
+    "primary_interests": [
+      "Software Engineering",
+      "Large Language Models",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0183",
+    "primary_interests": [
+      "Natural Language Processing",
+      "Quantum Computing",
+      "Algorithms & Data Structures"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0184",
+    "primary_interests": [
+      "Distributed Systems",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0185",
+    "primary_interests": [
+      "Computer Vision",
+      "Quantum Computing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0186",
+    "primary_interests": [
+      "Cloud Computing",
+      "Robotics",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0187",
+    "primary_interests": [
+      "Distributed Systems",
+      "Large Language Models",
+      "Algorithms & Data Structures",
+      "Cybersecurity",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0188",
+    "primary_interests": [
+      "Quantum Computing",
+      "Graph Neural Networks"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0189",
+    "primary_interests": [
+      "Computer Vision",
+      "Software Engineering",
+      "Quantum Computing",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0190",
+    "primary_interests": [
+      "Robotics",
+      "Graph Neural Networks",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0191",
+    "primary_interests": [
+      "Robotics",
+      "Distributed Systems"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0192",
+    "primary_interests": [
+      "Bioinformatics",
+      "Cloud Computing",
+      "Reinforcement Learning",
+      "Large Language Models"
+    ],
+    "preferred_resource_types": [
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0193",
+    "primary_interests": [
+      "Software Engineering",
+      "Graph Neural Networks",
+      "Reinforcement Learning",
+      "Quantum Computing",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0194",
+    "primary_interests": [
+      "Software Engineering",
+      "Cloud Computing"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0195",
+    "primary_interests": [
+      "Computer Vision",
+      "Robotics",
+      "Algorithms & Data Structures",
+      "Cybersecurity",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0196",
+    "primary_interests": [
+      "Deep Learning",
+      "Software Engineering",
+      "Distributed Systems",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "book",
+      "document",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0197",
+    "primary_interests": [
+      "Human-Computer Interaction",
+      "Deep Learning"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "book"
+    ]
+  },
+  {
+    "user_id": "USR-0198",
+    "primary_interests": [
+      "Robotics",
+      "Large Language Models",
+      "Software Engineering",
+      "Human-Computer Interaction",
+      "Natural Language Processing"
+    ],
+    "preferred_resource_types": [
+      "document",
+      "book",
+      "paper"
+    ]
+  },
+  {
+    "user_id": "USR-0199",
+    "primary_interests": [
+      "Deep Learning",
+      "Graph Neural Networks",
+      "Human-Computer Interaction"
+    ],
+    "preferred_resource_types": [
+      "paper",
+      "document"
+    ]
+  },
+  {
+    "user_id": "USR-0200",
+    "primary_interests": [
+      "Algorithms & Data Structures",
+      "Reinforcement Learning",
+      "Bioinformatics"
+    ],
+    "preferred_resource_types": [
+      "book"
+    ]
+  }
+]
