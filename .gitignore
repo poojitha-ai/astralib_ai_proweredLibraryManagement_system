@@ -34,3 +34,13 @@ astralib-backend/login_user.json
 astralib-backend/test_admin_login.json
 astralib-backend/test_admin_reg.json
 astralib-backend/test_user_reg.json
+
+# Python embedding service virtualenv (reproducible from local-embeddings-pip-freeze.txt)
+local-embeddings/.venv/
+
+# Generated backend archive (source of truth lives in astralib-backend/)
+astralib-backend.zip
+
+# User-uploaded library books (copyrighted binaries; kept in the private local backup only)
+astralib-backend/uploads/*.epub
+

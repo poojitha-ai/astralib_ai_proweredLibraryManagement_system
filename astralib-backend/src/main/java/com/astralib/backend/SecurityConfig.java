@@ -1,3 +1,4 @@
+
 package com.astralib.backend;
 
 import org.springframework.context.annotation.Bean;
@@ -21,8 +22,7 @@ public class SecurityConfig {
     public SecurityConfig(
             JwtAuthenticationFilter jwtAuthenticationFilter
     ) {
-        this.jwtAuthenticationFilter =
-                jwtAuthenticationFilter;
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
     @Bean
@@ -33,65 +33,78 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
 
-                .sessionManagement(
-                        session ->
-                                session.sessionCreationPolicy(
-                                        SessionCreationPolicy.STATELESS
-                                )
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(
+                                SessionCreationPolicy.STATELESS
+                        )
                 )
 
                 .authorizeHttpRequests(auth -> auth
-        .requestMatchers(
-                "/api/auth/register",
-                "/api/auth/login"
-        ).permitAll()
 
-        // WebSocket handshake.
-        // Authentication is performed by
-        // StudyHallHandshakeInterceptor.
-        .requestMatchers(
-                "/ws/study/**"
-        ).permitAll()
+                        // Public authentication endpoints
+                        .requestMatchers(
+                                "/api/auth/register",
+                                "/api/auth/login"
+                        ).permitAll()
 
-        .requestMatchers("/api/authors/**").permitAll()
-        .requestMatchers("/api/categories/**").permitAll()
-        .requestMatchers("/api/books/**").permitAll()
-        .requestMatchers("/api/resources/**").permitAll()
-        .requestMatchers("/api/favorites/**").permitAll()
-        .requestMatchers("/api/reading-history/**").permitAll()
+                        // Public health and root endpoints
+                        .requestMatchers(
+                                "/",
+                                "/error",
+                                "/actuator/health"
+                        ).permitAll()
 
-        .requestMatchers("/api/recommendations/**")
-        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
+                        // WebSocket handshake
+                        .requestMatchers("/ws/study/**").permitAll()
 
-        .requestMatchers("/api/user/recommendations")
-        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
+                        // Public library endpoints
+                        .requestMatchers("/api/authors/**").permitAll()
+                        .requestMatchers("/api/categories/**").permitAll()
+                        .requestMatchers("/api/books/**").permitAll()
+                        .requestMatchers("/api/resources/**").permitAll()
+                        .requestMatchers("/api/favorites/**").permitAll()
+                        .requestMatchers("/api/reading-history/**").permitAll()
 
-        .requestMatchers("/api/user/**")
-        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
+                        // Recommendation endpoints
+                        .requestMatchers("/api/recommendations/**")
+                        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
-        .requestMatchers("/api/users/**")
-        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
+                        .requestMatchers("/api/user/recommendations")
+                        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
-        .requestMatchers("/api/search/**")
-        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
+                        // User endpoints
+                        .requestMatchers("/api/user/**")
+                        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
-        .requestMatchers("/api/rag/**")
-        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
+                        .requestMatchers("/api/users/**")
+                        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
-        .requestMatchers("/api/admin/**")
-        .hasRole("ADMIN")
+                        // Search and RAG endpoints
+                        .requestMatchers("/api/search/**")
+                        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
-        .requestMatchers("/api/librarian/**")
-        .hasAnyRole("LIBRARIAN", "ADMIN")
+                        .requestMatchers("/api/rag/**")
+                        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
-        .anyRequest()
-        .authenticated()
-)
+                        // Admin endpoints
+                        .requestMatchers("/api/admin/**")
+                        .hasRole("ADMIN")
+
+                        // Librarian endpoints
+                        .requestMatchers("/api/librarian/**")
+                        .hasAnyRole("LIBRARIAN", "ADMIN")
+
+                        // All other endpoints require authentication
+                        .anyRequest().authenticated()
+                )
 
                 .addFilterBefore(
                         jwtAuthenticationFilter,
                         UsernamePasswordAuthenticationFilter.class
                 );
+                 System.out.println(
+                "DEBUG: Updated SecurityConfig is being loaded"
+        );
 
         return http.build();
     }
@@ -105,35 +118,19 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService(
             UserRepository userRepository
     ) {
-
         return email ->
-                userRepository
-                        .findByEmail(email)
-
-                        .map(
-                                user ->
-                                        org.springframework.security
-                                                .core
-                                                .userdetails
-                                                .User
-                                                .withUsername(
-                                                        user.getEmail()
-                                                )
-                                                .password(
-                                                        user.getPassword()
-                                                )
-                                                .roles(
-                                                        user.getRole()
-                                                                .name()
-                                                )
-                                                .build()
+                userRepository.findByEmail(email)
+                        .map(user ->
+                                org.springframework.security.core.userdetails.User
+                                        .withUsername(user.getEmail())
+                                        .password(user.getPassword())
+                                        .roles(user.getRole().name())
+                                        .build()
                         )
-
-                        .orElseThrow(
-                                () ->
-                                        new UsernameNotFoundException(
-                                                "User not found"
-                                        )
+                        .orElseThrow(() ->
+                                new UsernameNotFoundException(
+                                        "User not found"
+                                )
                         );
     }
 }

@@ -32,6 +32,37 @@ public class SemanticSearchService {
      */
     private static final double MIN_RAG_SCORE = 0.55;
 
+    /*
+     * Hybrid Search uses two independent candidate sources:
+     *
+     * 1. semantic vector retrieval
+     * 2. lexical keyword retrieval
+     *
+     * These weights can later be tuned using the research-paper
+     * evaluation dataset.
+     */
+    private static final double HYBRID_SEMANTIC_WEIGHT = 0.60;
+    private static final double HYBRID_KEYWORD_WEIGHT = 0.40;
+
+    /*
+     * Keyword-only candidates must be allowed into Hybrid Search,
+     * otherwise Hybrid would collapse back into Semantic Search.
+     */
+    private static final double MIN_KEYWORD_SCORE = 0.08;
+    private static final double MIN_HYBRID_SCORE = 0.20;
+
+    /*
+     * Very common words do not help lexical ranking.
+     */
+    private static final Set<String> KEYWORD_STOP_WORDS =
+            Set.of(
+                    "a", "an", "the", "and", "or", "but",
+                    "of", "to", "in", "on", "for", "with",
+                    "by", "from", "at", "as", "is", "are",
+                    "was", "were", "be", "been", "being",
+                    "this", "that", "these", "those", "through"
+            );
+
     @Autowired
     private VectorRecordRepository vectorRecordRepository;
 
@@ -97,6 +128,38 @@ public class SemanticSearchService {
             records =
                     vectorRecordRepository.findAll();
         }
+        // Restrict retrieval when the query explicitly names a section.
+String normalizedQuery = normalizeSectionForQuery(query);
+
+Set<String> matchingSections = records.stream()
+        .map(VectorRecord::getSection)
+        .filter(Objects::nonNull)
+        .distinct()
+        .filter(section -> {
+            String normalizedSection =
+                    normalizeSectionForQuery(section);
+
+            return normalizedSection.length() >= 8
+                    && normalizedQuery.contains(normalizedSection);
+        })
+        .collect(Collectors.toSet());
+
+if (!matchingSections.isEmpty()) {
+    List<VectorRecord> sectionRecords = records.stream()
+            .filter(record ->
+                    matchingSections.contains(record.getSection()))
+            .collect(Collectors.toList());
+
+    if (!sectionRecords.isEmpty()) {
+        records = sectionRecords;
+
+        logger.info(
+                "RAG section scope matched {}. Searching {} chunks.",
+                matchingSections,
+                records.size()
+        );
+    }
+}
 
         Map<String, Long> bookIdMap =
                 buildBookResourceIdMap();
@@ -544,7 +607,159 @@ public class SemanticSearchService {
     }
 
     // =========================================================
-    // HYBRID SEARCH
+    // KEYWORD SEARCH
+    //
+    // IMPORTANT:
+    // This is an INDEPENDENT lexical retrieval path.
+    //
+    // It does NOT call performSemanticSearch() and does NOT use
+    // embeddings. It scans the textual fields already stored in
+    // vector_records and keeps the best matching chunk for each
+    // unique resource.
+    // =========================================================
+
+    public List<SearchResultDTO> performKeywordSearch(
+            String query,
+            int topK,
+            String documentType) {
+
+        if (
+                query == null ||
+                query.isBlank()
+        ) {
+            return Collections.emptyList();
+        }
+
+        topK =
+                Math.max(
+                        1,
+                        Math.min(topK, 100)
+                );
+
+        List<String> keywords =
+                extractKeywordTerms(
+                        query
+                );
+
+        if (
+                keywords.isEmpty()
+        ) {
+            return Collections.emptyList();
+        }
+
+        String normalizedQuery =
+                normalizeKeywordText(
+                        query
+                );
+
+        List<VectorRecord> records =
+                loadCandidateRecords(
+                        documentType
+                );
+
+        Map<String, Long> bookIdMap =
+                buildBookResourceIdMap();
+
+        Map<String, SearchResultDTO> bestResultPerResource =
+                new LinkedHashMap<>();
+
+        for (
+                VectorRecord record :
+                records
+        ) {
+
+            double keywordScore =
+                    calculateKeywordScore(
+                            record,
+                            normalizedQuery,
+                            keywords
+                    );
+
+            if (
+                    keywordScore <
+                    MIN_KEYWORD_SCORE
+            ) {
+                continue;
+            }
+
+            Long bookId =
+                    resolveBookId(
+                            record,
+                            bookIdMap
+                    );
+
+            SearchResultDTO candidate =
+                    new SearchResultDTO(
+                            record.getChunkId(),
+                            record.getDocumentId(),
+                            bookId,
+                            record.getDocumentType(),
+                            record.getTitle(),
+                            record.getAuthor(),
+                            record.getCategory(),
+                            record.getSection(),
+                            record.getChunkIndex() != null
+                                    ? record.getChunkIndex()
+                                    : 0,
+                            record.getContent(),
+                            roundScore(
+                                    keywordScore
+                            )
+                    );
+
+            String resourceKey =
+                    buildResourceKey(
+                            candidate
+                    );
+
+            SearchResultDTO existing =
+                    bestResultPerResource
+                            .get(
+                                    resourceKey
+                            );
+
+            if (
+                    existing == null ||
+                    candidate.getSimilarityScore()
+                            >
+                    existing.getSimilarityScore()
+            ) {
+
+                bestResultPerResource.put(
+                        resourceKey,
+                        candidate
+                );
+            }
+        }
+
+        return bestResultPerResource
+                .values()
+                .stream()
+                .sorted(
+                        (r1, r2) ->
+                                Double.compare(
+                                        r2.getSimilarityScore(),
+                                        r1.getSimilarityScore()
+                                )
+                )
+                .limit(topK)
+                .collect(Collectors.toList());
+    }
+
+    // =========================================================
+    // TRUE HYBRID SEARCH
+    //
+    // OLD BEHAVIOUR:
+    // semantic results -> keyword reranking
+    //
+    // NEW BEHAVIOUR:
+    //
+    // semantic candidates --------\
+    //                               -> UNION -> weighted fusion
+    // keyword candidates ----------/
+    //
+    // This means a resource discovered ONLY by keyword search can
+    // now enter the final Hybrid result set.
     // =========================================================
 
     public List<SearchResultDTO> performHybridSearch(
@@ -559,113 +774,226 @@ public class SemanticSearchService {
             return Collections.emptyList();
         }
 
-        String normalizedQuery =
-                query
-                        .toLowerCase(Locale.ROOT)
-                        .trim();
+        topK =
+                Math.max(
+                        1,
+                        Math.min(topK, 100)
+                );
 
-        String[] keywords =
-                normalizedQuery
-                        .split("[^a-z0-9]+");
+        int candidateLimit =
+                Math.min(
+                        100,
+                        Math.max(
+                                topK * 5,
+                                30
+                        )
+                );
 
-        /*
-         * Semantic search already:
-         *
-         * - removes weak matches
-         * - removes duplicate books
-         */
+        // -----------------------------------------------------
+        // Branch 1: semantic retrieval
+        // -----------------------------------------------------
+
         List<SearchResultDTO> semanticResults =
                 performSemanticSearch(
                         query,
-                        Math.max(
-                                topK * 3,
-                                30
-                        ),
+                        candidateLimit,
                         documentType
                 );
+
+        // -----------------------------------------------------
+        // Branch 2: independent keyword retrieval
+        // -----------------------------------------------------
+
+        List<SearchResultDTO> keywordResults =
+                performKeywordSearch(
+                        query,
+                        candidateLimit,
+                        documentType
+                );
+
+        Map<String, SearchResultDTO> candidateByResource =
+                new LinkedHashMap<>();
+
+        Map<String, Double> semanticScoreByResource =
+                new HashMap<>();
+
+        Map<String, Double> keywordScoreByResource =
+                new HashMap<>();
+
+        // -----------------------------------------------------
+        // Add semantic candidates
+        // -----------------------------------------------------
 
         for (
                 SearchResultDTO result :
                 semanticResults
         ) {
 
-            double keywordScore =
-                    0.0;
-
-            int validKeywordCount =
-                    0;
-
-            String searchableText =
-                    (
-                            safe(result.getTitle())
-                            + " "
-                            + safe(result.getAuthor())
-                            + " "
-                            + safe(result.getCategory())
-                            + " "
-                            + safe(result.getSection())
-                            + " "
-                            + safe(result.getContent())
-                    )
-                    .toLowerCase(Locale.ROOT);
-
-            for (String keyword : keywords) {
-
-                if (
-                        keyword != null &&
-                        keyword.length() > 2
-                ) {
-
-                    validKeywordCount++;
-
-                    if (
-                            searchableText
-                                    .contains(keyword)
-                    ) {
-
-                        keywordScore += 1.0;
-                    }
-                }
-            }
-
-            double normalizedKeywordScore =
-                    validKeywordCount > 0
-                            ? keywordScore
-                            / validKeywordCount
-                            : 0.0;
-
-            double hybridScore =
-                    (
-                            0.7 *
-                            result.getSimilarityScore()
-                    )
-                    +
-                    (
-                            0.3 *
-                            Math.min(
-                                    1.0,
-                                    normalizedKeywordScore
-                            )
+            String key =
+                    buildResourceKey(
+                            result
                     );
 
-            result.setSimilarityScore(
-                    Math.round(
-                            hybridScore * 1000.0
-                    ) / 1000.0
+            semanticScoreByResource.put(
+                    key,
+                    result.getSimilarityScore()
+            );
+
+            candidateByResource.put(
+                    key,
+                    copySearchResult(
+                            result
+                    )
             );
         }
 
-        /*
-         * Hybrid relevance can become lower after reranking.
-         * Remove obviously weak hybrid results too.
-         */
-        return semanticResults
+        // -----------------------------------------------------
+        // Add keyword candidates independently
+        // -----------------------------------------------------
+
+        for (
+                SearchResultDTO result :
+                keywordResults
+        ) {
+
+            String key =
+                    buildResourceKey(
+                            result
+                    );
+
+            keywordScoreByResource.put(
+                    key,
+                    result.getSimilarityScore()
+            );
+
+            SearchResultDTO current =
+                    candidateByResource
+                            .get(
+                                    key
+                            );
+
+            if (
+                    current == null
+            ) {
+
+                /*
+                 * Keyword-only candidate.
+                 *
+                 * This is the key difference from the old
+                 * implementation.
+                 */
+                candidateByResource.put(
+                        key,
+                        copySearchResult(
+                                result
+                        )
+                );
+
+            } else {
+
+                /*
+                 * If both branches found the same resource,
+                 * display whichever chunk contributes more to
+                 * the final weighted score.
+                 */
+                double semanticContribution =
+                        HYBRID_SEMANTIC_WEIGHT
+                        *
+                        semanticScoreByResource
+                                .getOrDefault(
+                                        key,
+                                        0.0
+                                );
+
+                double keywordContribution =
+                        HYBRID_KEYWORD_WEIGHT
+                        *
+                        result.getSimilarityScore();
+
+                if (
+                        keywordContribution
+                                >
+                        semanticContribution
+                ) {
+
+                    candidateByResource.put(
+                            key,
+                            copySearchResult(
+                                    result
+                            )
+                    );
+                }
+            }
+        }
+
+        List<SearchResultDTO> fusedResults =
+                new ArrayList<>();
+
+        // -----------------------------------------------------
+        // Fuse independent scores
+        // -----------------------------------------------------
+
+        for (
+                Map.Entry<String, SearchResultDTO> entry :
+                candidateByResource.entrySet()
+        ) {
+
+            String key =
+                    entry.getKey();
+
+            SearchResultDTO result =
+                    entry.getValue();
+
+            double semanticScore =
+                    semanticScoreByResource
+                            .getOrDefault(
+                                    key,
+                                    0.0
+                            );
+
+            double keywordScore =
+                    keywordScoreByResource
+                            .getOrDefault(
+                                    key,
+                                    0.0
+                            );
+
+            double hybridScore =
+                    (
+                            HYBRID_SEMANTIC_WEIGHT
+                            *
+                            semanticScore
+                    )
+                    +
+                    (
+                            HYBRID_KEYWORD_WEIGHT
+                            *
+                            keywordScore
+                    );
+
+            hybridScore =
+                    roundScore(
+                            hybridScore
+                    );
+
+            if (
+                    hybridScore <
+                    MIN_HYBRID_SCORE
+            ) {
+                continue;
+            }
+
+            result.setSimilarityScore(
+                    hybridScore
+            );
+
+            fusedResults.add(
+                    result
+            );
+        }
+
+        return fusedResults
                 .stream()
-                .filter(
-                        result ->
-                                result.getSimilarityScore()
-                                        >= 0.50
-                )
                 .sorted(
                         (r1, r2) ->
                                 Double.compare(
@@ -675,6 +1003,387 @@ public class SemanticSearchService {
                 )
                 .limit(topK)
                 .collect(Collectors.toList());
+    }
+
+    // =========================================================
+    // KEYWORD / HYBRID HELPERS
+    // =========================================================
+
+    private List<VectorRecord> loadCandidateRecords(
+            String documentType) {
+
+        if (
+                documentType != null &&
+                !documentType.isBlank() &&
+                !"all".equalsIgnoreCase(
+                        documentType
+                )
+        ) {
+
+            return vectorRecordRepository
+                    .findByDocumentType(
+                            documentType
+                                    .toLowerCase(
+                                            Locale.ROOT
+                                    )
+                    );
+        }
+
+        return vectorRecordRepository
+                .findAll();
+    }
+
+    private List<String> extractKeywordTerms(
+            String query) {
+
+        if (
+                query == null ||
+                query.isBlank()
+        ) {
+            return Collections.emptyList();
+        }
+
+        String normalized =
+                normalizeKeywordText(
+                        query
+                );
+
+        if (
+                normalized.isBlank()
+        ) {
+            return Collections.emptyList();
+        }
+
+        List<String> terms =
+                Arrays.stream(
+                        normalized.split("\\s+")
+                )
+                .filter(
+                        token ->
+                                token != null &&
+                                token.length() > 2
+                )
+                .filter(
+                        token ->
+                                !KEYWORD_STOP_WORDS
+                                        .contains(
+                                                token
+                                        )
+                )
+                .distinct()
+                .collect(
+                        Collectors.toList()
+                );
+
+        /*
+         * If the query contains only short/common words,
+         * keep the normalized non-empty tokens as a fallback.
+         */
+        if (
+                terms.isEmpty()
+        ) {
+
+            terms =
+                    Arrays.stream(
+                            normalized.split("\\s+")
+                    )
+                    .filter(
+                            token ->
+                                    token != null &&
+                                    !token.isBlank()
+                    )
+                    .distinct()
+                    .collect(
+                            Collectors.toList()
+                    );
+        }
+
+        return terms;
+    }
+
+    private double calculateKeywordScore(
+            VectorRecord record,
+            String normalizedQuery,
+            List<String> keywords) {
+
+        if (
+                record == null ||
+                keywords == null ||
+                keywords.isEmpty()
+        ) {
+            return 0.0;
+        }
+
+        String title =
+                normalizeKeywordText(
+                        record.getTitle()
+                );
+
+        String author =
+                normalizeKeywordText(
+                        record.getAuthor()
+                );
+
+        String category =
+                normalizeKeywordText(
+                        record.getCategory()
+                );
+
+        String section =
+                normalizeKeywordText(
+                        record.getSection()
+                );
+
+        String content =
+                normalizeKeywordText(
+                        record.getContent()
+                );
+
+        /*
+         * Weighted token coverage.
+         *
+         * Title and content carry most of the lexical evidence.
+         */
+        double score =
+                (
+                        0.35 *
+                        keywordCoverage(
+                                title,
+                                keywords
+                        )
+                )
+                +
+                (
+                        0.10 *
+                        keywordCoverage(
+                                author,
+                                keywords
+                        )
+                )
+                +
+                (
+                        0.10 *
+                        keywordCoverage(
+                                category,
+                                keywords
+                        )
+                )
+                +
+                (
+                        0.15 *
+                        keywordCoverage(
+                                section,
+                                keywords
+                        )
+                )
+                +
+                (
+                        0.30 *
+                        keywordCoverage(
+                                content,
+                                keywords
+                        )
+                );
+
+        /*
+         * Exact phrase bonuses.
+         *
+         * These are useful for title searches such as:
+         * "Pride and Prejudice"
+         * "Adventures"
+         */
+        if (
+                normalizedQuery != null &&
+                !normalizedQuery.isBlank()
+        ) {
+
+            if (
+                    containsKeywordPhrase(
+                            title,
+                            normalizedQuery
+                    )
+            ) {
+                score += 0.25;
+            }
+
+            if (
+                    containsKeywordPhrase(
+                            section,
+                            normalizedQuery
+                    )
+            ) {
+                score += 0.10;
+            }
+
+            if (
+                    containsKeywordPhrase(
+                            content,
+                            normalizedQuery
+                    )
+            ) {
+                score += 0.10;
+            }
+
+            if (
+                    containsKeywordPhrase(
+                            author,
+                            normalizedQuery
+                    )
+            ) {
+                score += 0.05;
+            }
+
+            if (
+                    containsKeywordPhrase(
+                            category,
+                            normalizedQuery
+                    )
+            ) {
+                score += 0.05;
+            }
+        }
+
+        return Math.min(
+                1.0,
+                score
+        );
+    }
+
+    private double keywordCoverage(
+            String text,
+            List<String> keywords) {
+
+        if (
+                text == null ||
+                text.isBlank() ||
+                keywords == null ||
+                keywords.isEmpty()
+        ) {
+            return 0.0;
+        }
+
+        int matches =
+                0;
+
+        String paddedText =
+                " "
+                + text
+                + " ";
+
+        for (
+                String keyword :
+                keywords
+        ) {
+
+            if (
+                    keyword == null ||
+                    keyword.isBlank()
+            ) {
+                continue;
+            }
+
+            String paddedKeyword =
+                    " "
+                    + keyword
+                    + " ";
+
+            if (
+                    paddedText.contains(
+                            paddedKeyword
+                    )
+            ) {
+                matches++;
+            }
+        }
+
+        return (
+                double
+        ) matches
+                /
+                keywords.size();
+    }
+
+    private boolean containsKeywordPhrase(
+            String text,
+            String normalizedQuery) {
+
+        return text != null &&
+                !text.isBlank() &&
+                normalizedQuery != null &&
+                !normalizedQuery.isBlank() &&
+                text.contains(
+                        normalizedQuery
+                );
+    }
+
+    private String normalizeKeywordText(
+            String value) {
+
+        if (
+                value == null
+        ) {
+            return "";
+        }
+
+        return value
+                .toLowerCase(
+                        Locale.ROOT
+                )
+                .replaceAll(
+                        "[^a-z0-9]+",
+                        " "
+                )
+                .trim()
+                .replaceAll(
+                        "\\s+",
+                        " "
+                );
+    }
+    private String normalizeSectionForQuery(String value) {
+    if (value == null) {
+        return "";
+    }
+
+    String normalized = normalizeKeywordText(value);
+
+    // Remove a leading Roman numeral from section labels.
+    return normalized
+            .replaceFirst(
+                    "^(?:chapter\\s+)?[ivxlcdm]+\\s+",
+                    ""
+            )
+            .trim();
+}
+    private SearchResultDTO copySearchResult(
+            SearchResultDTO source) {
+
+        if (
+                source == null
+        ) {
+            return null;
+        }
+
+        return new SearchResultDTO(
+                source.getChunkId(),
+                source.getDocumentId(),
+                source.getBookId(),
+                source.getDocumentType(),
+                source.getTitle(),
+                source.getAuthor(),
+                source.getCategory(),
+                source.getSection(),
+                source.getChunkIndex(),
+                source.getContent(),
+                source.getSimilarityScore()
+        );
+    }
+
+    private double roundScore(
+            double value) {
+
+        return Math.round(
+                value * 1000.0
+        ) / 1000.0;
     }
 
     // =========================================================
