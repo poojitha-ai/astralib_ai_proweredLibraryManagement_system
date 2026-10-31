@@ -1,0 +1,653 @@
+{
+  "summary": {
+    "label": "after",
+    "queries": 16,
+    "p_at_5": 0.388,
+    "r_at_5": 0.909,
+    "mrr": 0.969,
+    "ndcg_at_5": 0.896,
+    "weak_evidence": 0,
+    "unsupported_queries": 5,
+    "unsupported_false_positive_rate": 0.0
+  },
+  "supported": [
+    {
+      "id": "oop-simple",
+      "query": "explain oop in simple language",
+      "error": null,
+      "latency_ms": 52247,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.742,
+      "ranked": [
+        {
+          "doc": "THE-RUST-PROGRAMMING-LANGUAGE-OEW",
+          "grade": 1
+        },
+        {
+          "doc": "WIKIBOOKS-JAVA-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "PROGRAMMING-FUNDAMENTALS-CPP-OEW",
+          "grade": 1
+        },
+        {
+          "doc": "THE-JAVASCRIPT-WAY-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "THINK-PYTHON-2E",
+          "grade": 0
+        }
+      ],
+      "returned": 5,
+      "p_at_5": 0.8,
+      "r_at_5": 0.667,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.58,
+      "weak_evidence": false
+    },
+    {
+      "id": "inheritance-java",
+      "query": "what is inheritance in java",
+      "error": null,
+      "latency_ms": 1668,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.803,
+      "ranked": [
+        {
+          "doc": "WIKIBOOKS-JAVA-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "JJJ-JAVA-3E-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "THINK-JAVA-2E-OEW",
+          "grade": 2
+        }
+      ],
+      "returned": 3,
+      "p_at_5": 0.6,
+      "r_at_5": 0.75,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.937,
+      "weak_evidence": false
+    },
+    {
+      "id": "pointers",
+      "query": "explain pointers with examples",
+      "error": null,
+      "latency_ms": 1281,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.676,
+      "ranked": [
+        {
+          "doc": "WIKIBOOKS-C-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "THE-RUST-PROGRAMMING-LANGUAGE-OEW",
+          "grade": 0
+        },
+        {
+          "doc": "MODERN-C-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "OSC-9TH-EDITION",
+          "grade": 1
+        },
+        {
+          "doc": "THINK-CPP-OEW",
+          "grade": 1
+        }
+      ],
+      "returned": 5,
+      "p_at_5": 0.8,
+      "r_at_5": 0.8,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.856,
+      "weak_evidence": false
+    },
+    {
+      "id": "recursion",
+      "query": "how does recursion work",
+      "error": null,
+      "latency_ms": 1394,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.688,
+      "ranked": [
+        {
+          "doc": "THINK-CPP-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "THINK-PYTHON-2E",
+          "grade": 2
+        },
+        {
+          "doc": "THINK-JAVA-2E-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "JJJ-JAVA-3E-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "WIKIBOOKS-C-OEW",
+          "grade": 2
+        }
+      ],
+      "returned": 5,
+      "p_at_5": 1.0,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "deadlock",
+      "query": "what is a deadlock in an operating system",
+      "error": null,
+      "latency_ms": 1797,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.739,
+      "ranked": [
+        {
+          "doc": "OSC-9TH-EDITION",
+          "grade": 2
+        },
+        {
+          "doc": "MODERN-C-OEW",
+          "grade": 0
+        },
+        {
+          "doc": "JJJ-JAVA-3E-OEW",
+          "grade": 0
+        }
+      ],
+      "returned": 3,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "paging",
+      "query": "how does virtual memory paging work",
+      "error": null,
+      "latency_ms": 1752,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.766,
+      "ranked": [
+        {
+          "doc": "OSC-9TH-EDITION",
+          "grade": 2
+        }
+      ],
+      "returned": 1,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "python-loop",
+      "query": "how do i write a for loop in python",
+      "error": null,
+      "latency_ms": 2115,
+      "intent": "PROCEDURAL",
+      "best_cosine": 0.564,
+      "ranked": [
+        {
+          "doc": "PYTHON-MASTERY-OEW",
+          "grade": 1
+        },
+        {
+          "doc": "PY4E-PYTHON-3",
+          "grade": 2
+        },
+        {
+          "doc": "THINK-PYTHON-2E",
+          "grade": 2
+        },
+        {
+          "doc": "MODERN-C-OEW",
+          "grade": 0
+        },
+        {
+          "doc": "PROGRAMMING-FUNDAMENTALS-CPP-OEW",
+          "grade": 0
+        }
+      ],
+      "returned": 5,
+      "p_at_5": 0.6,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.815,
+      "weak_evidence": false
+    },
+    {
+      "id": "js-closures",
+      "query": "explain closures in javascript",
+      "error": null,
+      "latency_ms": 1378,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.633,
+      "ranked": [
+        {
+          "doc": "THE-JAVASCRIPT-WAY-OEW",
+          "grade": 2
+        },
+        {
+          "doc": "ELOQUENTJS-3E",
+          "grade": 2
+        },
+        {
+          "doc": "THE-RUST-PROGRAMMING-LANGUAGE-OEW",
+          "grade": 0
+        },
+        {
+          "doc": "MODERN-C-OEW",
+          "grade": 0
+        },
+        {
+          "doc": "PYTHON-MASTERY-OEW",
+          "grade": 0
+        }
+      ],
+      "returned": 5,
+      "p_at_5": 0.4,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "rust-ownership",
+      "query": "how does rust ownership and borrowing work",
+      "error": null,
+      "latency_ms": 1607,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.724,
+      "ranked": [
+        {
+          "doc": "THE-RUST-PROGRAMMING-LANGUAGE-OEW",
+          "grade": 2
+        }
+      ],
+      "returned": 1,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "git-branch",
+      "query": "how do i create a branch in git",
+      "error": null,
+      "latency_ms": 1412,
+      "intent": "PROCEDURAL",
+      "best_cosine": 0.654,
+      "ranked": [
+        {
+          "doc": "PROGIT-2E",
+          "grade": 2
+        }
+      ],
+      "returned": 1,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "linked-list",
+      "query": "what is a linked list and how is it stored in memory",
+      "error": null,
+      "latency_ms": 2581,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.641,
+      "ranked": [
+        {
+          "doc": "WIKIBOOKS-C-OEW",
+          "grade": 0
+        },
+        {
+          "doc": "JJJ-JAVA-3E-OEW",
+          "grade": 1
+        },
+        {
+          "doc": "OSC-9TH-EDITION",
+          "grade": 0
+        },
+        {
+          "doc": "MODERN-C-OEW",
+          "grade": 0
+        },
+        {
+          "doc": "PYTHON-MASTERY-OEW",
+          "grade": 0
+        }
+      ],
+      "returned": 5,
+      "p_at_5": 0.2,
+      "r_at_5": 0.333,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.153,
+      "weak_evidence": false
+    },
+    {
+      "id": "tcp-udp",
+      "query": "what is the difference between tcp and udp",
+      "error": null,
+      "latency_ms": 1659,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.508,
+      "ranked": [
+        {
+          "doc": "OSC-9TH-EDITION",
+          "grade": 1
+        },
+        {
+          "doc": "THE-RUST-PROGRAMMING-LANGUAGE-OEW",
+          "grade": 0
+        }
+      ],
+      "returned": 2,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "art-of-war",
+      "query": "what does sun tzu say about deception in war",
+      "error": null,
+      "latency_ms": 1628,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.777,
+      "ranked": [
+        {
+          "doc": "GUTENBERG-132",
+          "grade": 2
+        }
+      ],
+      "returned": 1,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "pride-prejudice",
+      "query": "why does elizabeth bennet dislike mr darcy",
+      "error": null,
+      "latency_ms": 1598,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.751,
+      "ranked": [
+        {
+          "doc": "GUTENBERG-42671",
+          "grade": 2
+        }
+      ],
+      "returned": 1,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "hound",
+      "query": "how does sherlock holmes solve the case of the hound of the baskervilles",
+      "error": null,
+      "latency_ms": 2186,
+      "intent": "CONCEPT_SEARCH",
+      "best_cosine": 0.793,
+      "ranked": [
+        {
+          "doc": "GUTENBERG-2852",
+          "grade": 2
+        }
+      ],
+      "returned": 1,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    },
+    {
+      "id": "roman-empire",
+      "query": "discuss the history of the roman empire",
+      "error": null,
+      "latency_ms": 1182,
+      "intent": "OTHER",
+      "best_cosine": 0.502,
+      "ranked": [
+        {
+          "doc": "GUTENBERG-2680",
+          "grade": 1
+        }
+      ],
+      "returned": 1,
+      "p_at_5": 0.2,
+      "r_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "weak_evidence": false
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "easy-python",
+      "query": "find an easy python book",
+      "error": null,
+      "books": [
+        {
+          "title": "Python Crash Course",
+          "level": "BEGINNER",
+          "language": "Python",
+          "readable": false
+        },
+        {
+          "title": "Advanced Python Mastery",
+          "level": "ADVANCED",
+          "language": "Python",
+          "readable": true
+        },
+        {
+          "title": "Effective Python",
+          "level": "INTERMEDIATE",
+          "language": "Python",
+          "readable": false
+        },
+        {
+          "title": "Fluent Python",
+          "level": "ADVANCED",
+          "language": "Python",
+          "readable": false
+        }
+      ],
+      "first": {
+        "bookId": 3035,
+        "title": "Python Crash Course",
+        "author": "Eric Matthes",
+        "category": "Programming",
+        "language": "Python",
+        "level": "BEGINNER",
+        "readable": false,
+        "format": null,
+        "reason": "Python programming, matches the beginner level asked for, not available to read yet"
+      },
+      "note": "First recommendation must be a readable beginner Python book; if none exists, a readable intermediate one (with the level stated) before an unavailable beginner title, and an advanced book only with an explicit mismatch explanation."
+    },
+    {
+      "id": "easy-anything",
+      "query": "new book to read and easy to understand",
+      "error": null,
+      "books": [
+        {
+          "title": "A Study in Scarlet",
+          "level": "ACCESSIBLE",
+          "language": null,
+          "readable": true
+        },
+        {
+          "title": "Alice's Adventures in Wonderland",
+          "level": "ACCESSIBLE",
+          "language": null,
+          "readable": true
+        },
+        {
+          "title": "C Programming",
+          "level": "BEGINNER",
+          "language": "C",
+          "readable": true
+        },
+        {
+          "title": "How to Live on 24 Hours a Day",
+          "level": "ACCESSIBLE",
+          "language": null,
+          "readable": true
+        },
+        {
+          "title": "Pride and Prejudice",
+          "level": "ACCESSIBLE",
+          "language": null,
+          "readable": true
+        },
+        {
+          "title": "Pro Git (2nd Edition)",
+          "level": "BEGINNER",
+          "language": null,
+          "readable": true
+        }
+      ],
+      "first": {
+        "bookId": 3013,
+        "title": "A Study in Scarlet",
+        "author": "Arthur Conan Doyle",
+        "category": "Classic Literature",
+        "language": null,
+        "level": "ACCESSIBLE",
+        "readable": true,
+        "format": "EPUB",
+        "reason": "matches the accessible level asked for, accessible level \u2014 above the beginner level you asked for"
+      },
+      "note": "Every book offered in the first three slots should be readable and beginner level."
+    },
+    {
+      "id": "advanced-programming",
+      "query": "recommend an advanced programming book",
+      "error": null,
+      "books": [
+        {
+          "title": "Advanced Python Mastery",
+          "level": "ADVANCED",
+          "language": "Python",
+          "readable": true
+        },
+        {
+          "title": "Java Programming",
+          "level": "ADVANCED",
+          "language": "Java",
+          "readable": true
+        },
+        {
+          "title": "Operating System Concepts (9th Edition)",
+          "level": "ADVANCED",
+          "language": null,
+          "readable": true
+        },
+        {
+          "title": "Eloquent JavaScript (3rd Edition)",
+          "level": "INTERMEDIATE",
+          "language": "JavaScript",
+          "readable": true
+        },
+        {
+          "title": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+          "level": "INTERMEDIATE",
+          "language": "Java",
+          "readable": true
+        },
+        {
+          "title": "Modern C (C23 Edition)",
+          "level": "INTERMEDIATE",
+          "language": "C",
+          "readable": true
+        }
+      ],
+      "first": {
+        "bookId": 3060,
+        "title": "Advanced Python Mastery",
+        "author": "David Beazley",
+        "category": "Programming",
+        "language": "Python",
+        "level": "ADVANCED",
+        "readable": true,
+        "format": "PDF",
+        "reason": "matches the advanced level asked for"
+      },
+      "note": "Advanced programming titles, readable ones first; non-programming titles must not be presented as advanced programming."
+    }
+  ],
+  "unsupported": [
+    {
+      "query": "explain wittgenstein's philosophy of language",
+      "error": null,
+      "intent": "CONCEPT_SEARCH",
+      "returned": 0,
+      "docs": [],
+      "best_cosine": 0.389,
+      "false_positive": false
+    },
+    {
+      "query": "explain quantum mechanics and wave functions",
+      "error": null,
+      "intent": "CONCEPT_SEARCH",
+      "returned": 0,
+      "docs": [],
+      "best_cosine": 0.498,
+      "false_positive": false
+    },
+    {
+      "query": "explain the causes of the french revolution",
+      "error": null,
+      "intent": "CONCEPT_SEARCH",
+      "returned": 0,
+      "docs": [],
+      "best_cosine": 0.354,
+      "false_positive": false
+    },
+    {
+      "query": "what is the capital of peru",
+      "error": null,
+      "intent": "CONCEPT_SEARCH",
+      "returned": 0,
+      "docs": [],
+      "best_cosine": 0.357,
+      "false_positive": false
+    },
+    {
+      "query": "explain the rules of cricket",
+      "error": null,
+      "intent": "CONCEPT_SEARCH",
+      "returned": 0,
+      "docs": [],
+      "best_cosine": 0.428,
+      "false_positive": false
+    }
+  ]
+}

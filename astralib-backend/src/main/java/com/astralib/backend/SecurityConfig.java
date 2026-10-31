@@ -3,6 +3,7 @@ package com.astralib.backend;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -16,6 +17,26 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    /*
+     * Catalogue resources that are publicly readable but may only be
+     * modified by a librarian or administrator.
+     */
+    private static final String[] CATALOGUE_PATHS = {
+            "/api/books/**",
+            "/api/authors/**",
+            "/api/categories/**",
+            "/api/resources/**"
+    };
+
+    /*
+     * Curated pathways are part of catalogue browsing: public to read,
+     * managed only through the admin curation endpoint.
+     */
+    private static final String[] PATHWAY_PATHS = {
+            "/api/pathways",
+            "/api/pathways/**"
+    };
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
@@ -57,13 +78,77 @@ public class SecurityConfig {
                         // WebSocket handshake
                         .requestMatchers("/ws/study/**").permitAll()
 
-                        // Public library endpoints
-                        .requestMatchers("/api/authors/**").permitAll()
-                        .requestMatchers("/api/categories/**").permitAll()
-                        .requestMatchers("/api/books/**").permitAll()
-                        .requestMatchers("/api/resources/**").permitAll()
-                        .requestMatchers("/api/favorites/**").permitAll()
-                        .requestMatchers("/api/reading-history/**").permitAll()
+                        // -----------------------------------------
+                        // Public catalogue browsing (read-only)
+                        //
+                        // Anyone may READ the catalogue and the
+                        // publicly served book files. Writes are
+                        // restricted below, not here.
+                        // -----------------------------------------
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                CATALOGUE_PATHS
+                        ).permitAll()
+
+                        .requestMatchers(
+                                HttpMethod.HEAD,
+                                CATALOGUE_PATHS
+                        ).permitAll()
+
+                        // -----------------------------------------
+                        // Public pathway browsing (read-only)
+                        // -----------------------------------------
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                PATHWAY_PATHS
+                        ).permitAll()
+
+                        .requestMatchers(
+                                HttpMethod.HEAD,
+                                PATHWAY_PATHS
+                        ).permitAll()
+
+                        // -----------------------------------------
+                        // Catalogue management (writes)
+                        //
+                        // Creating, editing, deleting or uploading
+                        // books, authors, categories and digital
+                        // resources is a librarian/admin operation.
+                        // -----------------------------------------
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                CATALOGUE_PATHS
+                        ).hasAnyRole("LIBRARIAN", "ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.PUT,
+                                CATALOGUE_PATHS
+                        ).hasAnyRole("LIBRARIAN", "ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.PATCH,
+                                CATALOGUE_PATHS
+                        ).hasAnyRole("LIBRARIAN", "ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.DELETE,
+                                CATALOGUE_PATHS
+                        ).hasAnyRole("LIBRARIAN", "ADMIN")
+
+                        // -----------------------------------------
+                        // Per-user library data
+                        //
+                        // Favorites and reading history belong to
+                        // the authenticated user. They must never
+                        // be reachable anonymously, and the
+                        // controllers scope every query to the
+                        // JWT principal (no user id is accepted
+                        // from the request).
+                        // -----------------------------------------
+                        .requestMatchers(
+                                "/api/favorites/**",
+                                "/api/reading-history/**"
+                        ).hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
                         // Recommendation endpoints
                         .requestMatchers("/api/recommendations/**")
@@ -84,6 +169,12 @@ public class SecurityConfig {
                         .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
                         .requestMatchers("/api/rag/**")
+                        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
+
+                        // Conversational Research Assistant. Chats belong to
+                        // the signed-in reader; the controller takes the
+                        // user id from the JWT, never from the request.
+                        .requestMatchers("/api/conversations/**")
                         .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
                         // Admin endpoints

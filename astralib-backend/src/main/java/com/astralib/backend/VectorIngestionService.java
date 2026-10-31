@@ -53,6 +53,16 @@ public class VectorIngestionService {
     private String dataRoot;
 
 
+    /*
+     * Files uploaded through ResourceController are stored under this
+     * root and registered in digital_resources as "uploads/<file>".
+     * The resolver below must know about it, otherwise an uploaded
+     * EPUB is looked up under the data root and never found.
+     */
+    @Value("${astralib.upload-root:uploads}")
+    private String uploadRoot;
+
+
     // =========================================================
     // REPOSITORIES
     // =========================================================
@@ -86,6 +96,13 @@ public class VectorIngestionService {
     @Autowired
     private EpubTextExtractionService epubTextExtractionService;
 
+    /*
+     * Books arrive as EPUB, PDF or HTML. Extraction is delegated so every
+     * format feeds the same chunk -> embedding -> vector path.
+     */
+    @Autowired
+    private DocumentExtractionService documentExtractionService;
+
 
     private final ObjectMapper objectMapper =
             new ObjectMapper();
@@ -97,6 +114,14 @@ public class VectorIngestionService {
 
     private static final long EMBEDDING_MIN_INTERVAL_MS =
             700L;
+
+    /*
+     * The interval above protects the Gemini free-tier per-minute
+     * quota. The local sentence-transformers service has no such
+     * quota, so pacing it only makes indexing a whole book take hours.
+     */
+    @Value("${llm.embedding-provider:none}")
+    private String embeddingProvider;
 
     private static final int EMBEDDING_MAX_RETRIES =
             5;
@@ -1115,21 +1140,21 @@ public class VectorIngestionService {
 
             // =================================================
             // FIRST OPTION:
-            // REAL EPUB CONTENT
+            // REAL BOOK CONTENT (EPUB, PDF or HTML)
             // =================================================
 
-            Optional<DigitalResource> epubResource =
-                    findEpubResource(
+            Optional<DigitalResource> bookResource =
+                    findExtractableResource(
                             book.getId()
                     );
 
 
             if (
-                    epubResource.isPresent()
+                    bookResource.isPresent()
             ) {
 
                 DigitalResource resource =
-                        epubResource.get();
+                        bookResource.get();
 
 
                 // =============================================
@@ -1143,32 +1168,35 @@ public class VectorIngestionService {
                 // to another computer.
                 // =============================================
 
-                File epubFile =
+                File bookFile =
                         resolveDigitalResourceFile(
                                 resource.getFilePath()
                         );
 
 
                 if (
-                        epubFile != null
+                        bookFile != null
                                 &&
-                        epubFile.exists()
+                        bookFile.exists()
                                 &&
-                        epubFile.isFile()
+                        bookFile.isFile()
                 ) {
 
                     logger.info(
-                            "Using real EPUB content for book {}: {}",
+                            "Using real {} content for book {}: {}",
+                            documentExtractionService.labelOf(
+                                    bookFile.getName()
+                            ),
                             book.getId(),
-                            epubFile.getAbsolutePath()
+                            bookFile.getAbsolutePath()
                     );
 
 
-                    List<EpubTextExtractionService.EpubSection>
+                    List<ExtractedSection>
                             sections =
-                            epubTextExtractionService
+                            documentExtractionService
                                     .extractSections(
-                                            epubFile
+                                            bookFile
                                     );
 
 
@@ -1177,7 +1205,7 @@ public class VectorIngestionService {
 
 
                     for (
-                            EpubTextExtractionService.EpubSection section :
+                            ExtractedSection section :
                             sections
                     ) {
 
@@ -1209,6 +1237,18 @@ public class VectorIngestionService {
                                                         +
                                                 1
                                         );
+
+
+                        /*
+                         * vector_records.section is a varchar(255) column.
+                         * Some EPUBs use a whole sentence (or a converted
+                         * PDF filename) as the chapter heading, which makes
+                         * the insert fail and aborts the whole book.
+                         */
+                        sectionName =
+                                fitSectionName(
+                                        sectionName
+                                );
 
 
                         List<DocumentChunkerService.Chunk> chunks =
@@ -1365,7 +1405,7 @@ public class VectorIngestionService {
 
 
                                 logger.error(
-                                        "Failed EPUB chunk {} "
+                                        "Failed book chunk {} "
                                                 +
                                         "in section '{}' "
                                                 +
@@ -1401,10 +1441,30 @@ public class VectorIngestionService {
                     }
 
 
+                    if (
+                            chunksCreated == 0
+                    ) {
+
+                        throw new IllegalStateException(
+                                "No text could be extracted from the "
+                                        + documentExtractionService.labelOf(
+                                                bookFile.getName()
+                                        )
+                                        + " of book "
+                                        + book.getId()
+                                        + ". Sections found: "
+                                        + sections.size()
+                        );
+                    }
+
+
                     logger.info(
-                            "Real EPUB ingestion completed for book {}. "
+                            "Real {} ingestion completed for book {}. "
                                     +
                             "Sections: {}, chunks: {}",
+                            documentExtractionService.labelOf(
+                                    bookFile.getName()
+                            ),
                             book.getId(),
                             sections.size(),
                             chunksCreated
@@ -1452,15 +1512,22 @@ public class VectorIngestionService {
 
                 } else {
 
-                    logger.warn(
-                            "EPUB resource is registered but the file could not be found for book {}. Stored path: {}. Resolved path: {}",
-                            book.getId(),
-                            resource.getFilePath(),
-                            epubFile != null
-                                    ?
-                                    epubFile.getAbsolutePath()
-                                    :
-                                    "null"
+                    /*
+                     * A registered file that cannot be read is a real
+                     * failure. Falling back to metadata would store
+                     * meaningless vectors and report a broken book as
+                     * successfully indexed.
+                     */
+                    throw new IllegalStateException(
+                            "Book file for book "
+                                    + book.getId()
+                                    + " could not be found or is not readable. "
+                                    + "Stored path: "
+                                    + resource.getFilePath()
+                                    + ". Resolved path: "
+                                    + (bookFile != null
+                                    ? bookFile.getAbsolutePath()
+                                    : "null")
                     );
                 }
             }
@@ -1489,24 +1556,20 @@ public class VectorIngestionService {
 
             } else {
 
-                // =============================================
-                // FINAL FALLBACK:
-                // METADATA ONLY
-                // =============================================
-
-                logger.info(
-                        "No EPUB/full text for book {}. "
-                                +
-                        "Using metadata fallback.",
-                        book.getId()
+                /*
+                 * There is no readable book file and no stored full text,
+                 * so there is nothing meaningful to embed. Metadata-only
+                 * vectors used to be generated here; they made an
+                 * unreadable book look indexed while returning no real
+                 * answer. Fail instead.
+                 */
+                throw new IllegalStateException(
+                        "Book "
+                                + book.getId()
+                                + " has no readable EPUB/PDF/HTML resource and no "
+                                + "text_content. Refusing to create "
+                                + "metadata-only vectors."
                 );
-
-
-                text =
-                        textPreprocessingService
-                                .generateBookTextContent(
-                                        book
-                                );
             }
 
 
@@ -1516,49 +1579,10 @@ public class VectorIngestionService {
                     text.isBlank()
             ) {
 
-                logger.warn(
-                        "No searchable text available for book {}",
-                        book.getId()
+                throw new IllegalStateException(
+                        "No searchable text could be extracted for book "
+                                + book.getId()
                 );
-
-
-                stats.put(
-                        "documentsProcessed",
-                        documentsProcessed
-                );
-
-
-                stats.put(
-                        "chunksCreated",
-                        0
-                );
-
-
-                stats.put(
-                        "embeddingsGenerated",
-                        0
-                );
-
-
-                stats.put(
-                        "vectorsStored",
-                        0
-                );
-
-
-                stats.put(
-                        "duplicatesSkipped",
-                        0
-                );
-
-
-                stats.put(
-                        "failedRecords",
-                        1
-                );
-
-
-                return stats;
             }
 
 
@@ -1667,9 +1691,7 @@ public class VectorIngestionService {
 
         } catch (
                 DailyEmbeddingQuotaExceededException e
-        ) {
-
-            logger.warn(
+        ) {            logger.warn(
                     "Daily embedding quota exhausted while processing book {}. Existing vectors are preserved.",
                     book.getId()
             );
@@ -1679,6 +1701,9 @@ public class VectorIngestionService {
                     batchBuffer
             );
 
+
+            // Resume later from the chunks that are still missing.
+            throw e;
 
         } catch (Exception e) {
 
@@ -1691,6 +1716,23 @@ public class VectorIngestionService {
                     e.getMessage(),
                     e
             );
+
+
+            /*
+             * Structural failures (missing/unreadable EPUB, unreadable
+             * archive, database error) must reach the caller so they can
+             * be reported. Chunk-level failures are already counted in
+             * failedRecords and do not stop the run.
+             */
+            throw e instanceof IllegalStateException
+                    ? (IllegalStateException) e
+                    : new IllegalStateException(
+                            "Book ingestion failed for ID "
+                                    + book.getId()
+                                    + ": "
+                                    + e.getMessage(),
+                            e
+                    );
         }
 
 
@@ -1851,6 +1893,10 @@ public class VectorIngestionService {
     // =========================================================
 
     private void paceEmbeddingRequest() {
+
+        if ("local".equalsIgnoreCase(embeddingProvider)) {
+            return;
+        }
 
         long now =
                 System.currentTimeMillis();
@@ -2068,10 +2114,10 @@ public class VectorIngestionService {
 
 
     // =========================================================
-    // FIND EPUB RESOURCE FOR BOOK
+    // FIND A READABLE RESOURCE FOR BOOK
     // =========================================================
 
-    private Optional<DigitalResource> findEpubResource(
+    private Optional<DigitalResource> findExtractableResource(
             Long bookId
     ) {
 
@@ -2103,30 +2149,11 @@ public class VectorIngestionService {
                     resource.getFormat();
 
 
-            boolean epubByName =
-                    fileName != null
-                            &&
-                    fileName
-                            .toLowerCase(
-                                    Locale.ROOT
-                            )
-                            .endsWith(
-                                    ".epub"
-                            );
-
-
-            boolean epubByFormat =
-                    format != null
-                            &&
-                    format.equalsIgnoreCase(
-                            "application/epub+zip"
-                    );
-
-
             if (
-                    epubByName
-                            ||
-                    epubByFormat
+                    documentExtractionService.supports(
+                            fileName,
+                            format
+                    )
             ) {
 
                 return Optional.of(
@@ -2143,6 +2170,44 @@ public class VectorIngestionService {
     // =========================================================
     // BOOK DOCUMENT ID
     // =========================================================
+
+    private static String fitSectionName(
+            String name
+    ) {
+
+        final int maxLength = 250;
+
+
+        if (
+                name == null
+                        ||
+                name.isBlank()
+        ) {
+
+            return "Section";
+        }
+
+
+        String trimmed =
+                name.trim();
+
+
+        if (
+                trimmed.length()
+                        <=
+                maxLength
+        ) {
+
+            return trimmed;
+        }
+
+
+        return trimmed.substring(
+                0,
+                maxLength - 3
+        ) + "...";
+    }
+
 
     private String getBookDocumentId(
             Book book
@@ -2373,15 +2438,49 @@ public class VectorIngestionService {
                     );
 
 
-            return getDataRootPath()
-                    .resolve(
-                            relativeToData.replace(
-                                    "/",
-                                    File.separator
-                            )
-                    )
-                    .normalize()
-                    .toFile();
+            return resolveInsideRoot(
+                    getDataRootPath(),
+                    relativeToData,
+                    storedPath
+            );
+        }
+
+
+        // =====================================================
+        // 3b. OLD ABSOLUTE UPLOAD PATH
+        //
+        // Example:
+        //
+        // <machine>/AstraLib/astralib-backend/uploads/file.epub
+        //
+        // Keep only:
+        //
+        // file.epub
+        // =====================================================
+
+        String uploadsMarker =
+                "/uploads/";
+
+
+        int uploadsIndex =
+                lower.indexOf(
+                        uploadsMarker
+                );
+
+
+        if (
+                uploadsIndex >= 0
+        ) {
+
+            return resolveInsideRoot(
+                    getUploadRootPath(),
+                    normalizedText.substring(
+                            uploadsIndex
+                                    +
+                            uploadsMarker.length()
+                    ),
+                    storedPath
+            );
         }
 
 
@@ -2403,19 +2502,114 @@ public class VectorIngestionService {
 
 
         // =====================================================
+        // 4b. PATH STARTING WITH uploads/
+        //
+        // Files saved by ResourceController live under the upload
+        // root, not under the data root.
+        // =====================================================
+
+        if (
+                lower.startsWith(
+                        "uploads/"
+                )
+        ) {
+
+            return resolveInsideRoot(
+                    getUploadRootPath(),
+                    normalizedText.substring(
+                            "uploads/".length()
+                    ),
+                    storedPath
+            );
+        }
+
+
+        // =====================================================
         // 5. PREFERRED PORTABLE PATH
         //
         // fulltext/books/...
         // =====================================================
 
-        return getDataRootPath()
-                .resolve(
-                        normalizedText.replace(
-                                "/",
-                                File.separator
-                        )
+        return resolveInsideRoot(
+                getDataRootPath(),
+                normalizedText,
+                storedPath
+        );
+    }
+
+
+    // =========================================================
+    // UPLOAD ROOT
+    // =========================================================
+
+    private Path getUploadRootPath() {
+
+        return Paths.get(
+                        uploadRoot
                 )
-                .normalize()
-                .toFile();
+                .toAbsolutePath()
+                .normalize();
+    }
+
+
+    // =========================================================
+    // RESOLVE INSIDE A STORAGE ROOT
+    //
+    // Keeps stored paths from escaping the configured roots
+    // through ".." segments or an absolute path.
+    // =========================================================
+
+    private File resolveInsideRoot(
+            Path root,
+            String relativePath,
+            String storedPath
+    ) {
+
+        if (
+                relativePath == null
+                        ||
+                relativePath.isBlank()
+        ) {
+
+            throw new IllegalStateException(
+                    "Empty file path stored for digital resource: "
+                            + storedPath
+            );
+        }
+
+
+        Path resolved =
+                root
+                        .resolve(
+                                relativePath
+                                        .replace(
+                                                "\\",
+                                                "/"
+                                        )
+                                        .replace(
+                                                "/",
+                                                File.separator
+                                        )
+                        )
+                        .normalize();
+
+
+        if (
+                !resolved.startsWith(
+                        root
+                )
+        ) {
+
+            throw new IllegalStateException(
+                    "Refusing to resolve a digital resource path "
+                            + "outside its storage root. Root: "
+                            + root
+                            + " Stored path: "
+                            + storedPath
+            );
+        }
+
+
+        return resolved.toFile();
     }
 }

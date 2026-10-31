@@ -15,6 +15,8 @@ import {
   Hash,
 } from 'lucide-react';
 import { Badge, LoadingSpinner, EmptyState } from '../../components/common/Components';
+import { BookCover } from '../../components/library/BookCover';
+import { LevelChip } from '../../components/library/LevelChip';
 
 export function ResourceDetailPage() {
   const { id } = useParams();
@@ -22,6 +24,7 @@ export function ResourceDetailPage() {
 
   const [book, setBook] = useState(null);
   const [relatedBooks, setRelatedBooks] = useState([]);
+  const [level, setLevel] = useState('');
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -42,6 +45,16 @@ export function ResourceDetailPage() {
           }
         } catch (favErr) {
           console.warn('Could not check favorites:', favErr);
+        }
+
+        // Difficulty label, when the catalogue has curated one.
+        try {
+          const placements = await api.pathways.forBook(id);
+          if (Array.isArray(placements) && placements.length > 0) {
+            setLevel(placements[0].level || '');
+          }
+        } catch (placeErr) {
+          console.warn('Could not load the difficulty label:', placeErr);
         }
 
         // Fetch related books by category
@@ -65,6 +78,71 @@ export function ResourceDetailPage() {
 
     loadBookData();
   }, [id]);
+
+  /*
+   * A catalogued title we hold no licensed file for cannot be opened.
+   * Say so plainly instead of sending the reader to an empty viewer.
+   */
+  const storedFiles = book?.digitalResources || [];
+  const primaryResource = storedFiles[0] || null;
+  const readable = storedFiles.length > 0;
+
+  /*
+   * The action has to match the file we actually hold. EPUB opens in the
+   * document reader; PDF and HTML editions are opened in the browser rather
+   * than pushed through the EPUB viewer.
+   */
+  const fileFormat = (() => {
+    if (!primaryResource) {
+      return '';
+    }
+
+    const name = (primaryResource.fileName || '').toLowerCase();
+    const format = (primaryResource.format || '').toLowerCase();
+
+    if (name.endsWith('.pdf') || format === 'application/pdf') {
+      return 'PDF';
+    }
+
+    if (name.endsWith('.html') || name.endsWith('.htm') || format === 'text/html') {
+      return 'HTML';
+    }
+
+    if (name.endsWith('.epub') || format === 'application/epub+zip') {
+      return 'EPUB';
+    }
+
+    return 'FILE';
+  })();
+
+  const openStoredFile = async () => {
+    if (!primaryResource) {
+      return;
+    }
+
+    /*
+     * The file endpoint requires the Authorization header, so the bytes are
+     * fetched here and handed to a blob URL that the browser's own PDF or
+     * HTML viewer opens. The catalogue stays one Back press away.
+     */
+    try {
+      const buffer = await api.resources.getFileArrayBuffer(primaryResource.id);
+      const mime =
+        fileFormat === 'PDF'
+          ? 'application/pdf'
+          : fileFormat === 'HTML'
+          ? 'text/html'
+          : 'application/octet-stream';
+      const url = URL.createObjectURL(new Blob([buffer], { type: mime }));
+
+      window.location.href = url;
+
+      // The viewer has the document; the object URL can be released later.
+      window.setTimeout(() => URL.revokeObjectURL(url), 5 * 60 * 1000);
+    } catch (err) {
+      console.error('Could not open the stored file:', err);
+    }
+  };
 
   const handleToggleFavorite = async () => {
     try {
@@ -122,6 +200,7 @@ export function ResourceDetailPage() {
           <div>
             <div
               style={{
+                position: 'relative',
                 height: '300px',
                 backgroundColor: 'var(--bg-subtle)',
                 border: '1px solid var(--border-default)',
@@ -133,14 +212,7 @@ export function ResourceDetailPage() {
                 marginBottom: '1.25rem',
               }}
             >
-              {book.coverImage ? (
-                <img src={book.coverImage} alt={book.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              ) : (
-                <div style={{ textAlign: 'center', color: 'var(--secondary-slate)', padding: '1rem' }}>
-                  <BookOpen size={48} strokeWidth={1.5} />
-                  <div style={{ fontSize: '0.78rem', marginTop: '0.5rem', fontWeight: 600 }}>ASTRABOOK RECORD</div>
-                </div>
-              )}
+              <BookCover book={book} />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
@@ -154,14 +226,37 @@ export function ResourceDetailPage() {
                 <span>{isFavorite ? 'Saved in Favorites' : 'Save to Favorites'}</span>
               </button>
 
-              <Link
-                to={`/reader/${book.id}`}
-                className="btn btn-primary"
-                style={{ width: '100%' }}
-              >
-                <BookOpen size={16} />
-                <span>Open in Document Reader</span>
-              </Link>
+              {readable && fileFormat === 'EPUB' ? (
+                <Link
+                  to={`/reader/${book.id}`}
+                  className="btn btn-primary"
+                  style={{ width: '100%' }}
+                >
+                  <BookOpen size={16} />
+                  <span>Open in Document Reader</span>
+                </Link>
+              ) : readable ? (
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  style={{ width: '100%' }}
+                  onClick={openStoredFile}
+                >
+                  <FileText size={16} />
+                  <span>Open {fileFormat} Edition</span>
+                </button>
+              ) : (
+                <div
+                  className="banner banner-info"
+                  style={{ margin: 0, fontSize: '0.82rem', lineHeight: 1.5 }}
+                >
+                  <FileText size={16} style={{ flexShrink: 0 }} />
+                  <span>
+                    Not available for reading yet. This title is catalogued and levelled, but
+                    AstraLib holds no licensed digital edition, so it is not indexed for search.
+                  </span>
+                </div>
+              )}
 
               <Link
                 to={`/research?q=${encodeURIComponent(`What does ${book.title} discuss?`)}`}
@@ -178,6 +273,9 @@ export function ResourceDetailPage() {
           <div>
             <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
               <Badge variant="primary">{book.category?.name || 'Monograph'}</Badge>
+              <LevelChip level={level} />
+              {readable && <Badge variant="default">{fileFormat}</Badge>}
+              {!readable && <Badge variant="warning">Not available yet</Badge>}
               {book.language && <Badge variant="default">{book.language.toUpperCase()}</Badge>}
               {book.publicationYear && <Badge variant="gold">Pub: {book.publicationYear}</Badge>}
             </div>
@@ -214,6 +312,28 @@ export function ResourceDetailPage() {
                     <td style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Category</td>
                     <td>{book.category?.name || 'General Academic'}</td>
                   </tr>
+                  {book.edition && (
+                    <tr>
+                      <td style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Edition</td>
+                      <td>{book.edition}</td>
+                    </tr>
+                  )}
+                  {book.licence && (
+                    <tr>
+                      <td style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Rights</td>
+                      <td>{book.licence}</td>
+                    </tr>
+                  )}
+                  {book.sourceUrl && (
+                    <tr>
+                      <td style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Source</td>
+                      <td>
+                        <a href={book.sourceUrl} target="_blank" rel="noreferrer">
+                          {book.sourceUrl}
+                        </a>
+                      </td>
+                    </tr>
+                  )}
                   {book.author?.bio && (
                     <tr>
                       <td style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>Author Biography</td>

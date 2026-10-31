@@ -12,11 +12,13 @@ public class BookController {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
     private final CategoryRepository categoryRepository;
+    private final PathwayBookRepository pathwayBookRepository;
 
-    public BookController(BookRepository bookRepository, AuthorRepository authorRepository, CategoryRepository categoryRepository) {
+    public BookController(BookRepository bookRepository, AuthorRepository authorRepository, CategoryRepository categoryRepository, PathwayBookRepository pathwayBookRepository) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
         this.categoryRepository = categoryRepository;
+        this.pathwayBookRepository = pathwayBookRepository;
     }
 
     @GetMapping("/api/books")
@@ -24,8 +26,47 @@ public class BookController {
                                       @RequestParam(required = false) String author,
                                       @RequestParam(required = false) String category,
                                       @RequestParam(required = false) Integer year,
-                                      @RequestParam(required = false) String keyword) {
-        List<Book> books = bookRepository.findAll();
+                                      @RequestParam(required = false) String keyword,
+                                      @RequestParam(required = false) String genre,
+                                      @RequestParam(required = false) String subject,
+                                      @RequestParam(required = false) String level,
+                                      @RequestParam(required = false) String pathway,
+                                      @RequestParam(required = false) Boolean resourceOnly,
+                                      @RequestParam(required = false) Boolean catalogueOnly,
+                                      @RequestParam(required = false) String format) {
+
+        /*
+         * The public library catalogue asks for catalogueOnly=true: the
+         * published collection, i.e. books with a readable file plus the
+         * curated entries that are described and levelled but not yet
+         * available to read. resourceOnly still means "readable now".
+         */
+        List<Book> books;
+
+        if (Boolean.TRUE.equals(catalogueOnly)) {
+            books = bookRepository.findCatalogueBooks();
+        } else if (Boolean.TRUE.equals(resourceOnly)) {
+            books = bookRepository.findWithStoredResource();
+        } else {
+            books = bookRepository.findAll();
+        }
+
+        /*
+         * Level and pathway filters come from pathway membership.
+         * Load the memberships once instead of querying per book.
+         */
+        Map<Long, List<PathwayBook>> memberships = new HashMap<>();
+
+        if (level != null || pathway != null) {
+            for (PathwayBook membership : pathwayBookRepository.findAll()) {
+                memberships
+                        .computeIfAbsent(membership.getBook().getId(), k -> new ArrayList<>())
+                        .add(membership);
+            }
+        }
+
+        String wantedLevel = level == null ? null : level.trim().toLowerCase();
+        String wantedPathway = pathway == null ? null : pathway.trim().toLowerCase();
 
         List<Book> filtered = new ArrayList<>();
         for (Book b : books) {
@@ -33,6 +74,50 @@ public class BookController {
             if (author != null && (b.getAuthor() == null || !b.getAuthor().getName().toLowerCase().contains(author.toLowerCase()))) continue;
             if (category != null && (b.getCategory() == null || !b.getCategory().getName().toLowerCase().contains(category.toLowerCase()))) continue;
             if (year != null && (b.getPublicationYear() == null || !b.getPublicationYear().equals(year))) continue;
+            if (genre != null) {
+                /*
+                 * Genre accepts a comma-separated list so a catalogue
+                 * tile can cover closely related labels (for example
+                 * "Science Fiction, Early Science Fiction").
+                 */
+                List<String> wanted = Arrays.stream(genre.split(","))
+                        .map(String::trim)
+                        .filter(value -> !value.isEmpty())
+                        .map(value -> value.toLowerCase())
+                        .toList();
+
+                boolean matches = wanted.isEmpty() || b.getGenres().stream()
+                        .anyMatch(value -> value != null && wanted.stream()
+                                .anyMatch(g -> value.toLowerCase().contains(g)));
+                if (!matches) continue;
+            }
+
+            if (format != null) {
+                String f = format.trim().toLowerCase();
+                boolean matches = (b.getResourceType() != null && b.getResourceType().toLowerCase().equals(f))
+                        || b.getDigitalResources().stream()
+                                .anyMatch(r -> r.getFormat() != null && r.getFormat().toLowerCase().equals(f));
+                if (!matches) continue;
+            }
+            if (subject != null) {
+                String s = subject.toLowerCase();
+                boolean matches = b.getSubjects().stream()
+                        .anyMatch(value -> value != null && value.toLowerCase().contains(s));
+                if (!matches) continue;
+            }
+            if (wantedLevel != null || wantedPathway != null) {
+                List<PathwayBook> bookMemberships = memberships.get(b.getId());
+                if (bookMemberships == null || bookMemberships.isEmpty()) continue;
+
+                boolean matches = bookMemberships.stream().anyMatch(m -> {
+                    boolean levelOk = wantedLevel == null
+                            || (m.getLevel() != null && m.getLevel().toLowerCase().equals(wantedLevel));
+                    boolean pathwayOk = wantedPathway == null
+                            || (m.getPathway().getSlug() != null && m.getPathway().getSlug().toLowerCase().equals(wantedPathway));
+                    return levelOk && pathwayOk;
+                });
+                if (!matches) continue;
+            }
             if (keyword != null) {
                 String k = keyword.toLowerCase();
                 boolean matches = (b.getTitle() != null && b.getTitle().toLowerCase().contains(k))

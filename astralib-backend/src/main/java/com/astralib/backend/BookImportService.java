@@ -46,13 +46,19 @@ public class BookImportService {
     @Autowired
     private DigitalResourceRepository digitalResourceRepository;
 
+    @Autowired
+    private BookIngestionJobService bookIngestionJobService;
+
+    @Autowired
+    private DocumentExtractionService documentExtractionService;
+
 
     // =========================================================
     // IMPORT EPUB BOOK
     // =========================================================
 
     public Map<String, Object> importEpub(
-            MultipartFile epubFile,
+            MultipartFile bookFile,
             String resourceId,
             String title,
             String authorName,
@@ -70,9 +76,9 @@ public class BookImportService {
         // VALIDATION
         // =====================================================
 
-        if (epubFile == null || epubFile.isEmpty()) {
+        if (bookFile == null || bookFile.isEmpty()) {
             throw new IllegalArgumentException(
-                    "EPUB file is required."
+                    "A book file (EPUB, PDF or HTML) is required."
             );
         }
 
@@ -89,18 +95,26 @@ public class BookImportService {
         }
 
         String originalFileName =
-                epubFile.getOriginalFilename();
+                bookFile.getOriginalFilename();
+
+        /*
+         * EPUB, PDF and HTML all feed the same extraction pipeline.
+         * Anything else is rejected rather than stored unindexable.
+         */
+        String extension =
+                documentExtractionService.extensionOf(
+                        originalFileName
+                );
 
         if (
-                originalFileName == null
-                        ||
-                !originalFileName
-                        .toLowerCase(Locale.ROOT)
-                        .endsWith(".epub")
+                !documentExtractionService.supports(
+                        originalFileName,
+                        bookFile.getContentType()
+                )
         ) {
 
             throw new IllegalArgumentException(
-                    "Only EPUB files are supported."
+                    "Only EPUB, PDF and HTML files are supported."
             );
         }
 
@@ -181,14 +195,37 @@ public class BookImportService {
 
             } else {
 
-                book =
-                        new Book();
+                /*
+                 * Third fallback: a curated catalogue entry for the same
+                 * title that has no file yet. Uploading the licensed EPUB
+                 * for such a book must attach the file to that record
+                 * instead of creating a second catalogue entry for it.
+                 */
+                Book adoptable =
+                        findCataloguedEntryWithoutFile(
+                                title,
+                                authorName
+                        );
 
-                book.setResourceId(
-                        resourceId
-                );
+                if (adoptable != null) {
 
-                bookCreated = true;
+                    book = adoptable;
+
+                    book.setResourceId(
+                            resourceId
+                    );
+
+                } else {
+
+                    book =
+                            new Book();
+
+                    book.setResourceId(
+                            resourceId
+                    );
+
+                    bookCreated = true;
+                }
             }
         }
 
@@ -197,10 +234,16 @@ public class BookImportService {
         // AUTHOR
         // =====================================================
 
+        /*
+         * On re-import, a blank author/category means "keep the existing
+         * value" rather than "replace it with Unknown Author / General".
+         */
         Author author =
-                findOrCreateAuthor(
-                        authorName
-                );
+                isBlank(authorName)
+                        &&
+                book.getAuthor() != null
+                        ? book.getAuthor()
+                        : findOrCreateAuthor(authorName);
 
 
         // =====================================================
@@ -208,9 +251,11 @@ public class BookImportService {
         // =====================================================
 
         Category category =
-                findOrCreateCategory(
-                        categoryName
-                );
+                isBlank(categoryName)
+                        &&
+                book.getCategory() != null
+                        ? book.getCategory()
+                        : findOrCreateCategory(categoryName);
 
 
         // =====================================================
@@ -221,31 +266,39 @@ public class BookImportService {
                 title
         );
 
-        book.setDescription(
-                cleanNullable(description)
-        );
+        if (!isBlank(description)) {
+            book.setDescription(description.trim());
+        }
 
-        book.setIsbn(
-                isbn
-        );
+        if (isbn != null) {
+            book.setIsbn(isbn);
+        }
 
-        book.setPublicationYear(
-                publicationYear
-        );
+        if (publicationYear != null) {
+            book.setPublicationYear(publicationYear);
+        }
 
-        book.setPublisher(
-                cleanNullable(publisher)
-        );
+        if (!isBlank(publisher)) {
+            book.setPublisher(publisher.trim());
+        }
 
-        book.setLanguage(
-                language == null || language.isBlank()
-                        ? "English"
-                        : language.trim()
-        );
+        if (!isBlank(language)) {
+            book.setLanguage(language.trim());
+        } else if (isBlank(book.getLanguage())) {
+            book.setLanguage("English");
+        }
 
-        book.setCoverImage(
-                cleanNullable(coverImage)
-        );
+        if (!isBlank(coverImage)) {
+            book.setCoverImage(coverImage.trim());
+        }
+
+        if (!isBlank(subjectsText)) {
+            book.setSubjects(
+                    parseSubjects(
+                            subjectsText
+                    )
+            );
+        }
 
         book.setResourceType(
                 "EPUB"
@@ -257,12 +310,6 @@ public class BookImportService {
 
         book.setCategory(
                 category
-        );
-
-        book.setSubjects(
-                parseSubjects(
-                        subjectsText
-                )
         );
 
 
@@ -299,6 +346,16 @@ public class BookImportService {
                 );
 
 
+        /*
+         * "htm" is stored as "html" so the extension alone always
+         * identifies the extractor.
+         */
+        String storedExtension =
+                "htm".equals(extension)
+                        ? "html"
+                        : extension;
+
+
         Path bookDirectory =
                 getDataRootPath()
                         .resolve(
@@ -323,7 +380,7 @@ public class BookImportService {
         // =====================================================
 
         String storedFileName =
-                slug + ".epub";
+                slug + "." + storedExtension;
 
 
         Path destination =
@@ -344,16 +401,38 @@ public class BookImportService {
         ) {
 
             throw new IllegalStateException(
-                    "Invalid EPUB destination path."
+                    "Invalid book destination path."
             );
         }
 
 
-        Files.copy(
-                epubFile.getInputStream(),
-                destination,
-                StandardCopyOption.REPLACE_EXISTING
-        );
+        /*
+         * Skip the copy when the identical file is already stored.
+         *
+         * On Windows the ingestion thread keeps the EPUB open while it
+         * extracts chapters, and replacing a file that is being read
+         * fails with a sharing violation. Re-importing the same book
+         * therefore used to fail with HTTP 500 while indexing was in
+         * progress. Identical size means the same uploaded file.
+         */
+        boolean alreadyStored =
+                Files.isRegularFile(
+                        destination
+                )
+                        &&
+                Files.size(
+                        destination
+                ) == bookFile.getSize();
+
+
+        if (!alreadyStored) {
+
+            Files.copy(
+                    bookFile.getInputStream(),
+                    destination,
+                    StandardCopyOption.REPLACE_EXISTING
+            );
+        }
 
 
         // =====================================================
@@ -387,7 +466,7 @@ public class BookImportService {
                         );
 
 
-        DigitalResource epubResource =
+        DigitalResource bookResource =
                 null;
 
 
@@ -401,32 +480,20 @@ public class BookImportService {
             }
 
 
-            boolean epubByFileName =
-                    resource.getFileName() != null
-                            &&
-                    resource
-                            .getFileName()
-                            .toLowerCase(Locale.ROOT)
-                            .endsWith(".epub");
-
-
-            boolean epubByFormat =
-                    resource.getFormat() != null
-                            &&
-                    resource
-                            .getFormat()
-                            .equalsIgnoreCase(
-                                    "application/epub+zip"
-                            );
-
-
+            /*
+             * Re-importing the same edition updates its own resource row.
+             * A different format of the same book (PDF after EPUB, say)
+             * gets its own row instead of replacing one we still hold.
+             */
             if (
-                    epubByFileName
-                            ||
-                    epubByFormat
+                    storedExtension.equals(
+                            documentExtractionService.extensionOf(
+                                    resource.getFileName()
+                            )
+                    )
             ) {
 
-                epubResource =
+                bookResource =
                         resource;
 
                 break;
@@ -438,9 +505,9 @@ public class BookImportService {
                 false;
 
 
-        if (epubResource == null) {
+        if (bookResource == null) {
 
-            epubResource =
+            bookResource =
                     new DigitalResource();
 
             resourceCreated =
@@ -448,32 +515,50 @@ public class BookImportService {
         }
 
 
-        epubResource.setBook(
+        bookResource.setBook(
                 book
         );
 
-        epubResource.setResourceType(
+        bookResource.setResourceType(
                 "BOOK"
         );
 
-        epubResource.setFileName(
+        bookResource.setFileName(
                 storedFileName
         );
 
-        epubResource.setFilePath(
+        bookResource.setFilePath(
                 portablePath
         );
 
-        epubResource.setFormat(
-                "application/epub+zip"
+        bookResource.setFormat(
+                documentExtractionService.formatOf(
+                        storedFileName
+                )
         );
 
 
-        epubResource =
+        bookResource =
                 digitalResourceRepository
                         .save(
-                                epubResource
+                                bookResource
                         );
+
+
+        // =====================================================
+        // AUTOMATIC EMBEDDING
+        //
+        // The existing per-book ingestion is started in the
+        // background once the book and its file are safely saved.
+        // It never deletes existing vectors and never runs the
+        // destructive full re-ingestion.
+        // =====================================================
+
+        Map<String, Object> ingestion =
+                bookIngestionJobService.submit(
+                        book.getId(),
+                        book.getTitle()
+                );
 
 
         // =====================================================
@@ -530,17 +615,17 @@ public class BookImportService {
 
         result.put(
                 "digitalResourceId",
-                epubResource.getId()
+                bookResource.getId()
         );
 
         result.put(
                 "fileName",
-                epubResource.getFileName()
+                bookResource.getFileName()
         );
 
         result.put(
                 "filePath",
-                epubResource.getFilePath()
+                bookResource.getFilePath()
         );
 
         result.put(
@@ -551,9 +636,23 @@ public class BookImportService {
         );
 
         result.put(
+                "ingestion",
+                ingestion
+        );
+
+
+        result.put(
+                "ingestionJobId",
+                ingestion.get("jobId")
+        );
+
+
+        result.put(
                 "nextStep",
-                "Run vector ingestion for book ID "
-                        + book.getId()
+                "Embedding started automatically. Poll "
+                        + "/api/admin/books/import-status/"
+                        + ingestion.get("jobId")
+                        + " for progress."
         );
 
 
@@ -777,6 +876,71 @@ public class BookImportService {
     // =========================================================
     // NULLABLE STRING CLEANUP
     // =========================================================
+
+    private static boolean isBlank(
+            String value
+    ) {
+
+        return value == null || value.isBlank();
+    }
+
+    /**
+     * A metadata-only catalogue entry with the same title (and, when one
+     * is supplied, the same author) and no stored file. The query only
+     * returns records without a resource, so two books can never end up
+     * sharing one EPUB.
+     */
+    private Book findCataloguedEntryWithoutFile(
+            String title,
+            String authorName
+    ) {
+
+        if (isBlank(title)) {
+            return null;
+        }
+
+        String wantedTitle =
+                normalizeTitle(title);
+
+        for (Book candidate : bookRepository.findWithoutStoredResource()) {
+
+            if (!normalizeTitle(candidate.getTitle()).equals(wantedTitle)) {
+                continue;
+            }
+
+            if (!isBlank(authorName) && candidate.getAuthor() != null) {
+
+                String wantedAuthor =
+                        normalizeTitle(authorName);
+
+                String candidateAuthor =
+                        normalizeTitle(candidate.getAuthor().getName());
+
+                if (!candidateAuthor.contains(wantedAuthor)
+                        && !wantedAuthor.contains(candidateAuthor)) {
+                    continue;
+                }
+            }
+
+            return candidate;
+        }
+
+        return null;
+    }
+
+    private static String normalizeTitle(
+            String value
+    ) {
+
+        if (value == null) {
+            return "";
+        }
+
+        return value.toLowerCase(java.util.Locale.ROOT)
+                .replaceAll("[^a-z0-9]+", " ")
+                .trim();
+    }
+
 
     private String cleanNullable(
             String value

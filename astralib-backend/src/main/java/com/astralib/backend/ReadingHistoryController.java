@@ -40,7 +40,12 @@ public class ReadingHistoryController {
             Authentication authentication) {
 
         Long userId =
-                (Long) authentication.getPrincipal();
+                CurrentUser.id(authentication);
+
+        if (userId == null) {
+
+            return CurrentUser.unauthorizedResponse();
+        }
 
         List<ReadingHistory> events =
                 historyRepository
@@ -115,7 +120,12 @@ public class ReadingHistoryController {
             Authentication authentication) {
 
         Long userId =
-                (Long) authentication.getPrincipal();
+                CurrentUser.id(authentication);
+
+        if (userId == null) {
+
+            return CurrentUser.unauthorizedResponse();
+        }
 
         Object bookIdValue =
                 request.get("bookId");
@@ -333,7 +343,12 @@ public class ReadingHistoryController {
             Authentication authentication) {
 
         Long userId =
-                (Long) authentication.getPrincipal();
+                CurrentUser.id(authentication);
+
+        if (userId == null) {
+
+            return CurrentUser.unauthorizedResponse();
+        }
 
         Optional<ReadingHistory> historyOpt =
                 historyRepository

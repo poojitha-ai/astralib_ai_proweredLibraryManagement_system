@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "reviewed": "2026-10-31",
+  "note": "Manually reviewed against the indexed collection. Expectations name documents that genuinely contain the answer, not merely passages that mention the words. Grades: 2 = directly answers the question, 1 = relevant supporting material. Unsupported queries have no relevant document in AstraLib at all.",
+  "supported": [
+    {
+      "id": "oop-simple",
+      "query": "explain oop in simple language",
+      "category": "concept",
+      "expected": {
+        "WIKIBOOKS-JAVA-OEW": 2,
+        "JJJ-JAVA-3E-OEW": 2,
+        "THINK-JAVA-2E-OEW": 2,
+        "THE-JAVASCRIPT-WAY-OEW": 1,
+        "PROGRAMMING-FUNDAMENTALS-CPP-OEW": 1
+      },
+      "note": "Java texts carry the canonical class/object/inheritance explanation, and the JavaScript Way opens with the textbook definition of OOP. Rust's section defines OOP but then argues Rust has no classical OOP, so it is supporting only."
+    },
+    {
+      "id": "inheritance-java",
+      "query": "what is inheritance in java",
+      "category": "concept",
+      "expected": {
+        "WIKIBOOKS-JAVA-OEW": 2,
+        "JJJ-JAVA-3E-OEW": 2,
+        "THINK-JAVA-2E-OEW": 2,
+        "PROGRAMMING-FUNDAMENTALS-CPP-OEW": 1
+      }
+    },
+    {
+      "id": "pointers",
+      "query": "explain pointers with examples",
+      "category": "concept",
+      "expected": {
+        "MODERN-C-OEW": 2,
+        "WIKIBOOKS-C-OEW": 2,
+        "THINK-CPP-OEW": 1,
+        "PROGRAMMING-FUNDAMENTALS-CPP-OEW": 1,
+        "OSC-9TH-EDITION": 1
+      }
+    },
+    {
+      "id": "recursion",
+      "query": "how does recursion work",
+      "category": "concept",
+      "expected": {
+        "THINK-CPP-OEW": 2,
+        "THINK-PYTHON-2E": 2,
+        "THINK-JAVA-2E-OEW": 2,
+        "JJJ-JAVA-3E-OEW": 2,
+        "WIKIBOOKS-C-OEW": 2
+      }
+    },
+    {
+      "id": "deadlock",
+      "query": "what is a deadlock in an operating system",
+      "category": "concept",
+      "expected": {
+        "OSC-9TH-EDITION": 2
+      }
+    },
+    {
+      "id": "paging",
+      "query": "how does virtual memory paging work",
+      "category": "concept",
+      "expected": {
+        "OSC-9TH-EDITION": 2
+      }
+    },
+    {
+      "id": "python-loop",
+      "query": "how do i write a for loop in python",
+      "category": "concept",
+      "expected": {
+        "PY4E-PYTHON-3": 2,
+        "THINK-PYTHON-2E": 2,
+        "PYTHON-MASTERY-OEW": 1
+      }
+    },
+    {
+      "id": "js-closures",
+      "query": "explain closures in javascript",
+      "category": "concept",
+      "expected": {
+        "ELOQUENTJS-3E": 2,
+        "THE-JAVASCRIPT-WAY-OEW": 2
+      }
+    },
+    {
+      "id": "rust-ownership",
+      "query": "how does rust ownership and borrowing work",
+      "category": "concept",
+      "expected": {
+        "THE-RUST-PROGRAMMING-LANGUAGE-OEW": 2
+      }
+    },
+    {
+      "id": "git-branch",
+      "query": "how do i create a branch in git",
+      "category": "concept",
+      "expected": {
+        "PROGIT-2E": 2
+      }
+    },
+    {
+      "id": "linked-list",
+      "query": "what is a linked list and how is it stored in memory",
+      "category": "concept",
+      "expected": {
+        "PROGRAMMING-FUNDAMENTALS-CPP-OEW": 2,
+        "JJJ-JAVA-3E-OEW": 1,
+        "THINK-CPP-OEW": 1
+      }
+    },
+    {
+      "id": "tcp-udp",
+      "query": "what is the difference between tcp and udp",
+      "category": "concept",
+      "expected": {
+        "OSC-9TH-EDITION": 1
+      },
+      "coverage_gap": "networking",
+      "note": "The collection has no dedicated computer-networking textbook. Only a partial OS chapter exists, so a grade-2 answer is not possible and loose web-server passages must not be presented as networking evidence."
+    },
+    {
+      "id": "art-of-war",
+      "query": "what does sun tzu say about deception in war",
+      "category": "literature",
+      "expected": {
+        "GUTENBERG-132": 2
+      }
+    },
+    {
+      "id": "pride-prejudice",
+      "query": "why does elizabeth bennet dislike mr darcy",
+      "category": "literature",
+      "expected": {
+        "GUTENBERG-42671": 2
+      }
+    },
+    {
+      "id": "hound",
+      "query": "how does sherlock holmes solve the case of the hound of the baskervilles",
+      "category": "literature",
+      "expected": {
+        "GUTENBERG-2852": 2
+      }
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "easy-python",
+      "query": "find an easy python book",
+      "want_level": "BEGINNER",
+      "want_language": "Python",
+      "note": "First recommendation must be a readable beginner Python book; if none exists, a readable intermediate one (with the level stated) before an unavailable beginner title, and an advanced book only with an explicit mismatch explanation."
+    },
+    {
+      "id": "easy-anything",
+      "query": "new book to read and easy to understand",
+      "want_level": "BEGINNER",
+      "note": "Every book offered in the first three slots should be readable and beginner level."
+    },
+    {
+      "id": "advanced-programming",
+      "query": "recommend an advanced programming book",
+      "want_level": "ADVANCED",
+      "note": "Advanced programming titles, readable ones first; non-programming titles must not be presented as advanced programming."
+    }
+  ],
+  "unsupported": [
+    "explain wittgenstein's philosophy of language",
+    "explain quantum mechanics and wave functions",
+    "discuss the history of the roman empire",
+    "what is the capital of peru",
+    "explain the rules of cricket"
+  ]
+}

@@ -1,0 +1,128 @@
+{
+ "generated": "2026-10-30 19:50 UTC",
+ "api": "http://127.0.0.1:8082",
+ "top_k": 5,
+ "accepted_rank": 3,
+ "checks": [
+  {
+   "query": "99 Bottles of Beer song printed by a loop in Java",
+   "book": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+   "engine": "semantic",
+   "top_hit": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+   "score": 0.617,
+   "rank": 1,
+   "snippet": "gets smaller by one in each verse, until the last verse: No bottles of beer on the wall, no bottles of beer, ya\u2019 can\u2019t take one down, ya\u2019 can\u2019t pass it around, ",
+   "verified": true
+  },
+  {
+   "query": "OneRowNim game and its pile of sticks",
+   "book": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+   "engine": "semantic",
+   "top_hit": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+   "score": 0.671,
+   "rank": 1,
+   "snippet": "t starting with twenty one sticks is quite common. This game is sometimes referred to as the game of \u201dNim\u201d, but there is a similar game involving multiple rows ",
+   "verified": true
+  },
+  {
+   "query": "reflection lets a program inspect a class and its methods at runtime",
+   "book": "Java Programming",
+   "engine": "semantic",
+   "top_hit": "Java Programming",
+   "score": 0.766,
+   "rank": 1,
+   "snippet": "Reflection is a new concept in Java, and did not exist in classical compiled languages like C, and C++. The idea is to discover an object's attributes and its m",
+   "verified": true
+  },
+  {
+   "query": "generators and yield produce values lazily instead of a list",
+   "book": "Advanced Python Mastery",
+   "engine": "semantic",
+   "top_hit": "Advanced Python Mastery",
+   "score": 0.616,
+   "rank": 1,
+   "snippet": "(CC BY-SA 4.0), David Beazley, https://www.dabeaz.com, 8- 33 Managed Generators \u2022 Observation: A generator function can not execute solely by itself. It must be",
+   "verified": true
+  },
+  {
+   "query": "declare a pointer to an integer and take the address of a variable",
+   "book": "C Programming",
+   "engine": "semantic",
+   "top_hit": "C Programming",
+   "score": 0.666,
+   "rank": 1,
+   "snippet": "So far we've discussed how to declare pointers. The process of assigning values to pointers is next. To assign the address of a variable to a pointer, the & or ",
+   "verified": true
+  },
+  {
+   "query": "the _BitInt(N) type provides bit-precise integers in C23",
+   "book": "Modern C (C23 Edition)",
+   "engine": "semantic",
+   "top_hit": "Modern C (C23 Edition)",
+   "score": 0.739,
+   "rank": 1,
+   "snippet": "f bits C23 introduced bit-precise inte- ger types. They are specified with the _BitInt keyword: unsigned _BitInt(3) u3 = 7wbu; // values 0, ..., 3, ... ,7 signe",
+   "verified": true
+  },
+  {
+   "query": "hierarchy chart for program planning and design",
+   "book": "Programming Fundamentals: A Modular Structured Approach Using C++",
+   "engine": "semantic",
+   "top_hit": "Programming Fundamentals: A Modular Structured Approach Using C++",
+   "score": 0.75,
+   "rank": 1,
+   "snippet": "se above are calling those on the next level down. Hierarchy charts are created by the programmer to help document a program. They convey the big picture of the",
+   "verified": true
+  },
+  {
+   "query": "Deck structure holding an array of cards in C++",
+   "book": "Think C++: How to Think Like a Computer Scientist",
+   "engine": "semantic",
+   "top_hit": "Think C++: How to Think Like a Computer Scientist",
+   "score": 0.702,
+   "rank": 1,
+   "snippet": "how to traverse the deck and output each card. 13.4 Another constructor Now that we have a Deck object, it would be useful to initialize the cards in it. From t",
+   "verified": true
+  },
+  {
+   "query": "cancel the default behavior of an event with preventDefault",
+   "book": "The JavaScript Way",
+   "engine": "semantic",
+   "top_hit": "The JavaScript Way",
+   "score": 0.652,
+   "rank": 1,
+   "snippet": "Most of the user actions on a page are associated to a default behavior. Clicking on a link navigates to the link target, clicking anywhere with the right mouse",
+   "verified": true
+  },
+  {
+   "query": "ownership and borrowing of values in Rust prevents data races",
+   "book": "The Rust Programming Language",
+   "engine": "semantic",
+   "top_hit": "The Rust Programming Language",
+   "score": 0.739,
+   "rank": 1,
+   "snippet": "Ownership is Rust\u2019s most unique feature and has deep implications for the rest of the language. It enables Rust to make memory safety guarantees without needing",
+   "verified": true
+  },
+  {
+   "query": "99 Bottles of Beer song printed by a loop in Java",
+   "book": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+   "engine": "hybrid",
+   "top_hit": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+   "score": 0.453,
+   "rank": 1,
+   "snippet": "gets smaller by one in each verse, until the last verse: No bottles of beer on the wall, no bottles of beer, ya\u2019 can\u2019t take one down, ya\u2019 can\u2019t pass it around, ",
+   "verified": true
+  },
+  {
+   "query": "OneRowNim game and its pile of sticks",
+   "book": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+   "engine": "hybrid",
+   "top_hit": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+   "score": 0.499,
+   "rank": 1,
+   "snippet": "t starting with twenty one sticks is quite common. This game is sometimes referred to as the game of \u201dNim\u201d, but there is a similar game involving multiple rows ",
+   "verified": true
+  }
+ ]
+}

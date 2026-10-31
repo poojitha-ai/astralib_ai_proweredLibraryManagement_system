@@ -104,6 +104,110 @@ public class LlmService {
                 )
         );
 
+        return sendAndReadAnswer(requestBody);
+    }
+
+    // =========================================================
+    // CONVERSATIONAL CHAT
+    // =========================================================
+
+    /** One prior turn sent back to the model. */
+    public record Turn(String role, String text) {
+
+        public boolean isAssistant() {
+            return "model".equals(role) || "assistant".equals(role);
+        }
+    }
+
+    /**
+     * @return true when a chat provider and key are configured. Callers use
+     *         this to fall back to a deterministic answer instead of failing
+     *         the whole conversation when the model is unavailable.
+     */
+    public boolean isConfigured() {
+        return apiKey != null
+                && !apiKey.isBlank()
+                && "gemini".equalsIgnoreCase(provider);
+    }
+
+    /**
+     * Conversational completion with system instructions and prior turns.
+     *
+     * The Research Assistant needs the model to see the conversation, not a
+     * single question: "yes, that one" only means something after the answer
+     * that offered it.
+     */
+    public String chat(
+            String systemInstruction,
+            List<Turn> turns) {
+
+        if (!isConfigured()) {
+            throw new IllegalStateException(
+                    "No chat model is configured. Set LLM_PROVIDER=gemini and LLM_API_KEY."
+            );
+        }
+
+        if (turns == null || turns.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "A conversation needs at least one turn."
+            );
+        }
+
+        List<Map<String, Object>> contents = new java.util.ArrayList<>();
+
+        for (Turn turn : turns) {
+            if (turn == null || turn.text() == null || turn.text().isBlank()) {
+                continue;
+            }
+
+            contents.add(
+                    Map.of(
+                            "role",
+                            turn.isAssistant() ? "model" : "user",
+                            "parts",
+                            List.of(
+                                    Map.of("text", turn.text())
+                            )
+                    )
+            );
+        }
+
+        if (contents.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "A conversation needs at least one non-empty turn."
+            );
+        }
+
+        Map<String, Object> requestBody = new java.util.LinkedHashMap<>();
+
+        if (systemInstruction != null && !systemInstruction.isBlank()) {
+            requestBody.put(
+                    "systemInstruction",
+                    Map.of(
+                            "parts",
+                            List.of(Map.of("text", systemInstruction))
+                    )
+            );
+        }
+
+        requestBody.put("contents", contents);
+        requestBody.put(
+                "generationConfig",
+                Map.of(
+                        "temperature", 0.7,
+                        "maxOutputTokens", 900
+                )
+        );
+
+        return sendAndReadAnswer(requestBody);
+    }
+
+    /**
+     * Shared transport: POST a generateContent body and read the answer text.
+     */
+    private String sendAndReadAnswer(
+            Map<String, Object> requestBody) {
+
         String endpoint =
                 chatUrl
                         + "/"

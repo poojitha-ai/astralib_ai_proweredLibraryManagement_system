@@ -46,7 +46,7 @@ public class EpubTextExtractionService {
     /**
      * Represents one readable EPUB section/chapter.
      */
-    public static class EpubSection {
+    public static class EpubSection implements ExtractedSection {
 
         private final String href;
         private final String title;

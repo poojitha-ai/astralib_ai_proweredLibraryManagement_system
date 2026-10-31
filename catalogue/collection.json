@@ -1,0 +1,2148 @@
+{
+  "$comment": [
+    "AstraLib curated collection manifest.",
+    "Every book records its real source, edition and licence. Public-domain",
+    "texts come from Project Gutenberg; the three open textbooks come from",
+    "their authors' official distributions. Applying this manifest is",
+    "idempotent (POST /api/admin/catalogue/seed): existing books are updated",
+    "in place, missing ones are imported through the normal import pipeline,",
+    "and pathway memberships are replaced.",
+    "Files live in data/imports/incoming/ and are git-ignored."
+  ],
+  "books": [
+    {
+      "resourceId": "GUTENBERG-42671",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Romance",
+        "Novel of Manners"
+      ],
+      "subjects": [
+        "English fiction -- 19th century",
+        "Courtship",
+        "Social class",
+        "Marriage"
+      ],
+      "description": "Elizabeth Bennet and Fitzwilliam Darcy navigate pride, prejudice and the marriage market of Regency England. A comedy of manners built almost entirely from dialogue and social observation.",
+      "publicationYear": 1813,
+      "publisher": "T. Egerton",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #1342",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/1342",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition."
+    },
+    {
+      "resourceId": "GUTENBERG-158",
+      "title": "Emma",
+      "author": "Jane Austen",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Romance",
+        "Novel of Manners"
+      ],
+      "subjects": [
+        "English fiction -- 19th century",
+        "Matchmaking",
+        "Village life",
+        "Self-knowledge"
+      ],
+      "description": "Emma Woodhouse, confident in her own judgement, arranges the love lives of everyone around her. Austen's most sustained study of a single consciousness misreading the world.",
+      "publicationYear": 1815,
+      "publisher": "John Murray",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #158",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/158",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/emma.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-1260",
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Gothic Fiction",
+        "Bildungsroman"
+      ],
+      "subjects": [
+        "English fiction -- 19th century",
+        "Governesses",
+        "Coming of age",
+        "Gender and independence"
+      ],
+      "description": "An orphaned governess asserts her independence against poverty, rigid class expectations and the secret at Thornfield Hall. First-person narration with heavy Gothic atmosphere.",
+      "publicationYear": 1847,
+      "publisher": "Smith, Elder & Co.",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #1260",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/1260",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/jane-eyre.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-768",
+      "title": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Gothic Fiction",
+        "Tragedy"
+      ],
+      "subjects": [
+        "English fiction -- 19th century",
+        "Yorkshire moors",
+        "Revenge",
+        "Intergenerational narrative"
+      ],
+      "description": "The destructive bond between Catherine Earnshaw and Heathcliff, told through nested narrators across two generations. Structurally the most demanding of the Brontë novels.",
+      "publicationYear": 1847,
+      "publisher": "Thomas Cautley Newby",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #768",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/768",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/wuthering-heights.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-1661",
+      "title": "The Adventures of Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Detective Fiction",
+        "Short Stories"
+      ],
+      "subjects": [
+        "Detective and mystery stories",
+        "Holmes, Sherlock (Fictitious character)",
+        "Reasoning and observation"
+      ],
+      "description": "Twelve short cases narrated by Dr. Watson, establishing the template of the consulting detective: observation, inference and a rational explanation for everything strange.",
+      "publicationYear": 1892,
+      "publisher": "George Newnes",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #1661",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/1661",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition."
+    },
+    {
+      "resourceId": "GUTENBERG-2852",
+      "title": "The Hound of the Baskervilles",
+      "author": "Arthur Conan Doyle",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Detective Fiction",
+        "Gothic Fiction"
+      ],
+      "subjects": [
+        "Detective and mystery stories",
+        "Dartmoor",
+        "Family curse",
+        "Holmes, Sherlock (Fictitious character)"
+      ],
+      "description": "A family curse, a spectral hound and a moorland full of secrets. A single sustained investigation rather than a case collection, with a strong sense of place.",
+      "publicationYear": 1902,
+      "publisher": "George Newnes",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #2852",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/2852",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/hound-of-the-baskervilles.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-244",
+      "title": "A Study in Scarlet",
+      "author": "Arthur Conan Doyle",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Detective Fiction",
+        "Novella"
+      ],
+      "subjects": [
+        "Detective and mystery stories",
+        "Holmes, Sherlock (Fictitious character)",
+        "First appearance"
+      ],
+      "description": "The first Holmes novel: the meeting with Watson, the method explained from scratch, and a mystery that resolves through deduction before the culprit is named.",
+      "publicationYear": 1887,
+      "publisher": "Ward, Lock & Co.",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #244",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/244",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/study-in-scarlet.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-155",
+      "title": "The Moonstone",
+      "author": "Wilkie Collins",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Detective Fiction",
+        "Sensation Novel"
+      ],
+      "subjects": [
+        "Detective and mystery stories",
+        "Multiple narrators",
+        "Colonial India",
+        "Diamond theft"
+      ],
+      "description": "A stolen Indian diamond, a household under suspicion and a chain of witnesses who each narrate part of the case. Often described as the first full-length detective novel.",
+      "publicationYear": 1868,
+      "publisher": "William Tinsley",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #155",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/155",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/the-moonstone.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-583",
+      "title": "The Woman in White",
+      "author": "Wilkie Collins",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Sensation Novel",
+        "Gothic Fiction"
+      ],
+      "subjects": [
+        "English fiction -- 19th century",
+        "Identity",
+        "Inheritance",
+        "Asylum"
+      ],
+      "description": "A young woman dressed in white, a forged identity and a conspiracy to seize an inheritance, assembled from the testimony of several narrators.",
+      "publicationYear": 1860,
+      "publisher": "Sampson Low",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #583",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/583",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/the-woman-in-white.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-43",
+      "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+      "author": "Robert Louis Stevenson",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Gothic Fiction",
+        "Novella"
+      ],
+      "subjects": [
+        "Dual personality",
+        "Victorian London",
+        "Science and ethics"
+      ],
+      "description": "A respectable physician's experiment splits his personality in two. Short, plain prose and a mystery structure that hides its central fact until the final chapters.",
+      "publicationYear": 1886,
+      "publisher": "Longmans, Green & Co.",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #43",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/43",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/dr-jekyll-and-mr-hyde.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-84",
+      "title": "Frankenstein; Or, The Modern Prometheus",
+      "author": "Mary Wollstonecraft Shelley",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Gothic Fiction",
+        "Early Science Fiction"
+      ],
+      "subjects": [
+        "Creation and responsibility",
+        "Scientific ambition",
+        "Alienation"
+      ],
+      "description": "Victor Frankenstein creates a living being and abandons it. Told in letters and nested narration, with the creature given his own sustained argument.",
+      "publicationYear": 1818,
+      "publisher": "Lackington, Hughes, Harding, Mavor & Jones",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #84 (1818 text)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/84",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/frankenstein.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-174",
+      "title": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Gothic Fiction",
+        "Philosophical Fiction"
+      ],
+      "subjects": [
+        "Aesthetics",
+        "Moral corruption",
+        "Victorian society"
+      ],
+      "description": "A portrait ages while its subject does not. Wilde's only novel, built from epigrams, society dialogue and a slow moral collapse.",
+      "publicationYear": 1890,
+      "publisher": "Ward, Lock & Co.",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #174",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/174",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/dorian-gray.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-345",
+      "title": "Dracula",
+      "author": "Bram Stoker",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Gothic Fiction",
+        "Epistolary Novel"
+      ],
+      "subjects": [
+        "Vampires",
+        "Epistolary fiction",
+        "Victorian anxieties",
+        "Transylvania"
+      ],
+      "description": "Letters, diaries and newspaper cuttings assemble the hunt for Count Dracula. Multiple narrators, shifting locations and a long build before the confrontation.",
+      "publicationYear": 1897,
+      "publisher": "Archibald Constable and Company",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #345",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/345",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/dracula.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-11",
+      "title": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Children's Literature",
+        "Fantasy"
+      ],
+      "subjects": [
+        "Nonsense literature",
+        "Logic and language",
+        "Dream narrative"
+      ],
+      "description": "Alice follows a rabbit underground into a world governed by puns, riddles and arbitrary rules. Short chapters and clear sentence structure despite the wordplay.",
+      "publicationYear": 1865,
+      "publisher": "Macmillan",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #11",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/11",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/alice.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-17396",
+      "title": "The Secret Garden",
+      "author": "Frances Hodgson Burnett",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Children's Literature",
+        "Bildungsroman"
+      ],
+      "subjects": [
+        "Childhood",
+        "Friendship",
+        "Yorkshire",
+        "Restoration and growth"
+      ],
+      "description": "A neglected child discovers a locked garden and, with it, a way back into the world. Straightforward narration and a small, contained cast.",
+      "publicationYear": 1911,
+      "publisher": "Frederick A. Stokes",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #17396",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/17396",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/the-secret-garden.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-514",
+      "title": "Little Women",
+      "author": "Louisa May Alcott",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Bildungsroman",
+        "Domestic Fiction"
+      ],
+      "subjects": [
+        "Sisters",
+        "Coming of age",
+        "American Civil War era",
+        "Work and ambition"
+      ],
+      "description": "Four sisters grow up in wartime New England. Long, episodic and domestic, with a large cast whose lives are followed over several years.",
+      "publicationYear": 1868,
+      "publisher": "Roberts Brothers",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #514",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/514",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/little-women.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-1400",
+      "title": "Great Expectations",
+      "author": "Charles Dickens",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Bildungsroman",
+        "Victorian Novel"
+      ],
+      "subjects": [
+        "Social class",
+        "Ambition",
+        "London and Kent",
+        "Moral education"
+      ],
+      "description": "Pip's expectations of inherited wealth reshape his sense of himself. Dense serial prose, a large cast and a plot that resolves through long-delayed revelations.",
+      "publicationYear": 1861,
+      "publisher": "Chapman & Hall",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #1400",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/1400",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/great-expectations.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-55",
+      "title": "The Wonderful Wizard of Oz",
+      "author": "L. Frank Baum",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Children's Literature",
+        "Fantasy"
+      ],
+      "subjects": [
+        "Fantasy fiction",
+        "Journey narrative",
+        "Companions"
+      ],
+      "description": "Dorothy's journey through Oz with three companions who each want something they already possess. Short chapters, simple sentences, strong forward momentum.",
+      "publicationYear": 1900,
+      "publisher": "George M. Hill Company",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #55",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/55",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/wizard-of-oz.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-120",
+      "title": "Treasure Island",
+      "author": "Robert Louis Stevenson",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Adventure Fiction",
+        "Bildungsroman"
+      ],
+      "subjects": [
+        "Treasure maps",
+        "Pirates",
+        "Sea voyages",
+        "Coming of age"
+      ],
+      "description": "Jim Hawkins finds a map, sails with a crew that includes Long John Silver, and learns whom to trust. Adventure told in direct first person.",
+      "publicationYear": 1883,
+      "publisher": "Cassell & Co.",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #120",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/120",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/treasure-island.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-35",
+      "title": "The Time Machine",
+      "author": "H. G. Wells",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Science Fiction",
+        "Novella"
+      ],
+      "subjects": [
+        "Time travel",
+        "Social evolution",
+        "Class division",
+        "Future history"
+      ],
+      "description": "A Victorian inventor travels to the year 802,701 and finds humanity split into two species. Short, idea-driven and framed as a dinner-party account.",
+      "publicationYear": 1895,
+      "publisher": "William Heinemann",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #35",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/35",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/the-time-machine.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-2701",
+      "title": "Moby-Dick; Or, The Whale",
+      "author": "Herman Melville",
+      "category": "Classic Literature",
+      "genres": [
+        "Classic Literature",
+        "Adventure Fiction",
+        "Epic"
+      ],
+      "subjects": [
+        "Whaling",
+        "Obsession",
+        "American fiction -- 19th century",
+        "Encyclopaedic digressions"
+      ],
+      "description": "Ishmael joins the Pequod and Ahab's pursuit of one whale. Alternates narrative, sermons, cetology and stage directions; long sentences and nautical vocabulary.",
+      "publicationYear": 1851,
+      "publisher": "Harper & Brothers",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #2701",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/2701",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/moby-dick.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-2274",
+      "title": "How to Live on 24 Hours a Day",
+      "author": "Arnold Bennett",
+      "category": "Classic Literature",
+      "genres": [
+        "Self-Development",
+        "Essays",
+        "Nonfiction"
+      ],
+      "subjects": [
+        "Time management",
+        "Habits",
+        "Self-improvement",
+        "Work and leisure"
+      ],
+      "description": "A practical 1910 essay on using the hours outside paid work deliberately. Short, direct and argumentative, addressed to the reader throughout.",
+      "publicationYear": 1910,
+      "publisher": "George H. Doran",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #2274",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/2274",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/how-to-live-on-24-hours.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-58585",
+      "title": "The Prophet",
+      "author": "Kahlil Gibran",
+      "category": "Classic Literature",
+      "genres": [
+        "Self-Development",
+        "Poetry",
+        "Philosophical Fiction"
+      ],
+      "subjects": [
+        "Wisdom literature",
+        "Work and love",
+        "Freedom",
+        "Mortality"
+      ],
+      "description": "A prophet answers questions on love, work, freedom and death before leaving his city. Aphoristic prose poetry in very short chapters.",
+      "publicationYear": 1923,
+      "publisher": "Alfred A. Knopf",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #58585",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/58585",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/the-prophet.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-132",
+      "title": "The Art of War",
+      "author": "Sun Tzu",
+      "category": "Classic Literature",
+      "genres": [
+        "Self-Development",
+        "Strategy",
+        "Nonfiction"
+      ],
+      "subjects": [
+        "Military strategy",
+        "Conflict",
+        "Leadership",
+        "Classical Chinese thought"
+      ],
+      "description": "Thirteen short chapters on strategy, deception, terrain and the cost of prolonged conflict. Translated aphorisms rather than continuous argument.",
+      "publicationYear": 1910,
+      "publisher": "Luzac & Co.",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #132 (Lionel Giles translation, 1910)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/132",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/the-art-of-war.epub"
+    },
+    {
+      "resourceId": "GUTENBERG-2680",
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "category": "Classic Literature",
+      "genres": [
+        "Self-Development",
+        "Philosophy",
+        "Nonfiction"
+      ],
+      "subjects": [
+        "Stoicism",
+        "Ethics",
+        "Self-discipline",
+        "Roman philosophy"
+      ],
+      "description": "A Roman emperor's private notes on duty, control and mortality. Fragmented, repetitive by design and written for the author rather than a reader.",
+      "publicationYear": 1862,
+      "publisher": "George Bell & Sons",
+      "language": "English",
+      "edition": "Project Gutenberg eBook #2680 (George Long translation, 1862)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/2680",
+      "licence": "Public domain in the United States; Project Gutenberg License applies to the eBook edition.",
+      "file": "data/imports/incoming/meditations.epub"
+    },
+    {
+      "resourceId": "PY4E-PYTHON-3",
+      "title": "Python for Everybody: Exploring Data in Python 3",
+      "author": "Charles R. Severance",
+      "category": "Computer Science",
+      "genres": [
+        "Computer Science",
+        "Programming",
+        "Textbook"
+      ],
+      "subjects": [
+        "Python (Computer program language)",
+        "Web data",
+        "Databases",
+        "Data structures"
+      ],
+      "description": "An introduction to programming with Python assuming no prior experience, moving from variables and loops to files, web data and SQL.",
+      "publicationYear": 2016,
+      "publisher": "Charles R. Severance (py4e.com)",
+      "language": "English",
+      "edition": "PY4E English EPUB edition",
+      "sourceUrl": "https://www.py4e.com/book",
+      "licence": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0).",
+      "file": "data/imports/incoming/python-for-everybody.epub"
+    },
+    {
+      "resourceId": "THINK-PYTHON-2E",
+      "title": "Think Python (2nd Edition)",
+      "author": "Allen B. Downey",
+      "category": "Computer Science",
+      "genres": [
+        "Computer Science",
+        "Programming",
+        "Textbook"
+      ],
+      "subjects": [
+        "Python (Computer program language)",
+        "Debugging",
+        "Functions",
+        "Data structures",
+        "Object-oriented design"
+      ],
+      "description": "A second course in Python that teaches the language through how programmers actually think: debugging, interfaces, invariants and incremental development.",
+      "publicationYear": 2015,
+      "publisher": "Green Tea Press",
+      "language": "English",
+      "edition": "2nd edition, Green Tea Press",
+      "sourceUrl": "https://greenteapress.com/wp/think-python-2e/",
+      "licence": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)."
+    },
+    {
+      "resourceId": "ELOQUENTJS-3E",
+      "title": "Eloquent JavaScript (3rd Edition)",
+      "author": "Marijn Haverbeke",
+      "category": "Computer Science",
+      "genres": [
+        "Computer Science",
+        "Programming",
+        "Textbook",
+        "JavaScript"
+      ],
+      "subjects": [
+        "JavaScript (Computer program language)",
+        "Web browsers",
+        "Asynchronous programming",
+        "Node.js"
+      ],
+      "description": "A modern introduction to JavaScript and programming, from values and control flow to the browser, the DOM, asynchronous code and Node.js, with end-of-chapter projects.",
+      "publicationYear": 2018,
+      "publisher": "No Starch Press",
+      "language": "English",
+      "edition": "3rd edition EPUB",
+      "sourceUrl": "https://eloquentjavascript.net/",
+      "licence": "Creative Commons Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0).",
+      "file": "data/imports/incoming/eloquent-javascript.epub",
+      "isbn": "9781593279509",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781593279509-L.jpg"
+    },
+    {
+      "resourceId": "PROGIT-2E",
+      "title": "Pro Git (2nd Edition)",
+      "author": "Scott Chacon and Ben Straub",
+      "category": "Computer Science",
+      "genres": [
+        "Computer Science",
+        "Software Engineering",
+        "Textbook"
+      ],
+      "subjects": [
+        "Git (Computer file)",
+        "Version control",
+        "Distributed systems",
+        "Collaboration workflows"
+      ],
+      "description": "The complete guide to Git, from first commit and branching to rewriting history, internals and server configuration. Practical rather than academic.",
+      "publicationYear": 2014,
+      "publisher": "Apress",
+      "language": "English",
+      "edition": "2nd edition EPUB (release 2.1.436)",
+      "sourceUrl": "https://git-scm.com/book/en/v2",
+      "licence": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0).",
+      "file": "data/imports/incoming/pro-git.epub"
+    },
+    {
+      "resourceId": "OSC-9TH-EDITION",
+      "title": "Operating System Concepts (9th Edition)",
+      "author": "Abraham Silberschatz, Peter B. Galvin, Greg Gagne",
+      "category": "Operating Systems",
+      "genres": [
+        "Computer Science",
+        "Operating Systems",
+        "Textbook"
+      ],
+      "subjects": [
+        "Operating systems (Computers)",
+        "Process management",
+        "Memory management",
+        "Virtual memory",
+        "Concurrency"
+      ],
+      "description": "A standard operating-systems textbook: processes and threads, scheduling, synchronisation, memory and virtual memory, file systems and storage, with case studies.",
+      "publicationYear": 2012,
+      "publisher": "John Wiley & Sons",
+      "language": "English",
+      "edition": "9th edition",
+      "sourceUrl": "https://www.os-book.com/OS9/",
+      "licence": "Copyrighted. User-provided copy retained for private study only; not redistributed by AstraLib."
+    },
+    {
+      "resourceId": "PROG-PYTHON-BEG",
+      "title": "Python Crash Course",
+      "author": "Eric Matthes",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Python"
+      ],
+      "subjects": [
+        "Python (Computer program language)",
+        "Programming"
+      ],
+      "description": "A project-driven introduction to Python: variables, lists, classes and files, followed by three worked projects in game programming, data visualisation and web applications.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2022,
+      "publisher": "No Starch Press, Incorporated",
+      "isbn": "9781718502703",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781718502703-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL28018702W"
+    },
+    {
+      "resourceId": "PROG-PYTHON-INT",
+      "title": "Effective Python",
+      "author": "Brett Slatkin",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Python"
+      ],
+      "subjects": [
+        "Python (Computer program language)",
+        "Programming"
+      ],
+      "description": "Ninety specific, tested practices for writing Python that is easier to read, faster to run and less surprising, each with the reason it works.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2024,
+      "publisher": "Pearson Education, Limited",
+      "isbn": "9780138172244",
+      "coverImage": "https://covers.openlibrary.org/b/id/7363706-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL17192267W"
+    },
+    {
+      "resourceId": "PROG-PYTHON-ADV",
+      "title": "Fluent Python",
+      "author": "Luciano Ramalho",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Python"
+      ],
+      "subjects": [
+        "Python (Computer program language)",
+        "Programming"
+      ],
+      "description": "A deep tour of the Python data model: sequences, dictionaries, closures, objects, generators, coroutines and concurrency, for programmers who already write Python.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2021,
+      "publisher": "O’Reilly Media",
+      "isbn": "9781492056355",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781492056355-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL19932156W"
+    },
+    {
+      "resourceId": "PROG-JAVA-BEG",
+      "title": "Head First Java",
+      "author": "Kathy Sierra, Bert Bates and Trisha Gee",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Java"
+      ],
+      "subjects": [
+        "Java (Computer program language)",
+        "Programming"
+      ],
+      "description": "A visual, exercise-heavy introduction to Java covering objects, inheritance, interfaces, collections, threads and basic GUI work.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2022,
+      "publisher": "O'Reilly Media, Incorporated",
+      "isbn": "9781491910771",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781491910771-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL5756124W"
+    },
+    {
+      "resourceId": "PROG-JAVA-INT",
+      "title": "Core Java, Volume I: Fundamentals",
+      "author": "Cay S. Horstmann",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Java"
+      ],
+      "subjects": [
+        "Java (Computer program language)",
+        "Programming"
+      ],
+      "description": "The first volume of the standard Java reference, covering the language from syntax and objects through generics, collections, concurrency and I/O.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2007,
+      "publisher": "Prentice Hall PTR",
+      "isbn": "9780132354769",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9780132354769-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL449052W"
+    },
+    {
+      "resourceId": "PROG-JAVA-ADV",
+      "title": "Effective Java",
+      "author": "Joshua Bloch",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Java"
+      ],
+      "subjects": [
+        "Java (Computer program language)",
+        "Programming"
+      ],
+      "description": "Ninety language-level recommendations for writing Java that is correct, clear and maintainable, with the reasoning and the counter-examples.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2018,
+      "publisher": "Pearson Education, Limited",
+      "isbn": "9780134686073",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9780134686073-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL25783599W"
+    },
+    {
+      "resourceId": "PROG-C-BEG",
+      "title": "Let Us C",
+      "author": "Yashavant Kanetkar",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C"
+      ],
+      "subjects": [
+        "C (Computer program language)",
+        "Programming"
+      ],
+      "description": "An exercise-rich introduction to C that starts from variables and control flow and works up to pointers, structures, files and the preprocessor.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2007,
+      "publisher": "BPB Publications",
+      "isbn": "9788183331630",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9788183331630-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL17734885W"
+    },
+    {
+      "resourceId": "PROG-C-INT",
+      "title": "C Programming: A Modern Approach",
+      "author": "K. N. King",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C"
+      ],
+      "subjects": [
+        "C (Computer program language)",
+        "Programming"
+      ],
+      "description": "A complete C textbook that explains the language against the C standard, including pointers, the preprocessor, library use and the reasons behind each rule.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title."
+    },
+    {
+      "resourceId": "PROG-C-ADV",
+      "title": "Expert C Programming",
+      "author": "Peter van der Linden",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C"
+      ],
+      "subjects": [
+        "C (Computer program language)",
+        "Programming"
+      ],
+      "description": "A book about the parts of C that textbooks leave out: undeclared behaviour, memory layout, linkage, arrays versus pointers and the compiler's view of a program.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publisher": "Pearson Education, Limited",
+      "isbn": "9780133522235",
+      "coverImage": "https://covers.openlibrary.org/b/id/88161-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL26343716W"
+    },
+    {
+      "resourceId": "PROG-CPP-BEG",
+      "title": "Programming: Principles and Practice Using C++",
+      "author": "Bjarne Stroustrup",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C++"
+      ],
+      "subjects": [
+        "C++ (Computer program language)",
+        "Programming"
+      ],
+      "description": "Stroustrup's introduction to programming itself, using C++ to teach program design, types, classes, testing and error handling rather than only syntax.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "coverImage": "https://covers.openlibrary.org/b/id/8514159-L.jpg"
+    },
+    {
+      "resourceId": "PROG-CPP-INT",
+      "title": "C++ Primer",
+      "author": "Stanley B. Lippman, Josée Lajoie and Barbara E. Moo",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C++"
+      ],
+      "subjects": [
+        "C++ (Computer program language)",
+        "Programming"
+      ],
+      "description": "A thorough introduction to modern C++ that teaches the language as it is written today, from types and classes to the standard library, templates and special-purpose tools.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2002,
+      "publisher": "Pearson Education",
+      "isbn": "9788178088952",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9788178088952-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL2036087W"
+    },
+    {
+      "resourceId": "PROG-CPP-ADV",
+      "title": "Effective Modern C++",
+      "author": "Scott Meyers",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C++"
+      ],
+      "subjects": [
+        "C++ (Computer program language)",
+        "Programming"
+      ],
+      "description": "Forty-two specific items on C++11 and C++14: type deduction, move semantics, smart pointers, lambdas and concurrency, with the reasoning behind each guideline.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2014,
+      "publisher": "O'Reilly Media, Incorporated",
+      "isbn": "9781322296845",
+      "coverImage": "https://covers.openlibrary.org/b/id/8513620-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL27073233W"
+    },
+    {
+      "resourceId": "PROG-JAVASCRIPT-INT",
+      "title": "You Don't Know JS Yet",
+      "author": "Kyle Simpson",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "JavaScript"
+      ],
+      "subjects": [
+        "JavaScript (Computer program language)",
+        "Programming"
+      ],
+      "description": "A close look at the parts of JavaScript that programmers commonly guess at: scope, closures, types, coercion, this-binding and prototype behaviour.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2016,
+      "publisher": "O'Reilly Media, Incorporated",
+      "isbn": "9781491904244",
+      "coverImage": "https://covers.openlibrary.org/b/id/8117575-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL20034621W"
+    },
+    {
+      "resourceId": "PROG-JAVASCRIPT-ADV",
+      "title": "JavaScript: The Definitive Guide",
+      "author": "David Flanagan",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "JavaScript"
+      ],
+      "subjects": [
+        "JavaScript (Computer program language)",
+        "Programming"
+      ],
+      "description": "The long-standing reference and tutorial for JavaScript, covering the language, the browser APIs, Node.js and the standard library in depth.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "coverImage": "https://covers.openlibrary.org/b/id/8512695-L.jpg"
+    },
+    {
+      "resourceId": "PROG-CSHARP-BEG",
+      "title": "Head First C#",
+      "author": "Andrew Stellman and Jennifer Greene",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C#"
+      ],
+      "subjects": [
+        "C# (Computer program language)",
+        "Programming"
+      ],
+      "description": "A visual, project-based introduction to C# and .NET that builds a working application while introducing types, objects, LINQ, events and file access.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2021,
+      "publisher": "O'Reilly Media, Incorporated",
+      "isbn": "9781491976708",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781491976708-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL8167518W"
+    },
+    {
+      "resourceId": "PROG-CSHARP-INT",
+      "title": "The C# Player's Guide",
+      "author": "R. B. Whitaker",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C#"
+      ],
+      "subjects": [
+        "C# (Computer program language)",
+        "Programming"
+      ],
+      "description": "A problem-first C# course that starts with a single line of code and builds up through objects, collections, generics, LINQ and the .NET libraries.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2015,
+      "publisher": "Starbound Software",
+      "isbn": "9780985580124",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9780985580124-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL28597518W"
+    },
+    {
+      "resourceId": "PROG-CSHARP-ADV",
+      "title": "C# in Depth",
+      "author": "Jon Skeet",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C#"
+      ],
+      "subjects": [
+        "C# (Computer program language)",
+        "Programming"
+      ],
+      "description": "An explanation of why C# behaves as it does: types, generics, delegates, LINQ, async, patterns and the runtime features behind them.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2014,
+      "publisher": "Manning",
+      "isbn": "9781617291340",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781617291340-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL8955989W"
+    },
+    {
+      "resourceId": "PROG-GO-BEG",
+      "title": "Get Programming with Go",
+      "author": "Nathan Youngman and Roger Peppe",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Go"
+      ],
+      "subjects": [
+        "Go (Computer program language)",
+        "Programming"
+      ],
+      "description": "A short-lesson introduction to Go for newcomers, building command-line programs, then covering structs, interfaces, concurrency and basic web services.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2018,
+      "publisher": "Manning Publications Co. LLC",
+      "isbn": "9781638355472",
+      "coverImage": "https://covers.openlibrary.org/b/id/8508174-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL19542285W"
+    },
+    {
+      "resourceId": "PROG-GO-INT",
+      "title": "The Go Programming Language",
+      "author": "Alan A. A. Donovan and Brian W. Kernighan",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Go"
+      ],
+      "subjects": [
+        "Go (Computer program language)",
+        "Programming"
+      ],
+      "description": "The authoritative Go text from two of its designers, covering syntax, types, interfaces, goroutines, channels, testing and reflection with worked programs.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2016,
+      "publisher": "Addison-Wesley",
+      "isbn": "9780134190440",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9780134190440-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL17348524W"
+    },
+    {
+      "resourceId": "PROG-GO-ADV",
+      "title": "Concurrency in Go",
+      "author": "Katherine Cox-Buday",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Go"
+      ],
+      "subjects": [
+        "Go (Computer program language)",
+        "Programming"
+      ],
+      "description": "A guide to Go's concurrency model in practice: goroutines, channels, select, cancellation, race conditions and the patterns that keep concurrent code correct.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "coverImage": "https://covers.openlibrary.org/b/id/8510272-L.jpg"
+    },
+    {
+      "resourceId": "PROG-RUST-BEG",
+      "title": "The Rust Programming Language (No Starch Press print edition)",
+      "author": "Steve Klabnik and Carol Nichols",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Rust"
+      ],
+      "subjects": [
+        "Rust (Computer program language)",
+        "Programming"
+      ],
+      "description": "The official Rust book in its No Starch Press printing: ownership, borrowing, lifetimes, traits, generics, error handling, testing and concurrency, with a substantial worked project. The same text is published free by the Rust project and is catalogued separately as the online edition, which AstraLib holds in full.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "Print edition, in copyright. AstraLib holds no licensed file for this printing; the identical text is available under MIT OR Apache-2.0 as the official online edition.",
+      "publicationYear": 2023,
+      "publisher": "No Starch Press, Incorporated",
+      "isbn": "9781718503106",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781718503106-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL19080231W",
+      "edition": "No Starch Press print edition (2023)"
+    },
+    {
+      "resourceId": "PROG-RUST-INT",
+      "title": "Rust in Action",
+      "author": "Tim McNamara",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Rust"
+      ],
+      "subjects": [
+        "Rust (Computer program language)",
+        "Programming"
+      ],
+      "description": "A systems-programming introduction to Rust that builds real programs over files, networks, memory-mapped data and the operating system.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2021,
+      "publisher": "Manning Publications Co. LLC",
+      "isbn": "9781638356226",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781638356226-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL24813786W"
+    },
+    {
+      "resourceId": "PROG-RUST-ADV",
+      "title": "Rust for Rustaceans",
+      "author": "Jon Gjengset",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Rust"
+      ],
+      "subjects": [
+        "Rust (Computer program language)",
+        "Programming"
+      ],
+      "description": "A follow-on book for working Rust programmers covering types, traits, generics, lifetimes, async, unsafe code and the design pressure behind each feature.",
+      "language": "English",
+      "availability": "METADATA_ONLY",
+      "licence": "In copyright. Bibliographic record and cover only: AstraLib holds no licensed digital edition of this title.",
+      "publicationYear": 2021,
+      "publisher": "No Starch Press, Incorporated",
+      "isbn": "9781718501850",
+      "coverImage": "https://covers.openlibrary.org/b/isbn/9781718501850-L.jpg",
+      "sourceUrl": "https://openlibrary.org/works/OL25331893W"
+    },
+    {
+      "resourceId": "THINK-JAVA-2E-OEW",
+      "title": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+      "author": "Allen B. Downey and Chris Mayfield",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Java"
+      ],
+      "subjects": [
+        "Java (Computer program language)",
+        "Programming"
+      ],
+      "description": "A short, methodical introduction to Java for readers with no programming background. Variables, conditionals, loops, methods and objects are introduced one at a time, with exercises and worked examples after each idea.",
+      "language": "English",
+      "publicationYear": 2020,
+      "publisher": "Green Tea Press",
+      "edition": "2nd edition, version 7.1.0",
+      "sourceUrl": "https://greenteapress.com/wp/think-java-2e/",
+      "licence": "CC BY-NC-SA 4.0 (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International), as stated by Green Tea Press. Non-commercial use only; ShareAlike applies to derivatives.",
+      "file": "data/imports/incoming/think-java-2e.pdf"
+    },
+    {
+      "resourceId": "JJJ-JAVA-3E-OEW",
+      "title": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+      "author": "Ralph Morelli and Ralph Walde",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Java"
+      ],
+      "subjects": [
+        "Java (Computer program language)",
+        "Object-oriented programming"
+      ],
+      "description": "A full object-oriented Java course built around problem solving: classes and objects from the first chapter, then inheritance, interfaces, exceptions, threads, files and data structures, with a substantial design exercise in each part.",
+      "language": "English",
+      "publicationYear": 2006,
+      "publisher": "Trinity College (open edition)",
+      "edition": "3rd edition, open-source PDF revised 2017-06-25",
+      "sourceUrl": "https://www.cs.trincoll.edu/~ram/jjj/",
+      "licence": "CC BY 4.0 (Creative Commons Attribution 4.0 International), as stated by the authors. Redistribution permitted with attribution.",
+      "file": "data/imports/incoming/java-java-java-3e.pdf"
+    },
+    {
+      "resourceId": "PYTHON-MASTERY-OEW",
+      "title": "Advanced Python Mastery",
+      "author": "David Beazley",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Python"
+      ],
+      "subjects": [
+        "Python (Computer program language)",
+        "Metaprogramming"
+      ],
+      "description": "An advanced course on how Python actually works: the object model, descriptors, metaprogramming, generators and coroutines, decorators, context managers, packaging and performance. Written for programmers who already write Python daily.",
+      "language": "English",
+      "publicationYear": 2023,
+      "publisher": "Dabeaz LLC",
+      "edition": "Course edition, Python 3",
+      "sourceUrl": "https://github.com/dabeaz-course/python-mastery",
+      "licence": "CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike 4.0 International), as stated in the course README.",
+      "file": "data/imports/incoming/advanced-python-mastery.pdf"
+    },
+    {
+      "resourceId": "MODERN-C-OEW",
+      "title": "Modern C (C23 Edition)",
+      "author": "Jens Gustedt",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C"
+      ],
+      "subjects": [
+        "C (Computer program language)",
+        "Systems programming"
+      ],
+      "description": "A complete treatment of C as it is written today: value semantics, pointer arithmetic done safely, the memory model, alignment, the preprocessor, generic programming with _Generic, threads and atomics, and the C23 additions.",
+      "language": "English",
+      "publicationYear": 2024,
+      "publisher": "Inria / HAL",
+      "edition": "C23 edition, October 2024",
+      "sourceUrl": "https://gustedt.gitlabpages.inria.fr/modern-c/",
+      "licence": "CC BY-NC-ND 4.0 (Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International), as stated by the author. Verbatim non-commercial use only.",
+      "file": "data/imports/incoming/modern-c-c23.pdf"
+    },
+    {
+      "resourceId": "PROGRAMMING-FUNDAMENTALS-CPP-OEW",
+      "title": "Programming Fundamentals: A Modular Structured Approach Using C++",
+      "author": "Kenneth Leroy Busbee and Dave Braunschweig",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C++"
+      ],
+      "subjects": [
+        "C++ (Computer program language)",
+        "Programming"
+      ],
+      "description": "An open introductory programming text that teaches program design before language detail: data types, operators, control structures, functions, arrays and modular design, with C++ used throughout for the worked examples.",
+      "language": "English",
+      "publicationYear": 2019,
+      "publisher": "Open Textbook Library / eCampusOntario",
+      "edition": "2nd edition (eCampusOntario Open Library copy, 2019)",
+      "sourceUrl": "https://open.umn.edu/opentextbooks/textbooks/144",
+      "licence": "CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike 4.0 International), as stated on the copyright page of the eCampusOntario Open Library copy. Redistribution permitted under ShareAlike.",
+      "file": "data/imports/incoming/programming-fundamentals-cpp.pdf"
+    },
+    {
+      "resourceId": "THINK-CPP-OEW",
+      "title": "Think C++: How to Think Like a Computer Scientist",
+      "author": "Allen B. Downey",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C++"
+      ],
+      "subjects": [
+        "C++ (Computer program language)",
+        "Programming"
+      ],
+      "description": "A concise C++ text that moves from basic control flow to functions, classes, vectors, structures and object-oriented design, emphasising how to reason about a program rather than covering the whole language.",
+      "language": "English",
+      "publicationYear": 1999,
+      "publisher": "Green Tea Press",
+      "edition": "Green Tea Press edition",
+      "sourceUrl": "https://greenteapress.com/wp/think-c/",
+      "licence": "CC BY-NC-SA 4.0 (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International), as stated by Green Tea Press. Non-commercial use only.",
+      "file": "data/imports/incoming/think-cpp.pdf"
+    },
+    {
+      "resourceId": "THE-JAVASCRIPT-WAY-OEW",
+      "title": "The JavaScript Way",
+      "author": "Baptiste Pesquet",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "JavaScript"
+      ],
+      "subjects": [
+        "JavaScript (Computer program language)",
+        "Web development"
+      ],
+      "description": "A modern JavaScript course: the language core, then objects, arrays and functions, then the browser, the DOM, events, forms, asynchronous programming with promises and a final project, with an exercise at the end of every chapter.",
+      "language": "English",
+      "publicationYear": 2018,
+      "publisher": "Self-published (open edition)",
+      "edition": "Online edition, chapters 1-16 plus appendix",
+      "sourceUrl": "https://thejsway.net/",
+      "licence": "CC BY-NC-SA 4.0 (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International), per the book's LICENSE file. Non-commercial use only.",
+      "file": "data/imports/incoming/the-javascript-way.html"
+    },
+    {
+      "resourceId": "THE-RUST-PROGRAMMING-LANGUAGE-OEW",
+      "title": "The Rust Programming Language",
+      "author": "Steve Klabnik, Carol Nichols and the Rust community",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Rust"
+      ],
+      "subjects": [
+        "Rust (Computer program language)",
+        "Systems programming"
+      ],
+      "description": "The official Rust book: ownership and borrowing, structs, enums and pattern matching, error handling, generics, traits and lifetimes, then testing, closures, iterators, smart pointers, concurrency, async and a full project.",
+      "language": "English",
+      "publicationYear": 2024,
+      "publisher": "The Rust Project",
+      "edition": "Current online edition (mdBook)",
+      "sourceUrl": "https://doc.rust-lang.org/book/",
+      "licence": "MIT OR Apache-2.0, as stated in the rust-lang/book repository. Redistribution permitted.",
+      "file": "data/imports/incoming/the-rust-programming-language.html"
+    },
+    {
+      "resourceId": "WIKIBOOKS-JAVA-OEW",
+      "title": "Java Programming",
+      "author": "Wikibooks contributors",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "Java"
+      ],
+      "subjects": [
+        "Java (Computer program language)",
+        "Programming"
+      ],
+      "description": "An openly licensed Java reference covering the advanced parts of the language and platform: generics, concurrent programming, reflection and dynamic class loading, bytecode, the native interface and remote method invocation.",
+      "language": "English",
+      "publicationYear": 2026,
+      "publisher": "Wikibooks",
+      "edition": "Wikibooks live edition, chapter snapshot at download time",
+      "sourceUrl": "https://en.wikibooks.org/wiki/Java_Programming",
+      "licence": "CC BY-SA 4.0 and GFDL (dual), per Wikibooks:Copyrights. Redistribution and commercial reuse permitted under ShareAlike.",
+      "file": "data/imports/incoming/wikibooks-java-programming.html"
+    },
+    {
+      "resourceId": "WIKIBOOKS-C-OEW",
+      "title": "C Programming",
+      "author": "Wikibooks contributors",
+      "category": "Programming",
+      "genres": [
+        "Programming",
+        "C"
+      ],
+      "subjects": [
+        "C (Computer program language)",
+        "Programming"
+      ],
+      "description": "An openly licensed C textbook that begins with the first program and works through variables, control flow, functions, pointers, arrays, strings, structures, memory management, the preprocessor and file input and output.",
+      "language": "English",
+      "publicationYear": 2026,
+      "publisher": "Wikibooks",
+      "edition": "Wikibooks live edition, chapter snapshot at download time",
+      "sourceUrl": "https://en.wikibooks.org/wiki/C_Programming",
+      "licence": "CC BY-SA 4.0 and GFDL (dual), per Wikibooks:Copyrights. Redistribution and commercial reuse permitted under ShareAlike.",
+      "file": "data/imports/incoming/wikibooks-c-programming.html"
+    }
+  ],
+  "pathways": [
+    {
+      "slug": "python-foundations",
+      "name": "Python Foundations",
+      "type": "LEARNING",
+      "subject": "Programming with Python",
+      "audience": "Complete beginners who want to read, write and debug Python programs.",
+      "description": "Start with no programming experience and finish able to structure a small program well, including functions, data structures and debugging.",
+      "books": [
+        {
+          "resourceId": "PY4E-PYTHON-3",
+          "position": 1,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior programming. Introduces variables, conditionals, loops, functions, files and SQL in sequence, with exercises after each concept.",
+          "learningOutcome": "Write and run a Python script that reads a file, processes records and stores results in a database."
+        },
+        {
+          "resourceId": "THINK-PYTHON-2E",
+          "position": 2,
+          "level": "INTERMEDIATE",
+          "prerequisite": "PY4E-PYTHON-3",
+          "rationale": "Starts from working knowledge of Python and moves into program design: interfaces, invariants, recursion, objects and systematic debugging.",
+          "learningOutcome": "Decompose a problem into functions and classes, and debug a failing program from its traceback and outputs."
+        }
+      ]
+    },
+    {
+      "slug": "web-programming-javascript",
+      "name": "Web Programming with JavaScript",
+      "type": "LEARNING",
+      "subject": "JavaScript and the browser",
+      "audience": "Learners who already write basic programs and want to build interactive web pages.",
+      "description": "A single in-depth treatment of JavaScript in and out of the browser, from language fundamentals to the DOM and asynchronous I/O.",
+      "books": [
+        {
+          "resourceId": "ELOQUENTJS-3E",
+          "position": 1,
+          "level": "INTERMEDIATE",
+          "prerequisite": "PY4E-PYTHON-3",
+          "rationale": "Assumes familiarity with variables, loops, functions and basic data structures; teaches the language's own idioms, modules and asynchronous model.",
+          "learningOutcome": "Build a small browser application that fetches data asynchronously and updates the page without a framework."
+        }
+      ]
+    },
+    {
+      "slug": "developer-tooling",
+      "name": "Developer Tooling",
+      "type": "LEARNING",
+      "subject": "Version control and collaboration",
+      "audience": "Students beginning team projects and anyone maintaining a codebase alone.",
+      "description": "The working practices a programming course assumes but rarely teaches: branching, history, merging and collaborating on shared repositories.",
+      "books": [
+        {
+          "resourceId": "PROGIT-2E",
+          "position": 1,
+          "level": "BEGINNER",
+          "rationale": "Begins with installation and a first commit, so no prior Git knowledge is needed; only basic file-editing experience is assumed.",
+          "learningOutcome": "Create a branch, commit changes, merge or rebase it, and resolve a merge conflict deliberately."
+        }
+      ]
+    },
+    {
+      "slug": "operating-systems",
+      "name": "Operating Systems",
+      "type": "LEARNING",
+      "subject": "Operating system design and implementation",
+      "audience": "Students who can already program and want to understand what the runtime underneath their code actually does.",
+      "description": "Processes, scheduling, synchronisation, memory and file systems, studied from a full academic treatment rather than an introduction.",
+      "books": [
+        {
+          "resourceId": "OSC-9TH-EDITION",
+          "position": 1,
+          "level": "ADVANCED",
+          "prerequisite": "THINK-PYTHON-2E",
+          "rationale": "Assumes fluency in at least one programming language and comfort with data structures; each chapter builds on the previous abstraction layer.",
+          "learningOutcome": "Explain how the scheduler, virtual memory and synchronisation primitives interact in a running system."
+        }
+      ]
+    },
+    {
+      "slug": "jane-austen",
+      "name": "Jane Austen: Manners and Marriage",
+      "type": "LEISURE",
+      "subject": "The novel of manners",
+      "audience": "Readers new to nineteenth-century fiction who want a gentle entry point.",
+      "description": "Two complete Austen novels, read in order of increasing structural difficulty: an ensemble comedy, then a single closely-controlled consciousness.",
+      "books": [
+        {
+          "resourceId": "GUTENBERG-42671",
+          "position": 1,
+          "level": "ACCESSIBLE",
+          "rationale": "Short chapters, frequent dialogue and a clear courtship plot; the social satire works without prior knowledge of the period."
+        },
+        {
+          "resourceId": "GUTENBERG-158",
+          "position": 2,
+          "level": "STANDARD",
+          "prerequisite": "GUTENBERG-42671",
+          "rationale": "Less dialogue-driven than Pride and Prejudice and dependent on free indirect style: the reader must notice Emma's misreadings, which the narration does not label."
+        }
+      ]
+    },
+    {
+      "slug": "detective-fiction",
+      "name": "Detective Fiction",
+      "type": "LEISURE",
+      "subject": "Crime and detection",
+      "audience": "Readers who enjoy puzzles and want to watch the detective story develop historically.",
+      "description": "From the first Holmes case to the multi-narrator sensation novel: five books in order of narrative complexity.",
+      "books": [
+        {
+          "resourceId": "GUTENBERG-244",
+          "position": 1,
+          "level": "ACCESSIBLE",
+          "rationale": "The shortest and most direct Holmes story. The method is explained to Watson, and therefore to the reader, as the case proceeds."
+        },
+        {
+          "resourceId": "GUTENBERG-1661",
+          "position": 2,
+          "level": "ACCESSIBLE",
+          "rationale": "Twelve self-contained short stories, each resolvable in one sitting, with the recurring structure spelled out by Watson."
+        },
+        {
+          "resourceId": "GUTENBERG-2852",
+          "position": 3,
+          "level": "STANDARD",
+          "prerequisite": "GUTENBERG-244",
+          "rationale": "A full-length case with Gothic atmosphere and a false resolution; requires following an investigation across many chapters."
+        },
+        {
+          "resourceId": "GUTENBERG-155",
+          "position": 4,
+          "level": "COMPLEX",
+          "prerequisite": "GUTENBERG-2852",
+          "rationale": "The story is assembled from several narrators with different knowledge and motives, so the reader must track who knows what and when."
+        },
+        {
+          "resourceId": "GUTENBERG-583",
+          "position": 5,
+          "level": "COMPLEX",
+          "prerequisite": "GUTENBERG-155",
+          "rationale": "Longer than The Moonstone, with legal documents, multiple narrators and an identity plot that turns on details stated early and revisited later."
+        }
+      ]
+    },
+    {
+      "slug": "gothic-and-uncanny",
+      "name": "Gothic and the Uncanny",
+      "type": "LEISURE",
+      "subject": "Gothic fiction",
+      "audience": "Readers curious about horror and the supernatural as literary forms rather than shock.",
+      "description": "Five works that use the supernatural to examine guilt, desire and the limits of scientific explanation.",
+      "books": [
+        {
+          "resourceId": "GUTENBERG-43",
+          "position": 1,
+          "level": "ACCESSIBLE",
+          "rationale": "A short novella in plain prose, told as a lawyer's investigation; the central fact is withheld but everything needed is stated clearly."
+        },
+        {
+          "resourceId": "GUTENBERG-84",
+          "position": 2,
+          "level": "STANDARD",
+          "prerequisite": "GUTENBERG-43",
+          "rationale": "Nested letters and a creature who argues at length; the reader must weigh three competing accounts of the same events."
+        },
+        {
+          "resourceId": "GUTENBERG-174",
+          "position": 3,
+          "level": "STANDARD",
+          "rationale": "Dense epigrammatic dialogue and long descriptive passages; the horror is moral rather than physical."
+        },
+        {
+          "resourceId": "GUTENBERG-345",
+          "position": 4,
+          "level": "COMPLEX",
+          "prerequisite": "GUTENBERG-84",
+          "rationale": "Epistolary across several voices and locations, with dialect passages and a deliberately slow accumulation of evidence."
+        },
+        {
+          "resourceId": "GUTENBERG-768",
+          "position": 5,
+          "level": "COMPLEX",
+          "prerequisite": "GUTENBERG-345",
+          "rationale": "Double narration across two generations and heavy Yorkshire dialect; chronology is reconstructed from conflicting testimony."
+        }
+      ]
+    },
+    {
+      "slug": "childhood-and-growing-up",
+      "name": "Childhood and Growing Up",
+      "type": "LEISURE",
+      "subject": "Coming-of-age fiction",
+      "audience": "Readers who want a progression from short, gentle books to demanding Victorian novels.",
+      "description": "Five coming-of-age narratives ordered by length, narrative distance and vocabulary.",
+      "books": [
+        {
+          "resourceId": "GUTENBERG-11",
+          "position": 1,
+          "level": "ACCESSIBLE",
+          "rationale": "Very short chapters and simple sentence structure; the difficulty is wordplay rather than syntax, so it works as a first classic."
+        },
+        {
+          "resourceId": "GUTENBERG-17396",
+          "position": 2,
+          "level": "ACCESSIBLE",
+          "rationale": "Straightforward third-person narration with a small cast and a linear timeline."
+        },
+        {
+          "resourceId": "GUTENBERG-55",
+          "position": 3,
+          "level": "ACCESSIBLE",
+          "rationale": "Episodic journey structure with short chapters and repeated motifs, easy to read in small sessions."
+        },
+        {
+          "resourceId": "GUTENBERG-514",
+          "position": 4,
+          "level": "STANDARD",
+          "prerequisite": "GUTENBERG-17396",
+          "rationale": "Episodic but long, with four central characters followed over years and period domestic detail."
+        },
+        {
+          "resourceId": "GUTENBERG-1400",
+          "position": 5,
+          "level": "COMPLEX",
+          "prerequisite": "GUTENBERG-514",
+          "rationale": "Serial Victorian prose, a large cast and a plot resolved by delayed revelations; long paragraphs and period idiom."
+        },
+        {
+          "resourceId": "GUTENBERG-1260",
+          "position": 6,
+          "level": "COMPLEX",
+          "prerequisite": "GUTENBERG-1400",
+          "rationale": "First-person narration with direct address to the reader, embedded Gothic episodes and extended passages of reflection."
+        }
+      ]
+    },
+    {
+      "slug": "adventure-and-the-sea",
+      "name": "Adventure and the Sea",
+      "type": "LEISURE",
+      "subject": "Adventure fiction",
+      "audience": "Readers who prefer plot and momentum over interior reflection.",
+      "description": "Four adventures that move from a children's quest to an encyclopaedic sea epic.",
+      "books": [
+        {
+          "resourceId": "GUTENBERG-55",
+          "position": 1,
+          "level": "ACCESSIBLE",
+          "rationale": "Short chapters, clear goals and a small travelling cast; the simplest full-length narrative in this collection."
+        },
+        {
+          "resourceId": "GUTENBERG-120",
+          "position": 2,
+          "level": "ACCESSIBLE",
+          "prerequisite": "GUTENBERG-55",
+          "rationale": "First-person adventure with nautical vocabulary and period dialect, but a continuous linear plot."
+        },
+        {
+          "resourceId": "GUTENBERG-35",
+          "position": 3,
+          "level": "STANDARD",
+          "rationale": "Short but idea-dense: the reader has to follow a speculative argument about social evolution as well as a narrative."
+        },
+        {
+          "resourceId": "GUTENBERG-2701",
+          "position": 4,
+          "level": "COMPLEX",
+          "prerequisite": "GUTENBERG-120",
+          "rationale": "Long sentences, extensive nautical terminology and digressions into cetology that interrupt the plot deliberately."
+        }
+      ]
+    },
+    {
+      "slug": "wisdom-and-self-development",
+      "name": "Wisdom and Self-Development",
+      "type": "LEISURE",
+      "subject": "Practical philosophy and self-development",
+      "audience": "Readers looking for short, reflective texts they can return to daily.",
+      "description": "Four classics on how to spend time, attention and effort, ordered from practical advice to sustained philosophical reflection.",
+      "books": [
+        {
+          "resourceId": "GUTENBERG-2274",
+          "position": 1,
+          "level": "ACCESSIBLE",
+          "rationale": "Short, plain, conversational chapters with concrete suggestions; no prior background required."
+        },
+        {
+          "resourceId": "GUTENBERG-58585",
+          "position": 2,
+          "level": "ACCESSIBLE",
+          "rationale": "Very short poetic chapters; the vocabulary is simple even where the images are not."
+        },
+        {
+          "resourceId": "GUTENBERG-132",
+          "position": 3,
+          "level": "STANDARD",
+          "prerequisite": "GUTENBERG-2274",
+          "rationale": "Aphoristic and context-dependent: understanding a chapter usually requires holding several earlier ones in mind."
+        },
+        {
+          "resourceId": "GUTENBERG-2680",
+          "position": 4,
+          "level": "COMPLEX",
+          "prerequisite": "GUTENBERG-132",
+          "rationale": "Fragmented notebook entries that repeat and revise the same ideas; the argument has to be assembled by the reader across the whole book."
+        }
+      ]
+    },
+    {
+      "slug": "python-programming",
+      "name": "Python Programming",
+      "type": "LEARNING",
+      "subject": "Programming in Python",
+      "audience": "Readers learning Python, from their first program to expert-level work.",
+      "description": "Python from first scripts to expert-level language internals.",
+      "books": [
+        {
+          "resourceId": "PY4E-PYTHON-3",
+          "level": "BEGINNER",
+          "rationale": "A complete first course in Python that assumes nothing and covers variables, loops, functions, files and data handling in order, with exercises throughout.",
+          "learningOutcome": "Write a Python program that reads data from a file, processes it and writes the result out.",
+          "position": 1
+        },
+        {
+          "resourceId": "PROG-PYTHON-BEG",
+          "position": 2,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior experience with the language and introduces its syntax and core ideas through worked examples.",
+          "learningOutcome": "Write and run Python programs that use functions, collections and files."
+        },
+        {
+          "resourceId": "THINK-PYTHON-2E",
+          "level": "INTERMEDIATE",
+          "rationale": "Takes over once the basics are secure and concentrates on program design: interfaces, invariants, recursion, objects and systematic debugging.",
+          "learningOutcome": "Decompose a problem into functions and classes and debug a failing program from its traceback.",
+          "position": 3
+        },
+        {
+          "resourceId": "PROG-PYTHON-INT",
+          "position": 4,
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes the language's basics and concentrates on using it well in real programs.",
+          "learningOutcome": "Apply idiomatic Python practices in code that others have to maintain.",
+          "prerequisite": "PROG-PYTHON-BEG"
+        },
+        {
+          "resourceId": "PYTHON-MASTERY-OEW",
+          "level": "ADVANCED",
+          "rationale": "Begins where introductory texts stop: the object model, descriptors, generators, decorators and metaprogramming, assuming daily Python use.",
+          "learningOutcome": "Explain and use descriptors, decorators, generators and the object model to write library-quality Python.",
+          "position": 5
+        },
+        {
+          "resourceId": "PROG-PYTHON-ADV",
+          "position": 6,
+          "level": "ADVANCED",
+          "rationale": "Assumes working fluency and addresses language internals, edge cases and expert judgement.",
+          "learningOutcome": "Explain and use the Python data model, generators and concurrency features.",
+          "prerequisite": "PROG-PYTHON-INT"
+        }
+      ]
+    },
+    {
+      "slug": "java-programming",
+      "name": "Java Programming",
+      "type": "LEARNING",
+      "subject": "Programming in Java",
+      "audience": "Readers learning Java, from their first program to expert-level work.",
+      "description": "Java from language basics to API and object-design judgement.",
+      "books": [
+        {
+          "resourceId": "THINK-JAVA-2E-OEW",
+          "level": "BEGINNER",
+          "rationale": "Starts from no programming experience and introduces one idea per chapter with exercises, which is why it precedes the reference-style beginner title.",
+          "learningOutcome": "Write, compile and run a Java program that uses variables, conditionals, loops, methods and simple objects.",
+          "position": 1
+        },
+        {
+          "resourceId": "PROG-JAVA-BEG",
+          "position": 2,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior experience with the language and introduces its syntax and core ideas through worked examples.",
+          "learningOutcome": "Write Java classes that use inheritance, interfaces and collections."
+        },
+        {
+          "resourceId": "JJJ-JAVA-3E-OEW",
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes control flow and methods, then works through inheritance, interfaces, exceptions, threads and files as design problems rather than syntax tours.",
+          "learningOutcome": "Design a small class hierarchy, handle exceptions and write a multithreaded program deliberately.",
+          "position": 3
+        },
+        {
+          "resourceId": "PROG-JAVA-INT",
+          "position": 4,
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes the language's basics and concentrates on using it well in real programs.",
+          "learningOutcome": "Use the core Java libraries effectively, including generics and concurrency.",
+          "prerequisite": "PROG-JAVA-BEG"
+        },
+        {
+          "resourceId": "WIKIBOOKS-JAVA-OEW",
+          "level": "ADVANCED",
+          "rationale": "Goes past the language basics into generics, concurrent programming, reflection, bytecode and the native interface, which is the material an advanced reader needs.",
+          "learningOutcome": "Use generics and the concurrency utilities competently, and explain reflection and class loading in a running JVM.",
+          "position": 5
+        },
+        {
+          "resourceId": "PROG-JAVA-ADV",
+          "position": 6,
+          "level": "ADVANCED",
+          "rationale": "Assumes working fluency and addresses language internals, edge cases and expert judgement.",
+          "learningOutcome": "Design Java APIs and classes that stay correct as the codebase grows.",
+          "prerequisite": "PROG-JAVA-INT"
+        }
+      ]
+    },
+    {
+      "slug": "c-programming",
+      "name": "C Programming",
+      "type": "LEARNING",
+      "subject": "Programming in C",
+      "audience": "Readers learning C, from their first program to expert-level work.",
+      "description": "C from syntax and memory basics to the gaps between C and real implementations.",
+      "books": [
+        {
+          "resourceId": "WIKIBOOKS-C-OEW",
+          "level": "BEGINNER",
+          "rationale": "Starts with the first program and introduces each construct with a worked example, so no prior C is assumed.",
+          "learningOutcome": "Compile and run a C program that uses variables, control flow, functions, arrays and structs.",
+          "position": 1
+        },
+        {
+          "resourceId": "PROG-C-BEG",
+          "position": 2,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior experience with the language and introduces its syntax and core ideas through worked examples.",
+          "learningOutcome": "Write C programs that use control flow, functions, arrays and pointers safely."
+        },
+        {
+          "resourceId": "MODERN-C-OEW",
+          "level": "INTERMEDIATE",
+          "rationale": "Covers the whole language with attention to pointer safety, the memory model and alignment, so it follows a first exposure rather than replacing it.",
+          "learningOutcome": "Write correct C that manages memory explicitly, uses the preprocessor deliberately and reasons about undefined behaviour.",
+          "position": 3
+        },
+        {
+          "resourceId": "PROG-C-INT",
+          "position": 4,
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes the language's basics and concentrates on using it well in real programs.",
+          "learningOutcome": "Structure larger C programs correctly around the C standard library.",
+          "prerequisite": "PROG-C-BEG"
+        },
+        {
+          "resourceId": "PROG-C-ADV",
+          "position": 5,
+          "level": "ADVANCED",
+          "rationale": "Assumes working fluency and addresses language internals, edge cases and expert judgement.",
+          "learningOutcome": "Diagnose undefined behaviour, linkage and memory-layout problems in C.",
+          "prerequisite": "PROG-C-INT"
+        }
+      ]
+    },
+    {
+      "slug": "cpp-programming",
+      "name": "C++ Programming",
+      "type": "LEARNING",
+      "subject": "Programming in C++",
+      "audience": "Readers learning C++, from their first program to expert-level work.",
+      "description": "Modern C++ from guided fundamentals to effective use of the language and its standard library.",
+      "books": [
+        {
+          "resourceId": "PROGRAMMING-FUNDAMENTALS-CPP-OEW",
+          "level": "BEGINNER",
+          "rationale": "Teaches program design before language detail and uses C++ for every worked example, so it needs no prior C++.",
+          "learningOutcome": "Structure a small program from problem statement to working code using functions, arrays and control structures.",
+          "position": 1
+        },
+        {
+          "resourceId": "PROG-CPP-BEG",
+          "position": 2,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior experience with the language and introduces its syntax and core ideas through worked examples.",
+          "learningOutcome": "Write C++ programs that use classes, containers and exceptions correctly."
+        },
+        {
+          "resourceId": "THINK-CPP-OEW",
+          "level": "INTERMEDIATE",
+          "rationale": "Moves on to classes, vectors, structures and object-oriented design, assuming the control flow and functions covered by the beginner title.",
+          "learningOutcome": "Design and implement a small class hierarchy and use the standard containers idiomatically.",
+          "position": 3
+        },
+        {
+          "resourceId": "PROG-CPP-INT",
+          "position": 4,
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes the language's basics and concentrates on using it well in real programs.",
+          "learningOutcome": "Use modern C++ and the standard library to build well-typed programs.",
+          "prerequisite": "PROG-CPP-BEG"
+        },
+        {
+          "resourceId": "PROG-CPP-ADV",
+          "position": 5,
+          "level": "ADVANCED",
+          "rationale": "Assumes working fluency and addresses language internals, edge cases and expert judgement.",
+          "learningOutcome": "Choose between modern C++ alternatives with the reasoning behind each.",
+          "prerequisite": "PROG-CPP-INT"
+        }
+      ]
+    },
+    {
+      "slug": "javascript-programming",
+      "name": "JavaScript Programming",
+      "type": "LEARNING",
+      "subject": "Programming in JavaScript",
+      "audience": "Readers learning JavaScript, from their first program to expert-level work.",
+      "description": "JavaScript from fundamentals through the language's sharp edges to the complete reference.",
+      "books": [
+        {
+          "resourceId": "ELOQUENTJS-3E",
+          "position": 1,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior experience with the language and introduces its syntax and core ideas through worked examples.",
+          "learningOutcome": "Write JavaScript that manipulates the DOM and handles asynchronous work."
+        },
+        {
+          "resourceId": "THE-JAVASCRIPT-WAY-OEW",
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes basic syntax and concentrates on the browser, the DOM, events, forms and asynchronous code, ending with a project.",
+          "learningOutcome": "Build an interactive browser application with event handling, form validation and asynchronous data loading.",
+          "position": 2
+        },
+        {
+          "resourceId": "PROG-JAVASCRIPT-INT",
+          "position": 3,
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes the language's basics and concentrates on using it well in real programs.",
+          "learningOutcome": "Predict scope, coercion and this-binding instead of guessing at them.",
+          "prerequisite": "ELOQUENTJS-3E"
+        },
+        {
+          "resourceId": "PROG-JAVASCRIPT-ADV",
+          "position": 4,
+          "level": "ADVANCED",
+          "rationale": "Assumes working fluency and addresses language internals, edge cases and expert judgement.",
+          "learningOutcome": "Navigate the full language and host APIs from the reference.",
+          "prerequisite": "PROG-JAVASCRIPT-INT"
+        }
+      ]
+    },
+    {
+      "slug": "csharp-programming",
+      "name": "C# Programming",
+      "type": "LEARNING",
+      "subject": "Programming in C#",
+      "audience": "Readers learning C#, from their first program to expert-level work.",
+      "description": "C# from a first project to the language's type-system and runtime details.",
+      "books": [
+        {
+          "resourceId": "PROG-CSHARP-BEG",
+          "position": 1,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior experience with the language and introduces its syntax and core ideas through worked examples.",
+          "learningOutcome": "Build a small C# application using classes, collections and events."
+        },
+        {
+          "resourceId": "PROG-CSHARP-INT",
+          "position": 2,
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes the language's basics and concentrates on using it well in real programs.",
+          "learningOutcome": "Use generics, LINQ and the .NET libraries to solve practical problems.",
+          "prerequisite": "PROG-CSHARP-BEG"
+        },
+        {
+          "resourceId": "PROG-CSHARP-ADV",
+          "position": 3,
+          "level": "ADVANCED",
+          "rationale": "Assumes working fluency and addresses language internals, edge cases and expert judgement.",
+          "learningOutcome": "Explain how C# generics, async and pattern matching behave at runtime.",
+          "prerequisite": "PROG-CSHARP-INT"
+        }
+      ]
+    },
+    {
+      "slug": "go-programming",
+      "name": "Go Programming",
+      "type": "LEARNING",
+      "subject": "Programming in Go",
+      "audience": "Readers learning Go, from their first program to expert-level work.",
+      "description": "Go from small programs to the language's concurrency model.",
+      "books": [
+        {
+          "resourceId": "PROG-GO-BEG",
+          "position": 1,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior experience with the language and introduces its syntax and core ideas through worked examples.",
+          "learningOutcome": "Write Go programs that use structs, interfaces and basic concurrency."
+        },
+        {
+          "resourceId": "PROG-GO-INT",
+          "position": 2,
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes the language's basics and concentrates on using it well in real programs.",
+          "learningOutcome": "Build idiomatic Go services with goroutines, channels and tests.",
+          "prerequisite": "PROG-GO-BEG"
+        },
+        {
+          "resourceId": "PROG-GO-ADV",
+          "position": 3,
+          "level": "ADVANCED",
+          "rationale": "Assumes working fluency and addresses language internals, edge cases and expert judgement.",
+          "learningOutcome": "Keep concurrent Go code correct under cancellation, failure and load.",
+          "prerequisite": "PROG-GO-INT"
+        }
+      ]
+    },
+    {
+      "slug": "rust-programming",
+      "name": "Rust Programming",
+      "type": "LEARNING",
+      "subject": "Programming in Rust",
+      "audience": "Readers learning Rust, from their first program to expert-level work.",
+      "description": "Rust from ownership basics to advanced trait and async design.",
+      "books": [
+        {
+          "resourceId": "THE-RUST-PROGRAMMING-LANGUAGE-OEW",
+          "level": "BEGINNER",
+          "rationale": "The official introduction: ownership and borrowing are explained from first principles before any advanced topic.",
+          "learningOutcome": "Write a Rust program that compiles under the borrow checker and uses structs, enums and error handling correctly.",
+          "position": 1
+        },
+        {
+          "resourceId": "PROG-RUST-BEG",
+          "position": 2,
+          "level": "BEGINNER",
+          "rationale": "Assumes no prior experience with the language and introduces its syntax and core ideas through worked examples.",
+          "learningOutcome": "Write Rust programs that satisfy ownership and borrowing rules."
+        },
+        {
+          "resourceId": "PROG-RUST-INT",
+          "position": 3,
+          "level": "INTERMEDIATE",
+          "rationale": "Assumes the language's basics and concentrates on using it well in real programs.",
+          "learningOutcome": "Build Rust programs that interact with files, networks and the OS.",
+          "prerequisite": "PROG-RUST-BEG"
+        },
+        {
+          "resourceId": "PROG-RUST-ADV",
+          "position": 4,
+          "level": "ADVANCED",
+          "rationale": "Assumes working fluency and addresses language internals, edge cases and expert judgement.",
+          "learningOutcome": "Design Rust APIs using traits, lifetimes and async without fighting the compiler.",
+          "prerequisite": "PROG-RUST-INT"
+        }
+      ]
+    }
+  ]
+}

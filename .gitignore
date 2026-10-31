@@ -44,3 +44,29 @@ astralib-backend.zip
 # User-uploaded library books (copyrighted binaries; kept in the private local backup only)
 astralib-backend/uploads/*.epub
 
+
+# Book binaries copied into the data root by the book importer. EPUB, PDF
+# and HTML editions all feed the same extraction pipeline, and none of the
+# binaries are committed: the text is extracted into vectors, the licence
+# metadata and source URL are versioned.
+data/fulltext/books/**/*.epub
+data/fulltext/books/**/*.pdf
+data/fulltext/books/**/*.html
+
+# Staged downloads for the curated collection (see catalogue/collection.json).
+data/imports/**/*.epub
+data/imports/**/*.pdf
+data/imports/**/*.html
+
+# Curated manifest scratch output
+catalogue/.resolve-cache.json
+
+# One-off curation output
+seed_report.json
+backend-run*.log
+search_validation.log
+catalogue/*.log
+
+# Resolver scratch files
+catalogue/.resolve-cache.json
+catalogue/resolve.log

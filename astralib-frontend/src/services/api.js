@@ -353,6 +353,58 @@ export const api = {
         );
       }
 
+      if (filters.genre) {
+        params.append(
+          'genre',
+          filters.genre
+        );
+      }
+
+      if (filters.subject) {
+        params.append(
+          'subject',
+          filters.subject
+        );
+      }
+
+      if (filters.level) {
+        params.append(
+          'level',
+          filters.level
+        );
+      }
+
+      if (filters.pathway) {
+        params.append(
+          'pathway',
+          filters.pathway
+        );
+      }
+
+      // Library catalogue: only books with a stored file.
+      if (filters.resourceOnly) {
+        params.append(
+          'resourceOnly',
+          'true'
+        );
+      }
+
+      // Published catalogue: readable books plus curated entries
+      // that are described and levelled but not yet available.
+      if (filters.catalogueOnly) {
+        params.append(
+          'catalogueOnly',
+          'true'
+        );
+      }
+
+      if (filters.format) {
+        params.append(
+          'format',
+          filters.format
+        );
+      }
+
       const query =
         params.toString();
 
@@ -685,6 +737,37 @@ export const api = {
 
   search: {
 
+    /**
+     * Natural-language search.
+     *
+     * Returns catalogue recommendations and document passages in separate
+     * lists, plus the query understanding the server derived (intent,
+     * language, level). A recommendation never pretends to be a passage.
+     */
+    smart: (
+      query,
+      topK = 6,
+      documentType = ''
+    ) => {
+
+      const params =
+        new URLSearchParams({
+          query,
+          topK,
+        });
+
+      if (documentType) {
+        params.append(
+          'documentType',
+          documentType
+        );
+      }
+
+      return request(
+        `/search/smart?${params.toString()}`
+      );
+    },
+
     semantic: (
       query,
       topK = 6,
@@ -852,6 +935,59 @@ knowledgeGraph: {
         `/rag/citations/${encodeURIComponent(
           chunkId
         )}`
+      ),
+  },
+
+  // =========================================================
+  // Conversational Research Assistant
+  // =========================================================
+
+  conversations: {
+
+    list: () =>
+      request('/conversations'),
+
+    create: () =>
+      request(
+        '/conversations',
+        {
+          method: 'POST',
+        }
+      ),
+
+    get: (id) =>
+      request(
+        `/conversations/${id}`
+      ),
+
+    delete: (id) =>
+      request(
+        `/conversations/${id}`,
+        {
+          method: 'DELETE',
+        }
+      ),
+
+    /**
+     * Send a turn. A null conversationId starts a new chat on the
+     * server, which also titles it from the first message.
+     */
+    send: (
+      conversationId,
+      message
+    ) =>
+      request(
+        conversationId
+          ? `/conversations/${conversationId}/messages`
+          : '/conversations/messages',
+        {
+          method: 'POST',
+
+          body:
+            JSON.stringify({
+              message,
+            }),
+        }
       ),
   },
 
@@ -1163,6 +1299,97 @@ knowledgeGraph: {
   },
 
   // =========================================================
+  // Curated pathways
+  // =========================================================
+
+  pathways: {
+
+    /** All pathways with book counts and level coverage. */
+    getAll: () =>
+      request(
+        '/pathways'
+      ),
+
+    /** One pathway with its books in reading order. */
+    getBySlug: (slug) =>
+      request(
+        `/pathways/${encodeURIComponent(slug)}`
+      ),
+
+    /** Compact book -> pathway/level list for catalogue cards. */
+    getMemberships: () =>
+      request(
+        '/pathways/memberships'
+      ),
+
+    forBook: (bookId) =>
+      request(
+        `/pathways/by-book/${bookId}`
+      ),
+
+    // =======================================================
+    // Pathway curation (administrators only)
+    // =======================================================
+
+    admin: {
+
+      list: () =>
+        request(
+          '/admin/pathways'
+        ),
+
+      create: (data) =>
+        request(
+          '/admin/pathways',
+          {
+            method: 'POST',
+            body: JSON.stringify(data),
+          }
+        ),
+
+      update: (id, data) =>
+        request(
+          `/admin/pathways/${id}`,
+          {
+            method: 'PUT',
+            body: JSON.stringify(data),
+          }
+        ),
+
+      addBook: (id, data) =>
+        request(
+          `/admin/pathways/${id}/books`,
+          {
+            method: 'POST',
+            body: JSON.stringify(data),
+          }
+        ),
+
+      updateBook: (id, entryId, data) =>
+        request(
+          `/admin/pathways/${id}/books/${entryId}`,
+          {
+            method: 'PUT',
+            body: JSON.stringify(data),
+          }
+        ),
+
+      removeBook: (id, entryId) =>
+        request(
+          `/admin/pathways/${id}/books/${entryId}`,
+          {
+            method: 'DELETE',
+          }
+        ),
+
+      metadataGaps: () =>
+        request(
+          '/admin/pathways/metadata-gaps'
+        ),
+    },
+  },
+
+  // =========================================================
   // Admin APIs
   // =========================================================
 
@@ -1184,6 +1411,27 @@ knowledgeGraph: {
     getVectorStats: () =>
       request(
         '/admin/vector-stats'
+      ),
+
+    /**
+     * Import an EPUB book. Embedding starts automatically
+     * and the response carries an ingestion job id.
+     */
+    importEpub: (formData) =>
+      request(
+        '/admin/books/import-epub',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      ),
+
+    /**
+     * Poll the embedding status of an import job.
+     */
+    getImportStatus: (jobId) =>
+      request(
+        `/admin/books/import-status/${jobId}`
       ),
 
     // Ingest all vectors

@@ -63,7 +63,7 @@ def percentile(values, p):
 def extract_results(payload):
     if isinstance(payload, list):
         return payload
-    for key in ("results", "data", "items"):
+    for key in ("passages", "results", "data", "items"):
         if isinstance(payload, dict) and isinstance(payload.get(key), list):
             return payload[key]
     return []
