@@ -129,6 +129,15 @@
             <version>3.0.3</version>
         </dependency>
 
+        <!--
+            DOCX text extraction for student document uploads.
+        -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+
         <!-- =================================================
              JWT
         ================================================== -->
@@ -209,6 +218,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-XX:ReservedCodeCacheSize=64m -XX:+UseSerialGC -Xms32m -Xmx384m</argLine>
+                </configuration>
             </plugin>
 
         </plugins>

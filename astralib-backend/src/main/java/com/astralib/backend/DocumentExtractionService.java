@@ -20,19 +20,36 @@ public class DocumentExtractionService {
     public static final String FORMAT_EPUB = "application/epub+zip";
     public static final String FORMAT_PDF = "application/pdf";
     public static final String FORMAT_HTML = "text/html";
+    public static final String FORMAT_DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+    public static final String FORMAT_TXT = "text/plain";
 
     private final EpubTextExtractionService epubTextExtractionService;
     private final PdfTextExtractionService pdfTextExtractionService;
     private final HtmlTextExtractionService htmlTextExtractionService;
+    private final DocxTextExtractionService docxTextExtractionService;
+    private final TxtTextExtractionService txtTextExtractionService;
 
     public DocumentExtractionService(
             EpubTextExtractionService epubTextExtractionService,
             PdfTextExtractionService pdfTextExtractionService,
             HtmlTextExtractionService htmlTextExtractionService) {
 
+        this(epubTextExtractionService, pdfTextExtractionService, htmlTextExtractionService,
+                new DocxTextExtractionService(), new TxtTextExtractionService());
+    }
+
+    public DocumentExtractionService(
+            EpubTextExtractionService epubTextExtractionService,
+            PdfTextExtractionService pdfTextExtractionService,
+            HtmlTextExtractionService htmlTextExtractionService,
+            DocxTextExtractionService docxTextExtractionService,
+            TxtTextExtractionService txtTextExtractionService) {
+
         this.epubTextExtractionService = epubTextExtractionService;
         this.pdfTextExtractionService = pdfTextExtractionService;
         this.htmlTextExtractionService = htmlTextExtractionService;
+        this.docxTextExtractionService = docxTextExtractionService;
+        this.txtTextExtractionService = txtTextExtractionService;
     }
 
     /**
@@ -44,6 +61,10 @@ public class DocumentExtractionService {
         String extension = extensionOf(fileName);
 
         if ("epub".equals(extension) || "pdf".equals(extension)) {
+            return true;
+        }
+
+        if ("docx".equals(extension) || "txt".equals(extension)) {
             return true;
         }
 
@@ -59,7 +80,9 @@ public class DocumentExtractionService {
 
         return FORMAT_EPUB.equals(normalised)
                 || FORMAT_PDF.equals(normalised)
-                || FORMAT_HTML.equals(normalised);
+                || FORMAT_HTML.equals(normalised)
+                || FORMAT_DOCX.equals(normalised)
+                || FORMAT_TXT.equals(normalised);
     }
 
     /**
@@ -72,6 +95,8 @@ public class DocumentExtractionService {
         return switch (extension) {
             case "epub" -> FORMAT_EPUB;
             case "pdf" -> FORMAT_PDF;
+            case "docx" -> FORMAT_DOCX;
+            case "txt" -> FORMAT_TXT;
             case "html", "htm" -> FORMAT_HTML;
             default -> "application/octet-stream";
         };
@@ -103,6 +128,8 @@ public class DocumentExtractionService {
         return switch (extensionOf(fileName)) {
             case "epub" -> "EPUB";
             case "pdf" -> "PDF";
+            case "docx" -> "DOCX";
+            case "txt" -> "TXT";
             case "html", "htm" -> "HTML";
             default -> "FILE";
         };
@@ -117,9 +144,11 @@ public class DocumentExtractionService {
                     epubTextExtractionService.extractSections(file)
             );
             case "pdf" -> pdfTextExtractionService.extractSections(file);
+            case "docx" -> docxTextExtractionService.extractSections(file);
+            case "txt" -> txtTextExtractionService.extractSections(file);
             case "html", "htm" -> htmlTextExtractionService.extractSections(file);
             default -> throw new IllegalArgumentException(
-                    "Unsupported book format: " + extension
+                    "Unsupported document format: " + extension
             );
         };
     }

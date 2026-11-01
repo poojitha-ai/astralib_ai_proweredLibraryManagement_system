@@ -252,8 +252,12 @@ public class VectorIndexService {
 
             long started = System.currentTimeMillis();
 
-            List<VectorRecord> records =
-                    new ArrayList<>(vectorRecordRepository.findAll());
+            List<VectorRecord> records = new ArrayList<>();
+            for (VectorRecord r : vectorRecordRepository.findAll()) {
+                if (!"student_document".equalsIgnoreCase(r.getDocumentType())) {
+                    records.add(r);
+                }
+            }
 
             Map<String, float[]> vectors =
                     new HashMap<>(records.size() * 2);

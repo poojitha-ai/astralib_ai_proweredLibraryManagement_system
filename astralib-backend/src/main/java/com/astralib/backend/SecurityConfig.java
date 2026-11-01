@@ -177,6 +177,11 @@ public class SecurityConfig {
                         .requestMatchers("/api/conversations/**")
                         .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
 
+                        // Private student document uploads. Strictly scoped to
+                        // the authenticated owner.
+                        .requestMatchers("/api/student-documents/**")
+                        .hasAnyRole("USER", "LIBRARIAN", "ADMIN")
+
                         // Admin endpoints
                         .requestMatchers("/api/admin/**")
                         .hasRole("ADMIN")

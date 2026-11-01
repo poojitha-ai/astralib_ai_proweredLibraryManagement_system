@@ -16,6 +16,7 @@ public interface VectorRecordRepository extends JpaRepository<VectorRecord, Long
     List<VectorRecord> findByDocumentType(String documentType);
     long countByDocumentType(String documentType);
     long countByDocumentId(String documentId);
+    void deleteByDocumentId(String documentId);
 
     @Query("select max(v.id) from VectorRecord v")
     Long findMaxId();
