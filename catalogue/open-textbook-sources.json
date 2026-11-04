@@ -1,0 +1,21 @@
+[
+  {
+    "key": "WIKIBOOKS-JAVA-OEW",
+    "title": "Java Programming",
+    "author": "Wikibooks contributors",
+    "language": "Java",
+    "level": "ADVANCED",
+    "kind": "wikibooks",
+    "file": "data/imports/incoming/wikibooks-java-programming.html",
+    "root": "Java_Programming",
+    "sourceUrl": "https://en.wikibooks.org/wiki/Java_Programming",
+    "licence": "CC BY-SA 4.0 and GFDL (dual), per Wikibooks:Copyrights.",
+    "edition": "Wikibooks live edition, snapshot of the chapter set at download time",
+    "downloadUrls": [
+      "https://en.wikibooks.org/wiki/Java_Programming"
+    ],
+    "status": "DOWNLOADED",
+    "bytes": 10080578,
+    "detectedFormat": "html"
+  }
+]

@@ -1,0 +1,1217 @@
+{
+  "label": "after",
+  "generated": "2026-10-31 01:46 UTC",
+  "top_k": 5,
+  "summary": {
+    "smart": {
+      "queries": 32,
+      "top3": 31,
+      "accuracy": 0.969,
+      "empty": 1,
+      "stub_sources": 0,
+      "unreadable_sources": 0,
+      "errors": 0,
+      "median_ms": 2327
+    }
+  },
+  "engines": {
+    "smart": [
+      {
+        "query": "I'm new to programming, which Python book should I start with?",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Python for Everybody: Exploring Data in Python 3",
+          "Think Python (2nd Edition)",
+          "Python Crash Course"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 1893,
+        "intent": "RECOMMENDATION",
+        "rank": 1,
+        "top_score": null,
+        "returned": [],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "Python Crash Course",
+            "level": "BEGINNER",
+            "readable": false
+          },
+          {
+            "title": "Advanced Python Mastery",
+            "level": "ADVANCED",
+            "readable": true
+          },
+          {
+            "title": "Effective Python",
+            "level": "INTERMEDIATE",
+            "readable": false
+          },
+          {
+            "title": "Fluent Python",
+            "level": "ADVANCED",
+            "readable": false
+          }
+        ],
+        "recommendation_hit": true
+      },
+      {
+        "query": "Something easy for a complete beginner in Java",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+          "Head First Java"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 614,
+        "intent": "RECOMMENDATION",
+        "rank": 1,
+        "top_score": null,
+        "returned": [],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+            "level": "BEGINNER",
+            "readable": true
+          },
+          {
+            "title": "Head First Java",
+            "level": "BEGINNER",
+            "readable": false
+          },
+          {
+            "title": "Java Programming",
+            "level": "ADVANCED",
+            "readable": true
+          },
+          {
+            "title": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+            "level": "INTERMEDIATE",
+            "readable": true
+          },
+          {
+            "title": "Core Java, Volume I: Fundamentals",
+            "level": "INTERMEDIATE",
+            "readable": false
+          }
+        ],
+        "recommendation_hit": true
+      },
+      {
+        "query": "Best book to learn C++ from scratch?",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Programming Fundamentals: A Modular Structured Approach Using C++",
+          "Think C++: How to Think Like a Computer Scientist"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 420,
+        "intent": "RECOMMENDATION",
+        "rank": 1,
+        "top_score": null,
+        "returned": [],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "Programming Fundamentals: A Modular Structured Approach Using C++",
+            "level": "BEGINNER",
+            "readable": true
+          },
+          {
+            "title": "Programming: Principles and Practice Using C++",
+            "level": "BEGINNER",
+            "readable": false
+          },
+          {
+            "title": "Think C++: How to Think Like a Computer Scientist",
+            "level": "INTERMEDIATE",
+            "readable": true
+          },
+          {
+            "title": "C++ Primer",
+            "level": "INTERMEDIATE",
+            "readable": false
+          },
+          {
+            "title": "Effective Modern C++",
+            "level": "ADVANCED",
+            "readable": false
+          }
+        ],
+        "recommendation_hit": true
+      },
+      {
+        "query": "I already know the basics, recommend a more advanced Rust book",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Rust for Rustaceans",
+          "The Rust Programming Language"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 300,
+        "intent": "RECOMMENDATION",
+        "rank": 1,
+        "top_score": null,
+        "returned": [],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "Rust for Rustaceans",
+            "level": "ADVANCED",
+            "readable": false
+          },
+          {
+            "title": "The Rust Programming Language",
+            "level": "BEGINNER",
+            "readable": true
+          },
+          {
+            "title": "Rust in Action",
+            "level": "INTERMEDIATE",
+            "readable": false
+          },
+          {
+            "title": "The Rust Programming Language (No Starch Press print edition)",
+            "level": "BEGINNER",
+            "readable": false
+          }
+        ],
+        "recommendation_hit": true
+      },
+      {
+        "query": "Easy introduction to JavaScript for someone who only knows HTML",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Eloquent JavaScript (3rd Edition)",
+          "The JavaScript Way"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 9692,
+        "intent": "RECOMMENDATION",
+        "rank": 1,
+        "top_score": null,
+        "returned": [
+          {
+            "title": "Programming Fundamentals: A Modular Structured Approach Using C++",
+            "score": 0.748,
+            "section": "Pages 62-76",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "Eloquent JavaScript (3rd Edition)",
+            "level": "INTERMEDIATE",
+            "readable": true
+          },
+          {
+            "title": "The JavaScript Way",
+            "level": "INTERMEDIATE",
+            "readable": true
+          },
+          {
+            "title": "JavaScript: The Definitive Guide",
+            "level": "ADVANCED",
+            "readable": false
+          },
+          {
+            "title": "You Don't Know JS Yet",
+            "level": "INTERMEDIATE",
+            "readable": false
+          }
+        ],
+        "recommendation_hit": false
+      },
+      {
+        "query": "What should I read after learning basic C?",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Modern C (C23 Edition)",
+          "Expert C Programming",
+          "C Programming"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 332,
+        "intent": "RECOMMENDATION",
+        "rank": 1,
+        "top_score": null,
+        "returned": [],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "Modern C (C23 Edition)",
+            "level": "INTERMEDIATE",
+            "readable": true
+          },
+          {
+            "title": "C Programming: A Modern Approach",
+            "level": "INTERMEDIATE",
+            "readable": false
+          },
+          {
+            "title": "C Programming",
+            "level": "BEGINNER",
+            "readable": true
+          },
+          {
+            "title": "Expert C Programming",
+            "level": "ADVANCED",
+            "readable": false
+          },
+          {
+            "title": "Let Us C",
+            "level": "BEGINNER",
+            "readable": false
+          }
+        ],
+        "recommendation_hit": true
+      },
+      {
+        "query": "Which book teaches advanced Python metaprogramming and decorators?",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Advanced Python Mastery"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2670,
+        "intent": "RECOMMENDATION",
+        "rank": 1,
+        "top_score": null,
+        "returned": [
+          {
+            "title": "Advanced Python Mastery",
+            "score": 1.0,
+            "section": "Pages 402-421",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "Advanced Python Mastery",
+            "level": "ADVANCED",
+            "readable": true
+          },
+          {
+            "title": "Fluent Python",
+            "level": "ADVANCED",
+            "readable": false
+          },
+          {
+            "title": "Effective Python",
+            "level": "INTERMEDIATE",
+            "readable": false
+          },
+          {
+            "title": "Python Crash Course",
+            "level": "BEGINNER",
+            "readable": false
+          }
+        ],
+        "recommendation_hit": true
+      },
+      {
+        "query": "I want a beginner friendly book about object oriented programming",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+          "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+          "Programming Fundamentals: A Modular Structured Approach Using C++"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2327,
+        "intent": "RECOMMENDATION",
+        "rank": 2,
+        "top_score": null,
+        "returned": [
+          {
+            "title": "Java Programming",
+            "score": 0.917,
+            "section": "Who should read this book?",
+            "stub": false
+          },
+          {
+            "title": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+            "score": 0.91,
+            "section": "0.7 What Is Object-Oriented Programming?",
+            "stub": false
+          },
+          {
+            "title": "Python for Everybody: Exploring Data in Python 3",
+            "score": 0.745,
+            "section": "Object-oriented programming",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "C Programming",
+            "level": "BEGINNER",
+            "readable": true
+          },
+          {
+            "title": "Programming Fundamentals: A Modular Structured Approach Using C++",
+            "level": "BEGINNER",
+            "readable": true
+          },
+          {
+            "title": "Python for Everybody: Exploring Data in Python 3",
+            "level": "BEGINNER",
+            "readable": true
+          },
+          {
+            "title": "The Rust Programming Language",
+            "level": "BEGINNER",
+            "readable": true
+          },
+          {
+            "title": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+            "level": "BEGINNER",
+            "readable": true
+          }
+        ],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How does a while loop work?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "C Programming",
+          "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+          "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+          "Python for Everybody: Exploring Data in Python 3"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 1997,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.964,
+        "returned": [
+          {
+            "title": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+            "score": 0.964,
+            "section": "6.6 Which Loop to Use 97",
+            "stub": false
+          },
+          {
+            "title": "Java Programming",
+            "score": 0.891,
+            "section": "The do...while loop",
+            "stub": false
+          },
+          {
+            "title": "C Programming",
+            "score": 0.885,
+            "section": "while loops",
+            "stub": false
+          },
+          {
+            "title": "The JavaScript Way",
+            "score": 0.785,
+            "section": "How it works",
+            "stub": false
+          },
+          {
+            "title": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+            "score": 0.701,
+            "section": "CHAPTER 6 \u2022 Chapter Summary 285",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "What is inheritance in object-oriented programming?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2998,
+        "intent": "CONCEPT",
+        "rank": 2,
+        "top_score": 0.939,
+        "returned": [
+          {
+            "title": "Java Programming",
+            "score": 0.939,
+            "section": "Java Programming/Inheritance",
+            "stub": false
+          },
+          {
+            "title": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+            "score": 0.935,
+            "section": "0.7 What Is Object-Oriented Programming?",
+            "stub": false
+          },
+          {
+            "title": "Programming Fundamentals: A Modular Structured Approach Using C++",
+            "score": 0.731,
+            "section": "PART VIII",
+            "stub": false
+          },
+          {
+            "title": "C Programming",
+            "score": 0.731,
+            "section": "Inheritance",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How do I declare a pointer in C and take the address of a variable?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "C Programming",
+          "Modern C (C23 Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2895,
+        "intent": "PROCEDURAL",
+        "rank": 1,
+        "top_score": 1.0,
+        "returned": [
+          {
+            "title": "C Programming",
+            "score": 1.0,
+            "section": "Assigning values to pointers",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "What is a vector in C++?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Think C++: How to Think Like a Computer Scientist",
+          "Programming Fundamentals: A Modular Structured Approach Using C++"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2242,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.79,
+        "returned": [
+          {
+            "title": "Think C++: How to Think Like a Computer Scientist",
+            "score": 0.79,
+            "section": "Chapter 10",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How do I define a Python function with default arguments?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Think Python (2nd Edition)",
+          "Python for Everybody: Exploring Data in Python 3"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2033,
+        "intent": "PROCEDURAL",
+        "rank": 2,
+        "top_score": 0.93,
+        "returned": [
+          {
+            "title": "Advanced Python Mastery",
+            "score": 0.93,
+            "section": "Pages 41-60",
+            "stub": false
+          },
+          {
+            "title": "Python for Everybody: Exploring Data in Python 3",
+            "score": 0.745,
+            "section": "Functions",
+            "stub": false
+          },
+          {
+            "title": "Modern C (C23 Edition)",
+            "score": 0.722,
+            "section": "Pages 304-323",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "What is a closure in JavaScript?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Eloquent JavaScript (3rd Edition)",
+          "The JavaScript Way"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2340,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.857,
+        "returned": [
+          {
+            "title": "The JavaScript Way",
+            "score": 0.857,
+            "section": "Variable scope",
+            "stub": false
+          },
+          {
+            "title": "Modern C (C23 Edition)",
+            "score": 0.778,
+            "section": "Pages 324-343",
+            "stub": false
+          },
+          {
+            "title": "The Rust Programming Language",
+            "score": 0.753,
+            "section": "Closures",
+            "stub": false
+          },
+          {
+            "title": "Advanced Python Mastery",
+            "score": 0.646,
+            "section": "Pages 342-361",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How does Rust ownership and borrowing work?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "The Rust Programming Language"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2067,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.96,
+        "returned": [
+          {
+            "title": "The Rust Programming Language",
+            "score": 0.96,
+            "section": "Understanding Ownership",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "Explain stacks and queues",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+          "C Programming",
+          "Think Python (2nd Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 1975,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 1.0,
+        "returned": [
+          {
+            "title": "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+            "score": 1.0,
+            "section": "Pages 794-808",
+            "stub": false
+          },
+          {
+            "title": "Java Programming",
+            "score": 0.755,
+            "section": "Queue",
+            "stub": false
+          },
+          {
+            "title": "C Programming",
+            "score": 0.561,
+            "section": "A simple server",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "What is recursion and when should I use it?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Think Python (2nd Edition)",
+          "Think C++: How to Think Like a Computer Scientist",
+          "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2481,
+        "intent": "CONCEPT",
+        "rank": 2,
+        "top_score": 0.849,
+        "returned": [
+          {
+            "title": "Think Java: How to Think Like a Computer Scientist (2nd Edition)",
+            "score": 0.849,
+            "section": "8.4 The Leap of Faith 133",
+            "stub": false
+          },
+          {
+            "title": "Think C++: How to Think Like a Computer Scientist",
+            "score": 0.844,
+            "section": "4.8 Infinite recursion",
+            "stub": false
+          },
+          {
+            "title": "Modern C (C23 Edition)",
+            "score": 0.775,
+            "section": "Pages 103-122",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How is a linked list stored in memory?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Java, Java, Java: Object-Oriented Problem Solving (3rd Edition)",
+          "C Programming",
+          "Modern C (C23 Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2084,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.926,
+        "returned": [
+          {
+            "title": "C Programming",
+            "score": 0.926,
+            "section": "Deviation from standards",
+            "stub": false
+          },
+          {
+            "title": "Operating System Concepts (9th Edition)",
+            "score": 0.818,
+            "section": "CHAPTER OBJECTIVES",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How does virtual memory paging work?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Operating System Concepts (9th Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 5340,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.981,
+        "returned": [
+          {
+            "title": "Operating System Concepts (9th Edition)",
+            "score": 0.981,
+            "section": "Chapter 3 that two or more processes can communicate through the use",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "What is a deadlock in an operating system?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Operating System Concepts (9th Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2029,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.999,
+        "returned": [
+          {
+            "title": "Operating System Concepts (9th Edition)",
+            "score": 0.999,
+            "section": "CHAPTER OBJECTIVES",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How does the scheduler decide which process runs next?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Operating System Concepts (9th Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2087,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.853,
+        "returned": [
+          {
+            "title": "Operating System Concepts (9th Edition)",
+            "score": 0.853,
+            "section": "/app/public/task/6abb8472315583cc13d6c896/b5e06ee9-ebd3-4202-9150-7434e2bb6bb6.pdf",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How does TCP establish a connection?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Operating System Concepts (9th Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 14901,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.846,
+        "returned": [
+          {
+            "title": "Operating System Concepts (9th Edition)",
+            "score": 0.846,
+            "section": "CHAPTER OBJECTIVES",
+            "stub": false
+          },
+          {
+            "title": "Java Programming",
+            "score": 0.777,
+            "section": "Socket Connection Example",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "What is supervised learning?",
+        "category": "ml",
+        "engine": "smart",
+        "expected": [],
+        "want_none": false,
+        "error": null,
+        "ms": 8541,
+        "intent": "CONCEPT",
+        "rank": null,
+        "top_score": 1.0,
+        "returned": [
+          {
+            "title": "Semi-Supervised Learning",
+            "score": 1.0,
+            "section": "Section 1",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": true,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "Explain gradient descent",
+        "category": "ml",
+        "engine": "smart",
+        "expected": [],
+        "want_none": false,
+        "error": null,
+        "ms": 5604,
+        "intent": "CONCEPT",
+        "rank": null,
+        "top_score": null,
+        "returned": [],
+        "grounded": false,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": true,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "What is the difference between precision and recall?",
+        "category": "ml",
+        "engine": "smart",
+        "expected": [],
+        "want_none": false,
+        "error": null,
+        "ms": 5782,
+        "intent": "CONCEPT",
+        "rank": null,
+        "top_score": 1.0,
+        "returned": [
+          {
+            "title": "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets",
+            "score": 1.0,
+            "section": "Section 1",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": true,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "Why does Elizabeth Bennet dislike Mr Darcy?",
+        "category": "literature",
+        "engine": "smart",
+        "expected": [
+          "Pride and Prejudice"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 4532,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.998,
+        "returned": [
+          {
+            "title": "Pride and Prejudice",
+            "score": 0.998,
+            "section": "CHAPTER X.",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "How does Holmes solve the case of the hound?",
+        "category": "literature",
+        "engine": "smart",
+        "expected": [
+          "The Hound of the Baskervilles"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 3906,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.876,
+        "returned": [
+          {
+            "title": "The Hound of the Baskervilles",
+            "score": 0.876,
+            "section": "Chapter 12. Death on the Moor",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "What does Sun Tzu say about deception in war?",
+        "category": "literature",
+        "engine": "smart",
+        "expected": [
+          "The Art of War"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 3272,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.928,
+        "returned": [
+          {
+            "title": "The Art of War",
+            "score": 0.928,
+            "section": "Chapter I. LAYING PLANS",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "I keep forgetting how memory works in C",
+        "category": "vague",
+        "engine": "smart",
+        "expected": [
+          "C Programming",
+          "Modern C (C23 Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 1893,
+        "intent": "OTHER",
+        "rank": 1,
+        "top_score": 0.738,
+        "returned": [
+          {
+            "title": "C Programming",
+            "score": 0.738,
+            "section": "The free function",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "Which C# book should I start with?",
+        "category": "recommendation",
+        "engine": "smart",
+        "expected": [
+          "Head First C#"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 227,
+        "intent": "RECOMMENDATION",
+        "rank": 1,
+        "top_score": null,
+        "returned": [],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [
+          {
+            "title": "Head First C#",
+            "level": "BEGINNER",
+            "readable": false
+          },
+          {
+            "title": "C# in Depth",
+            "level": "ADVANCED",
+            "readable": false
+          },
+          {
+            "title": "The C# Player's Guide",
+            "level": "INTERMEDIATE",
+            "readable": false
+          }
+        ],
+        "recommendation_hit": true
+      },
+      {
+        "query": "What is the difference between a process and a thread?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Operating System Concepts (9th Edition)"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 1958,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 1.0,
+        "returned": [
+          {
+            "title": "Operating System Concepts (9th Edition)",
+            "score": 1.0,
+            "section": "CHAPTER OBJECTIVES",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      },
+      {
+        "query": "Why do my C++ objects get copied when I pass them to a function?",
+        "category": "concept",
+        "engine": "smart",
+        "expected": [
+          "Think C++: How to Think Like a Computer Scientist",
+          "Programming Fundamentals: A Modular Structured Approach Using C++"
+        ],
+        "want_none": false,
+        "error": null,
+        "ms": 2372,
+        "intent": "CONCEPT",
+        "rank": 1,
+        "top_score": 0.782,
+        "returned": [
+          {
+            "title": "Think C++: How to Think Like a Computer Scientist",
+            "score": 0.782,
+            "section": "8.5 Structures as parameters",
+            "stub": false
+          },
+          {
+            "title": "Modern C (C23 Edition)",
+            "score": 0.761,
+            "section": "Pages 163-182",
+            "stub": false
+          }
+        ],
+        "grounded": true,
+        "stub_sources": 0,
+        "unreadable_sources": 0,
+        "grounded_only": false,
+        "recommendations": [],
+        "recommendation_hit": null
+      }
+    ]
+  }
+}

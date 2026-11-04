@@ -137,6 +137,10 @@ import {
   DatasetLoaderPage,
 } from './pages/admin/DatasetLoaderPage';
 
+import {
+  ManagePathwaysPage,
+} from './pages/admin/ManagePathwaysPage';
+
 export function App() {
   return (
     <AuthProvider>
@@ -193,6 +197,16 @@ export function App() {
               <Route
                 path="/catalogue"
                 element={<CataloguePage />}
+              />
+
+              {/*
+                Pathways are an administrative structure. The old
+                reader destination now leads to the catalogue itself,
+                where books carry their level labels.
+              */}
+              <Route
+                path="/pathways"
+                element={<Navigate to="/catalogue" replace />}
               />
 
               <Route
@@ -361,6 +375,13 @@ export function App() {
                   path="/admin/users"
                   element={
                     <ManageUsersPage />
+                  }
+                />
+
+                <Route
+                  path="/admin/pathways"
+                  element={
+                    <ManagePathwaysPage />
                   }
                 />
 

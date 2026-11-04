@@ -475,7 +475,34 @@ public class RagService {
                                         "\n\n------------------------------\n\n"
                                 )
                         );
+        // TEMPORARY DEBUG: inspect the context sent to Gemini
+logger.info(
+        "RAG context total characters: {}",
+        context.length()
+);
 
+for (SemanticSearchService.SearchResultDTO chunk : chunks) {
+
+    String content = chunk.getContent();
+
+    int contentLength =
+            content == null ? 0 : content.length();
+
+    String preview =
+            content == null
+                    ? "<NULL CONTENT>"
+                    : content.substring(
+                            0,
+                            Math.min(content.length(), 350)
+                    ).replaceAll("\\s+", " ");
+
+    logger.info(
+            "RAG CONTENT CHECK | chunk={} | length={} | preview={}",
+            chunk.getChunkId(),
+            contentLength,
+            preview
+    );
+}
 
         logger.info(
                 "Sending {} relevant chunks to LLM",

@@ -42,9 +42,10 @@ This document provides a feature-by-feature verification matrix comparing backen
 | Feature | Backend Endpoint / Mechanism | Frontend Screen / Route | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **Keyword Search** | `GET /api/books?keyword=...` | `/search?mode=keyword` | `COMPLETE` | SQL pattern matching on title, ISBN, description. |
-| **Smart (Semantic) Search** | `GET /api/search/semantic` | `/search?mode=semantic` | `COMPLETE` | Cosine similarity against chunked vector records. |
-| **Hybrid Search** | `GET /api/search/hybrid` | `/search?mode=hybrid` | `COMPLETE` | Blends vector similarity (70%) and keyword frequency (30%). |
-| **General Research Assistant (RAG)** | `POST /api/rag/ask`, `POST /api/rag/query` | `/research` | `COMPLETE` | Retrieves relevant document chunks and synthesizes answer with citations. Gracefully notifies when LLM key is unset. |
+| **Smart (Semantic) Search** | `GET /api/search/semantic` | `/search?mode=semantic` | `COMPLETE` | Query understanding, then fused vector + lexical passage retrieval (calibrated 0.46/0.84 floors) with catalogue recommendations when the request is a book question. Returns an envelope: `understanding`, `passages`, `recommendations`, `confidence`, `notice`. |
+| **Hybrid Search** | `GET /api/search/hybrid` | `/search?mode=hybrid` | `COMPLETE` | Query expansion, then blends vector similarity (60%) and keyword frequency (40%) over the calibrated 0.46 vector floor. |
+| **Conversational Research Assistant** | `/api/conversations`, `/api/conversations/{id}/messages` | `/research` | `COMPLETE` | Multi-turn academic companion. Persists owned conversations and messages, classifies each turn (chat, guidance, recommendation, explanation, research), offers real catalogue books with their availability, and cites retrieved passages only when it actually used them. Falls back to deterministic catalogue/passage answers when no LLM key is set. |
+| **General RAG endpoint** | `POST /api/rag/ask`, `POST /api/rag/query` | used internally by tools | `COMPLETE` | Single-shot grounded synthesis with citations, kept for document Q&A and API clients. |
 | **Document-Specific Q&A (Reader)** | `POST /api/rag/documents/{docId}/ask` | `/reader/:resourceId` | `COMPLETE` | Scoped RAG on active digital document with citation inspector. |
 
 ---

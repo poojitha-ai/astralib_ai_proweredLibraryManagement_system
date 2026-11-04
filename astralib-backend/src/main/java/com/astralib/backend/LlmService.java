@@ -2,9 +2,12 @@ package com.astralib.backend;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -15,6 +18,11 @@ import java.util.Map;
 
 @Service
 public class LlmService {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(LlmService.class);
+
+    private static final int MAX_RETRY_ATTEMPTS = 3;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -96,6 +104,166 @@ public class LlmService {
                 )
         );
 
+        return sendAndReadAnswer(requestBody);
+    }
+
+    // =========================================================
+    // CONVERSATIONAL CHAT
+    // =========================================================
+
+    /** One prior turn sent back to the model. */
+    public record Turn(String role, String text) {
+
+        public boolean isAssistant() {
+            return "model".equals(role) || "assistant".equals(role);
+        }
+    }
+
+    /**
+     * @return true when a chat provider and key are configured. Callers use
+     *         this to fall back to a deterministic answer instead of failing
+     *         the whole conversation when the model is unavailable.
+     */
+    public boolean isConfigured() {
+        return apiKey != null
+                && !apiKey.isBlank()
+                && "gemini".equalsIgnoreCase(provider);
+    }
+
+    /**
+     * Conversational completion with system instructions and prior turns.
+     *
+     * The Research Assistant needs the model to see the conversation, not a
+     * single question: "yes, that one" only means something after the answer
+     * that offered it.
+     */
+    public String chat(
+            String systemInstruction,
+            List<Turn> turns) {
+
+        if (!isConfigured()) {
+            throw new IllegalStateException(
+                    "No chat model is configured. Set LLM_PROVIDER=gemini and LLM_API_KEY."
+            );
+        }
+
+        if (turns == null || turns.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "A conversation needs at least one turn."
+            );
+        }
+
+        List<Map<String, Object>> contents = new java.util.ArrayList<>();
+
+        for (Turn turn : turns) {
+            if (turn == null || turn.text() == null || turn.text().isBlank()) {
+                continue;
+            }
+
+            contents.add(
+                    Map.of(
+                            "role",
+                            turn.isAssistant() ? "model" : "user",
+                            "parts",
+                            List.of(
+                                    Map.of("text", turn.text())
+                            )
+                    )
+            );
+        }
+
+        if (contents.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "A conversation needs at least one non-empty turn."
+            );
+        }
+
+        Map<String, Object> requestBody = new java.util.LinkedHashMap<>();
+
+        if (systemInstruction != null && !systemInstruction.isBlank()) {
+            requestBody.put(
+                    "systemInstruction",
+                    Map.of(
+                            "parts",
+                            List.of(Map.of("text", systemInstruction))
+                    )
+            );
+        }
+
+        requestBody.put("contents", contents);
+        requestBody.put(
+                "generationConfig",
+                Map.of(
+                        "temperature", 0.7,
+                        "maxOutputTokens", 900
+                )
+        );
+
+        return sendAndReadAnswer(requestBody);
+    }
+
+    /**
+     * Generates long-form content for multi-stage book summarisation.
+     * This is deliberately separate from normal chat so its token limit
+     * does not affect ordinary Research Assistant responses.
+     */
+    public String generateLongSummary(
+            String systemInstruction,
+            String prompt,
+            int maxOutputTokens) {
+
+        if (!isConfigured()) {
+            throw new IllegalStateException(
+                    "No chat model is configured. Set LLM_PROVIDER=gemini and LLM_API_KEY."
+            );
+        }
+
+        if (prompt == null || prompt.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Summary prompt cannot be empty."
+            );
+        }
+
+        int outputLimit = Math.max(1024, Math.min(maxOutputTokens, 6000));
+
+        Map<String, Object> requestBody = new java.util.LinkedHashMap<>();
+
+        if (systemInstruction != null && !systemInstruction.isBlank()) {
+            requestBody.put(
+                    "systemInstruction",
+                    Map.of(
+                            "parts",
+                            List.of(Map.of("text", systemInstruction))
+                    )
+            );
+        }
+
+        requestBody.put(
+                "contents",
+                List.of(
+                        Map.of(
+                                "role", "user",
+                                "parts", List.of(Map.of("text", prompt))
+                        )
+                )
+        );
+
+        requestBody.put(
+                "generationConfig",
+                Map.of(
+                        "temperature", 0.3,
+                        "maxOutputTokens", outputLimit
+                )
+        );
+
+        return sendAndReadAnswer(requestBody);
+    }
+    /**
+     * Shared transport: POST a generateContent body and read the answer text.
+     */
+    private String sendAndReadAnswer(
+            Map<String, Object> requestBody) {
+
         String endpoint =
                 chatUrl
                         + "/"
@@ -127,11 +295,9 @@ public class LlmService {
                             )
                             .build();
 
+            // Retry temporary Gemini API errors before parsing the answer.
             HttpResponse<String> response =
-                    httpClient.send(
-                            request,
-                            HttpResponse.BodyHandlers.ofString()
-                    );
+                    sendWithRetry(request);
 
             if (
                     response.statusCode() < 200 ||
@@ -239,9 +405,76 @@ public class LlmService {
     }
 
     /**
+     * Retry requests that fail because of temporary server errors
+     * or rate limiting.
+     *
+     * Retryable status codes:
+     * 429, 500, 502, 503 and 504.
+     *
+     * Other unsuccessful responses are returned immediately so that
+     * the caller can report the actual API error.
+     */
+    private HttpResponse<String> sendWithRetry(
+            HttpRequest request)
+            throws IOException, InterruptedException {
+
+        for (
+                int attempt = 1;
+                attempt <= MAX_RETRY_ATTEMPTS;
+                attempt++
+        ) {
+
+            HttpResponse<String> response =
+                    httpClient.send(
+                            request,
+                            HttpResponse.BodyHandlers.ofString()
+                    );
+
+            int status = response.statusCode();
+
+            boolean successful =
+                    status >= 200 && status < 300;
+
+            boolean retryable =
+                    status == 429 ||
+                    status == 500 ||
+                    status == 502 ||
+                    status == 503 ||
+                    status == 504;
+
+            // Return successful responses and non-retryable errors.
+            if (
+                    successful ||
+                    !retryable ||
+                    attempt == MAX_RETRY_ATTEMPTS
+            ) {
+                return response;
+            }
+
+            long delayMillis = 1000L * attempt;
+
+            logger.warn(
+                    "Gemini returned HTTP {} on attempt {}/{}. "
+                            + "Retrying in {} ms.",
+                    status,
+                    attempt,
+                    MAX_RETRY_ATTEMPTS,
+                    delayMillis
+            );
+
+            Thread.sleep(delayMillis);
+        }
+
+        // Defensive fallback; normally the loop returns or throws.
+        throw new IllegalStateException(
+                "Gemini retry loop ended unexpectedly."
+        );
+    }
+
+    /**
      * Grounding prompt.
      *
-     * Gemini must answer only from AstraLib retrieval results.
+     * Gemini must answer only from AstraLib retrieved context.
      * Citations themselves are generated by RagService, not Gemini.
      */
     private String buildGroundedPrompt(
@@ -313,6 +546,7 @@ public class LlmService {
             }
 
         } catch (Exception ignored) {
+            // Use the response body below as a fallback.
         }
 
         if (

@@ -38,8 +38,12 @@ export function SmartSearchPage() {
     searchMode,
     setSearchMode,
   ] = useState(
-    searchParams.get('mode') ||
-      'semantic'
+    searchParams.get('mode') ===
+      'keyword' ||
+      searchParams.get('mode') ===
+      'hybrid'
+      ? searchParams.get('mode')
+      : 'semantic'
   );
 
   const [
@@ -77,6 +81,31 @@ export function SmartSearchPage() {
     setHasSearched,
   ] = useState(false);
 
+  /*
+   * Semantic search answers catalogue questions too. A request like "a new
+   * book to read" has no passage to cite, so the response carries the books
+   * that match and a sentence explaining the outcome.
+   */
+  const [
+    recommendations,
+    setRecommendations,
+  ] = useState([]);
+
+  const [
+    notice,
+    setNotice,
+  ] = useState('');
+
+  const [
+    understanding,
+    setUnderstanding,
+  ] = useState(null);
+
+  const [
+    evidence,
+    setEvidence,
+  ] = useState('');
+
   // =========================================================
   // AUTO SEARCH FROM URL
   // =========================================================
@@ -85,9 +114,18 @@ export function SmartSearchPage() {
     const q =
       searchParams.get('q');
 
+    /*
+     * Conversational questions now belong to the Research Assistant, so a
+     * stale ?mode=smart link falls back to semantic search here.
+     */
+    const requested =
+      searchParams.get('mode');
+
     const mode =
-      searchParams.get('mode') ||
-      'semantic';
+      requested === 'keyword' ||
+      requested === 'hybrid'
+        ? requested
+        : 'semantic';
 
     if (q) {
       setQuery(q);
@@ -132,6 +170,11 @@ export function SmartSearchPage() {
           setSemanticUnavailable(
             false
           );
+
+          setRecommendations([]);
+          setNotice('');
+          setUnderstanding(null);
+          setEvidence('');
 
           const data =
             await api.books.getAll({
@@ -197,6 +240,11 @@ export function SmartSearchPage() {
         if (
           mode === 'hybrid'
         ) {
+          setRecommendations([]);
+          setNotice('');
+          setUnderstanding(null);
+          setEvidence('');
+
           const data =
             await api.search.hybrid(
               q.trim(),
@@ -243,7 +291,33 @@ export function SmartSearchPage() {
               : docType
           );
 
+        /*
+         * The semantic endpoint returns an envelope: cited passages,
+         * catalogue matches and an explanation. Older deployments returned
+         * a bare list, which is still understood so a stale tab keeps
+         * working.
+         */
         if (
+          data &&
+          !Array.isArray(data) &&
+          Array.isArray(data.passages)
+        ) {
+          setSemanticUnavailable(
+            false
+          );
+
+          setResults(data.passages);
+
+          setRecommendations(
+            Array.isArray(data.recommendations)
+              ? data.recommendations
+              : []
+          );
+
+          setNotice(data.notice || '');
+          setUnderstanding(data.understanding || null);
+          setEvidence(data.confidence?.evidence || '');
+        } else if (
           Array.isArray(data)
         ) {
           setSemanticUnavailable(
@@ -251,12 +325,20 @@ export function SmartSearchPage() {
           );
 
           setResults(data);
+          setRecommendations([]);
+          setNotice('');
+          setUnderstanding(null);
+          setEvidence('');
         } else {
           setSemanticUnavailable(
             true
           );
 
           setResults([]);
+          setRecommendations([]);
+          setNotice('');
+          setUnderstanding(null);
+          setEvidence('');
 
           setError(
             data?.error ||
@@ -448,7 +530,7 @@ export function SmartSearchPage() {
               }
             }}
           >
-            Smart (Semantic) Search
+            Semantic Search
           </button>
 
           <button
@@ -868,40 +950,270 @@ export function SmartSearchPage() {
           message="Scanning semantic vector space..."
         />
       ) : hasSearched &&
-        results.length ===
-          0 ? (
+        results.length === 0 &&
+        recommendations.length === 0 ? (
         <EmptyState
           icon={Search}
-          title="No Matching Information Discovered"
-          description={`No records matched "${query}". Consider rephrasing your research query or using Keyword Search.`}
+          title="No Matching Library Text"
+          description={
+            notice ||
+            `Neither the indexed books nor the catalogue record anything for "${query}". Try a broader subject, or Keyword Search for an exact title.`
+          }
         />
-      ) : results.length >
-        0 ? (
+      ) : hasSearched &&
+        (results.length > 0 ||
+          recommendations.length > 0) ? (
         <div>
-          <div
-            style={{
-              fontSize:
-                '0.9rem',
+          {/* =================================================
+              QUERY UNDERSTANDING
+          ================================================== */}
 
-              color:
-                'var(--text-secondary)',
+          {understanding && (
+            <div
+              style={{
+                fontSize:
+                  '0.85rem',
 
-              marginBottom:
-                '1.25rem',
-            }}
-          >
-            Retrieved{' '}
+                color:
+                  'var(--text-muted)',
 
-            <strong>
-              {results.length}
-            </strong>{' '}
+                marginBottom:
+                  '1rem',
+              }}
+            >
+              Understood as{' '}
+              <strong>
+                {understanding.intent
+                  ?.toLowerCase()
+                  .replace(/_/g, ' ')}
+              </strong>
 
-            matching references for{' '}
+              {understanding.languages
+                ?.length > 0 &&
+                ` · ${understanding.languages.join(', ')}`}
 
-            <em>
-              "{query}"
-            </em>
-          </div>
+              {understanding.level &&
+                ` · ${understanding.level.toLowerCase()}`}
+
+              {understanding.topics?.length > 0 &&
+                ` · ${understanding.topics.join(', ')}`}
+
+              {understanding.availability ===
+                'READABLE' &&
+                ' · readable copies first'}
+
+              {evidence &&
+                evidence !== 'not-required' &&
+                ` · ${evidence} evidence`}
+            </div>
+          )}
+
+          {/* =================================================
+              CATALOGUE MATCHES
+          ================================================== */}
+
+          {recommendations.length > 0 && (
+            <div
+              style={{
+                marginBottom:
+                  '1.75rem',
+              }}
+            >
+              <h3
+                style={{
+                  fontSize:
+                    '1.05rem',
+
+                  color:
+                    'var(--primary-ink)',
+
+                  marginBottom:
+                    '0.35rem',
+                }}
+              >
+                From the catalogue
+              </h3>
+
+              <p
+                style={{
+                  fontSize:
+                    '0.85rem',
+
+                  color:
+                    'var(--text-secondary)',
+
+                  marginBottom:
+                    '0.85rem',
+                }}
+              >
+                Books that match this
+                request, from stored
+                metadata. Titles marked
+                unavailable are
+                catalogued but have no
+                full text in the library
+                yet.
+              </p>
+
+              <div
+                style={{
+                  display:
+                    'grid',
+
+                  gridTemplateColumns:
+                    'repeat(auto-fill, minmax(260px, 1fr))',
+
+                  gap:
+                    '0.85rem',
+                }}
+              >
+                {recommendations.map(
+                  (book) => (
+                    <div
+                      key={
+                        book.bookId
+                      }
+                      className="card"
+                      style={{
+                        padding:
+                          '1rem 1.1rem',
+                      }}
+                    >
+                      <div
+                        style={{
+                          display:
+                            'flex',
+
+                          gap:
+                            '0.4rem',
+
+                          flexWrap:
+                            'wrap',
+
+                          marginBottom:
+                            '0.5rem',
+                        }}
+                      >
+                        {book.language && (
+                          <Badge variant="primary">
+                            {book.language}
+                          </Badge>
+                        )}
+
+                        {book.level && (
+                          <Badge variant="default">
+                            {book.level}
+                          </Badge>
+                        )}
+
+                        <Badge
+                          variant={
+                            book.readable
+                              ? 'success'
+                              : 'warning'
+                          }
+                        >
+                          {book.readable
+                            ? book.format ||
+                              'Available'
+                            : 'Not available'}
+                        </Badge>
+                      </div>
+
+                      <Link
+                        to={`/books/${book.bookId}`}
+                        style={{
+                          fontSize:
+                            '0.98rem',
+
+                          fontWeight:
+                            600,
+
+                          color:
+                            'var(--primary-ink)',
+
+                          display:
+                            'block',
+
+                          marginBottom:
+                            '0.2rem',
+                        }}
+                      >
+                        {book.title}
+                      </Link>
+
+                      <div
+                        style={{
+                          fontSize:
+                            '0.82rem',
+
+                          color:
+                            'var(--text-secondary)',
+                        }}
+                      >
+                        {book.author ||
+                          'Unknown author'}
+                      </div>
+
+                      <div
+                        style={{
+                          fontSize:
+                            '0.78rem',
+
+                          color:
+                            'var(--text-muted)',
+
+                          marginTop:
+                            '0.45rem',
+                        }}
+                      >
+                        {book.reason}
+                      </div>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          )}
+
+          {notice && (
+            <div
+              className="banner"
+              style={{
+                marginBottom:
+                  '1.25rem',
+              }}
+            >
+              <span>{notice}</span>
+            </div>
+          )}
+
+          {results.length > 0 && (
+            <div
+              style={{
+                fontSize:
+                  '0.9rem',
+
+                color:
+                  'var(--text-secondary)',
+
+                marginBottom:
+                  '1.25rem',
+              }}
+            >
+              Retrieved{' '}
+
+              <strong>
+                {results.length}
+              </strong>{' '}
+
+              matching references for{' '}
+
+              <em>
+                "{query}"
+              </em>
+            </div>
+          )}
 
           <div
             style={{
@@ -1063,23 +1375,58 @@ export function SmartSearchPage() {
                         )}
                       </div>
 
-                      {relevanceText && (
-                        <Badge
-                          variant="gold"
-                          style={{
-                            fontSize:
-                              '0.85rem',
+                      <div
+                        style={{
+                          display:
+                            'flex',
 
-                            padding:
-                              '0.3rem 0.6rem',
-                          }}
-                        >
-                          Relevance:{' '}
-                          {
-                            relevanceText
-                          }
-                        </Badge>
-                      )}
+                          gap:
+                            '0.4rem',
+
+                          alignItems:
+                            'center',
+
+                          flexWrap:
+                            'wrap',
+                        }}
+                      >
+                        {/*
+                         * A passage whose raw cosine only just clears the
+                         * floor is related text, not an answer. Saying so
+                         * matters most on subjects the library barely covers,
+                         * where a fused score of 0.85 can look confident.
+                         *
+                         * The server decides this (weakEvidence); the score
+                         * check is the fallback for the plain semantic and
+                         * hybrid modes, which do not send the flag.
+                         */}
+                        {(item.weakEvidence === true ||
+                          (item.weakEvidence == null &&
+                            item.semanticScore > 0 &&
+                            item.semanticScore < 0.58)) && (
+                          <Badge variant="warning">
+                            Related, not a direct answer
+                          </Badge>
+                        )}
+
+                        {relevanceText && (
+                          <Badge
+                            variant="gold"
+                            style={{
+                              fontSize:
+                                '0.85rem',
+
+                              padding:
+                                '0.3rem 0.6rem',
+                            }}
+                          >
+                            Relevance:{' '}
+                            {
+                              relevanceText
+                            }
+                          </Badge>
+                        )}
+                      </div>
                     </div>
 
                     {/* =========================================

@@ -3,6 +3,7 @@ import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
   BookOpen,
+  Layers,
   LayoutDashboard,
   Library,
   Search,
@@ -184,7 +185,7 @@ export function AppLayout() {
           {/* Librarian Tools */}
           {isLibrarian() && (
             <>
-              <div className="sidebar-section-title">Librarian Desk</div>
+              <div className="sidebar-section-title">Catalogue Management</div>
 
               <NavLink
                 to="/librarian"
@@ -265,6 +266,15 @@ export function AppLayout() {
               >
                 <SlidersHorizontal size={18} />
                 <span>AI & Vectors</span>
+              </NavLink>
+
+              <NavLink
+                to="/admin/pathways"
+                className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+                onClick={() => setSidebarOpen(false)}
+              >
+                <Layers size={18} />
+                <span>Pathways</span>
               </NavLink>
 
               <NavLink

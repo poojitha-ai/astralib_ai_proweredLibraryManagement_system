@@ -23,7 +23,8 @@ public class FavoriteController {
 
     @PostMapping("/api/favorites/{bookId}")
     public ResponseEntity<?> addFavorite(@PathVariable Long bookId, Authentication authentication) {
-        Long userId = (Long) authentication.getPrincipal();
+        Long userId = CurrentUser.id(authentication);
+        if (userId == null) return CurrentUser.unauthorizedResponse();
         var userOpt = userRepository.findById(userId);
         var bookOpt = bookRepository.findById(bookId);
         if (userOpt.isEmpty() || bookOpt.isEmpty()) return ResponseEntity.badRequest().body(Map.of("error", "User or Book not found"));
@@ -37,7 +38,8 @@ public class FavoriteController {
 
     @DeleteMapping("/api/favorites/{bookId}")
     public ResponseEntity<?> removeFavorite(@PathVariable Long bookId, Authentication authentication) {
-        Long userId = (Long) authentication.getPrincipal();
+        Long userId = CurrentUser.id(authentication);
+        if (userId == null) return CurrentUser.unauthorizedResponse();
         var opt = favoriteRepository.findByUser_IdAndBook_Id(userId, bookId);
         if (opt.isEmpty()) return ResponseEntity.notFound().build();
         favoriteRepository.delete(opt.get());
@@ -46,7 +48,8 @@ public class FavoriteController {
 
     @GetMapping("/api/favorites")
     public ResponseEntity<?> listFavorites(Authentication authentication) {
-        Long userId = (Long) authentication.getPrincipal();
+        Long userId = CurrentUser.id(authentication);
+        if (userId == null) return CurrentUser.unauthorizedResponse();
         List<Favorite> favs = favoriteRepository.findByUser_Id(userId);
         var result = favs.stream().map(f -> Map.of(
                 "id", f.getId(),

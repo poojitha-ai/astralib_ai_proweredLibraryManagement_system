@@ -1,0 +1,1 @@
+224 Chapter 13 Objects of Arrays 13.7 Adding Recursion To make mergeSort work recursively, you have to add a base case; otherwise, it repeats forever. The simplest base case is a subdeck with one card. If there is only one card, it can’t be out of order, so we consider it sorted. And if it is alread

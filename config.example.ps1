@@ -15,14 +15,19 @@ $env:JWT_EXPIRATION = "86400000"
 
 # ---------------- AI / GEMINI ----------------
 $env:LLM_PROVIDER = "gemini"
-$env:LLM_EMBEDDING_PROVIDER = "gemini"
+
+# Embeddings must come from the same model that produced the stored vectors.
+# The curated collection is indexed with the local service, so keep this
+# "local" unless every vector has been regenerated with another provider.
+$env:LLM_EMBEDDING_PROVIDER = "local"
+$env:LLM_LOCAL_EMBEDDING_URL = "http://127.0.0.1:8001/embed"
 $env:LLM_API_KEY = "CHANGE_ME"
 
 $env:LLM_CHAT_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 $env:LLM_EMBEDDING_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
 $env:LLM_MODEL = "gemini-3.6-flash"
-$env:LLM_EMBEDDING_MODEL = "gemini-embedding-001"
+$env:LLM_EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 $env:LLM_EMBEDDING_DIMENSION = "384"
 
 # ---------------- SERVER ----------------

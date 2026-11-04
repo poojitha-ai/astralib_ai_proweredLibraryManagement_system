@@ -25,6 +25,9 @@ import {
   WifiOff,
   MonitorOff,
   Circle,
+  FileText,
+  Upload,
+  Download,
 } from 'lucide-react';
 
 import { api } from '../../services/api';
@@ -254,7 +257,34 @@ export function StudyRoomPage() {
 
   const chatEndRef =
     useRef(null);
+  const [documents, setDocuments] = useState([]);
+  const [documentsLoading, setDocumentsLoading] = useState(false);
+  const [uploadingDocument, setUploadingDocument] = useState(false);
+  const [documentError, setDocumentError] = useState('');
+  const [documentSuccess, setDocumentSuccess] = useState('');
 
+const documentInputRef = useRef(null);
+// =========================================================
+// LOAD SHARED DOCUMENTS
+// =========================================================
+
+const loadGroupDocuments = async () => {
+  try {
+    setDocumentsLoading(true);
+    setDocumentError('');
+
+    const result = await api.studyGroups.documents.list(groupId);
+
+    setDocuments(Array.isArray(result) ? result : []);
+  } catch (err) {
+    console.error('Failed to load shared documents:', err);
+    setDocumentError(
+      err.message || 'Unable to load shared documents.'
+    );
+  } finally {
+    setDocumentsLoading(false);
+  }
+};
   // =========================================================
   // INITIALIZE ROOM
   // =========================================================
@@ -298,6 +328,8 @@ export function StudyRoomPage() {
               'You must join this study group before entering its Study Hall room.'
             );
           }
+          // Load documents shared by this group
+              await loadGroupDocuments();
 
           // -----------------------------------------------
           // SESSION
@@ -762,7 +794,25 @@ export function StudyRoomPage() {
 
           break;
         }
+        case 'DOCUMENT_UPLOADED': {
+  const uploadedDocument = message.document;
 
+  if (uploadedDocument) {
+    setDocuments((current) => {
+      const alreadyExists = current.some(
+        (doc) => doc.id === uploadedDocument.id
+      );
+
+      if (alreadyExists) {
+        return current;
+      }
+
+      return [uploadedDocument, ...current];
+    });
+  }
+
+  break;
+}
         // -----------------------------------------------
         // CHAT
         // -----------------------------------------------
@@ -1296,6 +1346,84 @@ export function StudyRoomPage() {
         setChatInput('');
       }
     };
+      // =========================================================
+  // SHARED DOCUMENT UPLOAD
+  // =========================================================
+
+  const handleDocumentUpload = async (event) => {
+    const file = event.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    try {
+      setUploadingDocument(true);
+      setDocumentError('');
+      setDocumentSuccess('');
+
+      const uploadedDocument =
+        await api.studyGroups.documents.upload(
+          groupId,
+          file
+        );
+
+      setDocuments((current) => {
+        const alreadyExists = current.some(
+          (doc) => doc.id === uploadedDocument.id
+        );
+
+        return alreadyExists
+          ? current
+          : [uploadedDocument, ...current];
+      });
+
+      setDocumentSuccess('Document uploaded successfully!');
+    } catch (err) {
+      setDocumentError(
+        err.message || 'Unable to upload document.'
+      );
+    } finally {
+      setUploadingDocument(false);
+      event.target.value = '';
+    }
+  };
+
+  // =========================================================
+  // SHARED DOCUMENT DOWNLOAD
+  // =========================================================
+
+  const handleDownloadDocument = async (document) => {
+    try {
+      setDocumentError('');
+
+      const fileData =
+        await api.studyGroups.documents.download(
+          groupId,
+          document.id
+        );
+
+      const blob = new Blob([fileData]);
+
+      const url = window.URL.createObjectURL(blob);
+
+      const link = window.document.createElement('a');
+      link.href = url;
+      link.download = document.originalFilename;
+
+      window.document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => {
+  window.URL.revokeObjectURL(url);
+}, 1000);
+    } catch (err) {
+      setDocumentError(
+        err.message || 'Unable to download document.'
+      );
+    }
+  };
 
   // =========================================================
   // CAMERA
@@ -2763,7 +2891,164 @@ export function StudyRoomPage() {
 
             </div>
           </div>
+          {/* =================================================
+    SHARED DOCUMENTS
+================================================== */}
 
+<div
+  className="card"
+  style={{ marginBottom: '1rem' }}
+>
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      gap: '0.5rem',
+      flexWrap: 'wrap',
+    }}
+  >
+    <h3 className="card-title">
+      Shared Documents
+    </h3>
+
+    <button
+      type="button"
+      className="btn btn-primary btn-sm"
+      onClick={() => documentInputRef.current?.click()}
+      disabled={uploadingDocument}
+    >
+      {uploadingDocument ? (
+        <Loader2 size={15} />
+      ) : (
+        <Upload size={15} />
+      )}
+
+      {uploadingDocument ? 'Uploading...' : 'Upload'}
+    </button>
+
+    <input
+      ref={documentInputRef}
+      type="file"
+      hidden
+      onChange={handleDocumentUpload}
+    />
+  </div>
+
+  <p
+    style={{
+      fontSize: '0.78rem',
+      color: 'var(--text-muted)',
+      marginTop: '0.4rem',
+    }}
+  >
+    Files shared here are available to all group members.
+  </p>
+
+  {documentError && (
+    <p style={{ color: '#dc2626', fontSize: '0.8rem' }}>
+      {documentError}
+    </p>
+  )}
+
+  {documentSuccess && (
+    <p style={{ color: '#16a34a', fontSize: '0.8rem' }}>
+      {documentSuccess}
+    </p>
+  )}
+
+  <div
+    style={{
+      marginTop: '0.8rem',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.75rem',
+    }}
+  >
+    {documentsLoading ? (
+      <p style={{ fontSize: '0.82rem' }}>
+        Loading documents...
+      </p>
+    ) : documents.length === 0 ? (
+      <p
+        style={{
+          fontSize: '0.82rem',
+          color: 'var(--text-muted)',
+        }}
+      >
+        No documents shared yet. Upload the first one!
+      </p>
+    ) : (
+      documents.map((document) => (
+        <div
+          key={document.id}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '0.5rem',
+            padding: '0.65rem 0',
+            borderBottom: '1px solid var(--border-light)',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              minWidth: 0,
+            }}
+          >
+            <FileText size={20} />
+
+            <div style={{ minWidth: 0 }}>
+              <strong
+                style={{
+                  display: 'block',
+                  fontSize: '0.82rem',
+                  overflowWrap: 'anywhere',
+                }}
+              >
+                {document.originalFilename}
+              </strong>
+
+              <span
+                style={{
+                  fontSize: '0.7rem',
+                  color: 'var(--text-muted)',
+                }}
+              >
+                {document.uploaderName || 'Unknown uploader'}
+                {' · '}
+                {(Number(document.fileSize || 0) / 1024).toFixed(1)} KB
+              </span>
+
+              <div
+                style={{
+                  fontSize: '0.68rem',
+                  color: 'var(--text-muted)',
+                }}
+              >
+                {document.createdAt
+                  ? new Date(document.createdAt).toLocaleString()
+                  : ''}
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm"
+            onClick={() => handleDownloadDocument(document)}
+            title="Download document"
+          >
+            <Download size={15} />
+          </button>
+        </div>
+      ))
+    )}
+  </div>
+</div>
           {/* =================================================
               STUDY CHAT
           ================================================== */}

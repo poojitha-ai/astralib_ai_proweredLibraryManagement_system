@@ -63,6 +63,45 @@ public class Book {
     @Column(name = "text_content", columnDefinition = "TEXT")
     private String textContent;
 
+    /* =========================================================
+     * Curated-collection attribution
+     *
+     * Where the text came from, which edition it is and under what
+     * terms it may be served. Kept on the book so every catalogue
+     * entry can be traced back to its source.
+     * ========================================================= */
+
+    @Column(length = 255)
+    private String edition;
+
+    @Column(name = "source_url", length = 1024)
+    private String sourceUrl;
+
+    @Column(name = "licence", length = 512)
+    private String licence;
+
+    /*
+     * Genres are broader than the single catalogue category:
+     * Frankenstein is both Gothic Fiction and Early Science Fiction.
+     * A book keeps one Category (the existing catalogue grouping)
+     * and any number of genre labels here.
+     */
+    @ElementCollection
+    @CollectionTable(name = "book_genres", joinColumns = @JoinColumn(name = "book_id"))
+    @Column(name = "genre")
+    private List<String> genres = new ArrayList<>();
+
+    /*
+     * A curated catalogue entry whose text we do not (yet) hold, for
+     * example a commercial programming title we list and can describe
+     * but cannot legally serve. It has no DigitalResource and no
+     * vectors; the catalogue shows it as not available for reading.
+     * Books with an actual file do not need this flag because the
+     * stored resource already makes them visible.
+     */
+    @Column(name = "catalogue_entry")
+    private Boolean catalogueEntry = Boolean.FALSE;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
@@ -109,6 +148,16 @@ public class Book {
     public void setDigitalResources(List<DigitalResource> digitalResources) { this.digitalResources = digitalResources; }
     public String getTextContent() { return textContent; }
     public void setTextContent(String textContent) { this.textContent = textContent; }
+    public String getEdition() { return edition; }
+    public void setEdition(String edition) { this.edition = edition; }
+    public String getSourceUrl() { return sourceUrl; }
+    public void setSourceUrl(String sourceUrl) { this.sourceUrl = sourceUrl; }
+    public String getLicence() { return licence; }
+    public void setLicence(String licence) { this.licence = licence; }
+    public List<String> getGenres() { return genres; }
+    public void setGenres(List<String> genres) { this.genres = genres == null ? new ArrayList<>() : genres; }
+    public Boolean getCatalogueEntry() { return catalogueEntry; }
+    public void setCatalogueEntry(Boolean catalogueEntry) { this.catalogueEntry = catalogueEntry; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
