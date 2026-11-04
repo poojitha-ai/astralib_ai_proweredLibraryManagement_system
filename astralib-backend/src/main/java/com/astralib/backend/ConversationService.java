@@ -72,6 +72,9 @@ public class ConversationService {
     @Autowired
     private LlmService llmService;
 
+    @Autowired
+    private BookSummarizationService bookSummarizationService;
+
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     /* =========================================================
@@ -309,6 +312,33 @@ public class ConversationService {
 
         QueryUnderstandingService.QueryPlan plan =
                 queryUnderstandingService.plan(message);
+
+        if (bookSummarizationService.isSummaryRequest(message)) {
+            BookSummarizationService.SummaryResult summary =
+                    bookSummarizationService.summarizeRequest(message);
+
+            List<Citation> summaryCitations = new ArrayList<>();
+            for (VectorRecord chunk : summary.sourceChunks()) {
+                summaryCitations.add(new Citation(
+                        chunk.getChunkId(),
+                        chunk.getDocumentId(),
+                        summary.bookId(),
+                        chunk.getTitle(),
+                        chunk.getAuthor(),
+                        chunk.getSection(),
+                        chunk.getChunkIndex(),
+                        0.0
+                ));
+            }
+
+            return new Reply(
+                    summary.answer(),
+                    "BOOK_SUMMARY",
+                    summary.grounded() && !summaryCitations.isEmpty(),
+                    summaryCitations,
+                    List.of()
+            );
+        }
 
         boolean smallTalk = isSmallTalk(message);
         boolean guidance = containsAny(message.toLowerCase(Locale.ROOT), GUIDANCE_CUES);

@@ -823,6 +823,22 @@ public class StudyHallWebSocketHandler
         }
     }
 
+    public void broadcastDocumentUploaded(
+            Long groupId,
+            Map<String, Object> document
+    ) {
+        try {
+            Map<String, Object> response = new LinkedHashMap<>();
+            response.put("type", "DOCUMENT_UPLOADED");
+            response.put("groupId", groupId);
+            response.put("document", document);
+            broadcast(groupId, response);
+        } catch (Exception e) {
+            System.err.println(
+                    "Failed to broadcast document upload: " + e.getMessage()
+            );
+        }
+    }
     private void broadcastExcept(
             Long groupId,
             Long excludedUserId,
@@ -1002,3 +1018,4 @@ public class StudyHallWebSocketHandler
         }
     }
 }
+

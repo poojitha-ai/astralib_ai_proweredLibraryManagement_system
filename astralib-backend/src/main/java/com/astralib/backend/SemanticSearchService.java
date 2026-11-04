@@ -416,6 +416,16 @@ if (!matchingSections.isEmpty()) {
         for (VectorRecord record : records) {
 
             /*
+             * Student uploads are private, user-owned sources.
+             * They must never be included in global/catalogue RAG,
+             * even if a caller supplies "student_document" as the type.
+             * Private document Q&A uses the separate document-scoped path.
+             */
+            if ("student_document".equalsIgnoreCase(record.getDocumentType())) {
+                continue;
+            }
+
+            /*
              * A metadata-only row is a catalogue record, not a source.
              */
             if (!PassageFilter.isGroundedPassage(record)) {

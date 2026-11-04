@@ -1,5 +1,7 @@
+
 package com.astralib.backend;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -20,7 +22,8 @@ public class DocumentExtractionService {
     public static final String FORMAT_EPUB = "application/epub+zip";
     public static final String FORMAT_PDF = "application/pdf";
     public static final String FORMAT_HTML = "text/html";
-    public static final String FORMAT_DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+    public static final String FORMAT_DOCX =
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
     public static final String FORMAT_TXT = "text/plain";
 
     private final EpubTextExtractionService epubTextExtractionService;
@@ -29,15 +32,10 @@ public class DocumentExtractionService {
     private final DocxTextExtractionService docxTextExtractionService;
     private final TxtTextExtractionService txtTextExtractionService;
 
-    public DocumentExtractionService(
-            EpubTextExtractionService epubTextExtractionService,
-            PdfTextExtractionService pdfTextExtractionService,
-            HtmlTextExtractionService htmlTextExtractionService) {
-
-        this(epubTextExtractionService, pdfTextExtractionService, htmlTextExtractionService,
-                new DocxTextExtractionService(), new TxtTextExtractionService());
-    }
-
+    /**
+     * Spring uses this constructor to inject all five managed services.
+     */
+    @Autowired
     public DocumentExtractionService(
             EpubTextExtractionService epubTextExtractionService,
             PdfTextExtractionService pdfTextExtractionService,
@@ -50,6 +48,23 @@ public class DocumentExtractionService {
         this.htmlTextExtractionService = htmlTextExtractionService;
         this.docxTextExtractionService = docxTextExtractionService;
         this.txtTextExtractionService = txtTextExtractionService;
+    }
+
+    /**
+     * Backward-compatible constructor for existing three-extractor tests.
+     */
+    public DocumentExtractionService(
+            EpubTextExtractionService epubTextExtractionService,
+            PdfTextExtractionService pdfTextExtractionService,
+            HtmlTextExtractionService htmlTextExtractionService) {
+
+        this(
+                epubTextExtractionService,
+                pdfTextExtractionService,
+                htmlTextExtractionService,
+                new DocxTextExtractionService(),
+                new TxtTextExtractionService()
+        );
     }
 
     /**
@@ -135,7 +150,8 @@ public class DocumentExtractionService {
         };
     }
 
-    public List<ExtractedSection> extractSections(File file) throws IOException {
+    public List<ExtractedSection> extractSections(File file)
+            throws IOException {
 
         String extension = extensionOf(file == null ? null : file.getName());
 

@@ -203,6 +203,62 @@ public class LlmService {
     }
 
     /**
+     * Generates long-form content for multi-stage book summarisation.
+     * This is deliberately separate from normal chat so its token limit
+     * does not affect ordinary Research Assistant responses.
+     */
+    public String generateLongSummary(
+            String systemInstruction,
+            String prompt,
+            int maxOutputTokens) {
+
+        if (!isConfigured()) {
+            throw new IllegalStateException(
+                    "No chat model is configured. Set LLM_PROVIDER=gemini and LLM_API_KEY."
+            );
+        }
+
+        if (prompt == null || prompt.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Summary prompt cannot be empty."
+            );
+        }
+
+        int outputLimit = Math.max(1024, Math.min(maxOutputTokens, 6000));
+
+        Map<String, Object> requestBody = new java.util.LinkedHashMap<>();
+
+        if (systemInstruction != null && !systemInstruction.isBlank()) {
+            requestBody.put(
+                    "systemInstruction",
+                    Map.of(
+                            "parts",
+                            List.of(Map.of("text", systemInstruction))
+                    )
+            );
+        }
+
+        requestBody.put(
+                "contents",
+                List.of(
+                        Map.of(
+                                "role", "user",
+                                "parts", List.of(Map.of("text", prompt))
+                        )
+                )
+        );
+
+        requestBody.put(
+                "generationConfig",
+                Map.of(
+                        "temperature", 0.3,
+                        "maxOutputTokens", outputLimit
+                )
+        );
+
+        return sendAndReadAnswer(requestBody);
+    }
+    /**
      * Shared transport: POST a generateContent body and read the answer text.
      */
     private String sendAndReadAnswer(

@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import {
   AlertCircle,
   BookOpen,
+  FileText,
   Menu,
   MessageSquare,
   Plus,
   Send,
+  Upload,
   Sparkles,
   Trash2,
   X,
@@ -31,11 +33,20 @@ export function ResearchAssistantPage() {
   const [error, setError] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Private student documents are kept separate from saved conversations.
+  const [studentDocuments, setStudentDocuments] = useState([]);
+  const [selectedDocumentId, setSelectedDocumentId] = useState(null);
+  const [loadingDocuments, setLoadingDocuments] = useState(false);
+  const [uploadingDocument, setUploadingDocument] = useState(false);
+  const [documentError, setDocumentError] = useState('');
+  const fileInputRef = useRef(null);
+
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
     loadConversations();
+    loadStudentDocuments();
   }, []);
 
   useEffect(() => {
@@ -62,6 +73,8 @@ export function ResearchAssistantPage() {
 
     setLoadingChat(true);
     setError('');
+    setDocumentError('');
+    setSelectedDocumentId(null);
     setSidebarOpen(false);
 
     try {
@@ -81,6 +94,7 @@ export function ResearchAssistantPage() {
 
   const startNewChat = () => {
     setActiveId(null);
+    setSelectedDocumentId(null);
     setMessages([]);
     setInput('');
     setError('');
@@ -114,12 +128,118 @@ export function ResearchAssistantPage() {
     }
   };
 
+
+  const loadStudentDocuments = async () => {
+    setLoadingDocuments(true);
+    setDocumentError('');
+
+    try {
+      const data = await api.studentDocuments.list();
+      const documents = Array.isArray(data) ? data : [];
+      setStudentDocuments(documents);
+      setSelectedDocumentId((current) =>
+        current != null && documents.some(
+          (document) => String(document.id) === String(current)
+        )
+          ? current
+          : null
+      );
+    } catch (err) {
+      console.error('Student document list failed:', err);
+      setDocumentError(err.message || 'Could not load your documents.');
+    } finally {
+      setLoadingDocuments(false);
+    }
+  };
+
+  const uploadStudentDocument = async (event) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+
+    if (!file) return;
+
+    const allowedExtensions = /\.(pdf|docx|txt)$/i;
+    if (!allowedExtensions.test(file.name)) {
+      setDocumentError('Choose a PDF, DOCX, or TXT file.');
+      return;
+    }
+
+    setUploadingDocument(true);
+    setDocumentError('');
+
+    try {
+      const uploaded = await api.studentDocuments.upload(file);
+      await loadStudentDocuments();
+
+      if (uploaded?.id != null) {
+        setSelectedDocumentId(uploaded.id);
+        setActiveId(null);
+        setMessages([]);
+        setInput('');
+      }
+    } catch (err) {
+      console.error('Student document upload failed:', err);
+      setDocumentError(err.message || 'Document upload failed.');
+    } finally {
+      setUploadingDocument(false);
+    }
+  };
+
+  const selectStudentDocument = (document) => {
+    setSelectedDocumentId(document.id);
+    setActiveId(null);
+    setMessages([]);
+    setInput('');
+    setError('');
+    setDocumentError('');
+    setSidebarOpen(false);
+  };
+
+  const deleteStudentDocument = async (event, id) => {
+    event.stopPropagation();
+
+    if (!window.confirm('Delete this uploaded document? This cannot be undone.')) {
+      return;
+    }
+
+    try {
+      await api.studentDocuments.delete(id);
+      setStudentDocuments((previous) =>
+        previous.filter((document) => document.id !== id)
+      );
+
+      if (String(selectedDocumentId) === String(id)) {
+        setSelectedDocumentId(null);
+        setMessages([]);
+      }
+    } catch (err) {
+      setDocumentError(err.message || 'Could not delete this document.');
+    }
+  };
+
+  const selectedDocument = studentDocuments.find(
+    (document) => String(document.id) === String(selectedDocumentId)
+  );
+
   const sendMessage = async (event) => {
     event?.preventDefault();
 
     const text = input.trim();
 
     if (!text || sending) {
+      return;
+    }
+
+    if (
+      selectedDocumentId != null &&
+      selectedDocument &&
+      String(selectedDocument.status || '').toUpperCase() !== 'READY'
+    ) {
+      setError(
+        String(selectedDocument.status || '').toUpperCase() === 'FAILED'
+          ? (selectedDocument.errorMessage || 'This document could not be processed. Please upload it again.')
+          : 'This document is still being processed. Try again when its status is READY.'
+      );
       return;
     }
 
@@ -138,18 +258,46 @@ export function ResearchAssistantPage() {
         createdAt: '',
       },
     ]);
+        try {
+      if (selectedDocumentId != null) {
+        const result = await api.studentDocuments.ask(
+          selectedDocumentId,
+          text,
+          5
+        );
 
-    try {
-      const result = await api.conversations.send(activeId, text);
+        const answerText =
+          result?.answer ??
+          result?.response ??
+          result?.content ??
+          result?.message ??
+          'I could not find an answer in this document.';
 
-      setActiveId(result.conversationId);
+        setMessages((previous) => [
+          ...previous,
+          {
+            id: `document-answer-${Date.now()}`,
+            role: 'ASSISTANT',
+            content: answerText,
+            citations: result?.citations || [],
+            recommendations: [],
+            grounded: result?.grounded ?? true,
+            documentGrounded: true,
+            createdAt: new Date().toISOString(),
+          },
+        ]);
+      } else {
+        const result = await api.conversations.send(activeId, text);
 
-      setMessages((previous) => [
-        ...previous,
-        result.assistantMessage,
-      ]);
+        setActiveId(result.conversationId);
 
-      loadConversations();
+        setMessages((previous) => [
+          ...previous,
+          result.assistantMessage,
+        ]);
+
+        loadConversations();
+      }
     } catch (err) {
       console.error('Chat failure:', err);
 
@@ -173,8 +321,9 @@ export function ResearchAssistantPage() {
         <div className="chat-header-text">
           <h1>Research Assistant</h1>
           <p>
-            Your academic companion. Ask about a concept, work through a
-            problem, or find the right book in AstraLib.
+            {selectedDocument
+              ? `Asking questions about: ${selectedDocument.originalFilename || selectedDocument.filename || 'your document'}`
+              : 'Your academic companion. Ask about a concept, work through a problem, or find the right book in AstraLib.'}
           </p>
         </div>
 
@@ -203,7 +352,84 @@ export function ResearchAssistantPage() {
         <aside
           className={`chat-sidebar ${sidebarOpen ? 'is-open' : ''}`}
         >
-          <div className="chat-sidebar-title">Conversations</div>
+          <div className="chat-sidebar-title">My Documents</div>
+
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
+            onChange={uploadStudentDocument}
+            style={{ display: 'none' }}
+          />
+
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={uploadingDocument}
+            style={{ width: '100%', marginBottom: '10px' }}
+          >
+            <Upload size={15} />
+            <span>{uploadingDocument ? 'Uploading…' : 'Upload document'}</span>
+          </button>
+
+          {documentError && (
+            <div className="banner banner-error" style={{ marginBottom: '10px' }}>
+              {documentError}
+            </div>
+          )}
+
+          {loadingDocuments ? (
+            <p className="chat-sidebar-empty">Loading documents…</p>
+          ) : studentDocuments.length === 0 ? (
+            <p className="chat-sidebar-empty">
+              Upload a PDF, DOCX, or TXT file to ask questions about it.
+            </p>
+          ) : (
+            <ul className="chat-conversation-list">
+              {studentDocuments.map((document) => (
+                <li key={document.id}>
+                  <button
+                    type="button"
+                    className={`chat-conversation ${
+                      String(document.id) === String(selectedDocumentId) ? 'is-active' : ''
+                    }`}
+                    onClick={() => selectStudentDocument(document)}
+                  >
+                    <FileText size={15} className="chat-conversation-icon" />
+                    <span className="chat-conversation-body">
+                      <span className="chat-conversation-title">
+                        {document.originalFilename || document.filename || `Document ${document.id}`}
+                      </span>
+                      <span className="chat-conversation-meta">
+                        {document.status || 'Uploaded'}
+                        {document.chunkCount != null ? ` · ${document.chunkCount} chunks` : ''}
+                      </span>
+                    </span>
+                    <span
+                      role="button"
+                      tabIndex={0}
+                      aria-label="Delete uploaded document"
+                      className="chat-conversation-delete"
+                      onClick={(event) => deleteStudentDocument(event, document.id)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault();
+                          deleteStudentDocument(event, document.id);
+                        }
+                      }}
+                    >
+                      <Trash2 size={14} />
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div className="chat-sidebar-title" style={{ marginTop: '22px' }}>
+            Conversations
+          </div>
 
           {conversations.length === 0 ? (
             <p className="chat-sidebar-empty">
@@ -335,9 +561,11 @@ export function ResearchAssistantPage() {
               className="chat-input"
               rows={1}
               placeholder={
-                activeId
-                  ? 'Continue the conversation…'
-                  : 'Ask a question, or tell me what you are working on…'
+                selectedDocument
+                  ? 'Ask a question about this document…'
+                  : activeId
+                    ? 'Continue the conversation…'
+                    : 'Ask a question, or tell me what you are working on…'
               }
               value={input}
               onChange={(event) => setInput(event.target.value)}
@@ -360,16 +588,17 @@ export function ResearchAssistantPage() {
           </form>
 
           <div className="chat-footnote">
-            {lastAssistant?.grounded
-              ? 'Answers marked with sources come from indexed AstraLib books.'
-              : 'Astra uses your library where it can, and says when it cannot.'}
+            {selectedDocument
+              ? 'Document mode: answers are generated from the selected private upload.'
+              : lastAssistant?.grounded
+                ? 'Answers marked with sources come from indexed AstraLib books.'
+                : 'Astra uses your library where it can, and says when it cannot.'}
           </div>
         </section>
       </div>
     </div>
   );
 }
-
 /**
  * Renders the assistant's light markdown: fenced code blocks, bold, italics
  * and inline code. Everything else keeps its line breaks as written.
@@ -485,7 +714,9 @@ function ChatBubble({ message }) {
         {citations.length > 0 && (
           <div className="chat-citations">
             <div className="chat-citations-title">
-              From the AstraLib collection
+              {message.documentGrounded
+                ? 'From your uploaded document'
+                : 'From the AstraLib collection'}
             </div>
 
             <ol>

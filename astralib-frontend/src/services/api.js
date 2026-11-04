@@ -937,7 +937,58 @@ knowledgeGraph: {
         )}`
       ),
   },
+    // =========================================================
+  // Private Student Document APIs
+  // =========================================================
 
+  studentDocuments: {
+
+    // Get all documents uploaded by the logged-in student
+    list: () =>
+      request('/student-documents'),
+
+    // Upload PDF, DOCX or TXT
+    upload: (file) => {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      return request(
+        '/student-documents',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      );
+    },
+
+    // Get one uploaded document
+    get: (id) =>
+      request(
+        `/student-documents/${encodeURIComponent(id)}`
+      ),
+
+    // Delete an uploaded document
+    delete: (id) =>
+      request(
+        `/student-documents/${encodeURIComponent(id)}`,
+        {
+          method: 'DELETE',
+        }
+      ),
+
+    // Ask questions about a selected document
+    ask: (id, question, topK = 5) =>
+      request(
+        `/student-documents/${encodeURIComponent(id)}/ask`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            question,
+            topK,
+          }),
+        }
+      ),
+  },
   // =========================================================
   // Conversational Research Assistant
   // =========================================================
@@ -1124,18 +1175,36 @@ knowledgeGraph: {
       ),
 
     // Owner removes a group member
-    removeMember: (
-      id,
-      memberUserId
-    ) =>
+        // Owner removes a group member
+    removeMember: (id, memberUserId) =>
       request(
         `/study-groups/${id}/members/${memberUserId}`,
         {
           method: 'DELETE',
         }
       ),
-  },
 
+    // Shared Study Group Documents
+    documents: {
+      list: (groupId) =>
+        request(`/study-groups/${groupId}/documents`),
+
+      upload: (groupId, file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        return request(`/study-groups/${groupId}/documents`, {
+          method: 'POST',
+          body: formData,
+        });
+      },
+
+      download: (groupId, documentId) =>
+        requestBinary(
+          `/study-groups/${groupId}/documents/${documentId}/download`
+        ),
+    },
+  },
   // =========================================================
   // Study Hall / Study Session APIs
   // =========================================================
