@@ -1175,7 +1175,6 @@ knowledgeGraph: {
       ),
 
     // Owner removes a group member
-        // Owner removes a group member
     removeMember: (id, memberUserId) =>
       request(
         `/study-groups/${id}/members/${memberUserId}`,
@@ -1314,6 +1313,128 @@ knowledgeGraph: {
         }
       ),
   },
+  
+  // =========================================================
+  // AI Study Planner APIs
+  // =========================================================
+
+  studyPlans: {
+
+    // Generate a timetable preview without saving it.
+    preview: (planData) =>
+      request('/study-plans/preview', {
+        method: 'POST',
+        body: JSON.stringify(planData),
+      }),
+
+    // Create a study plan.
+    create: (planData) =>
+      request('/study-plans', {
+        method: 'POST',
+        body: JSON.stringify(planData),
+      }),
+
+    // Get all plans belonging to the logged-in user.
+    getAll: () =>
+      request('/study-plans'),
+
+    // Get one plan.
+    getById: (planId) =>
+      request(`/study-plans/${planId}`),
+
+    // Mark a plan as complete.
+    complete: (planId) =>
+      request(`/study-plans/${planId}/complete`, {
+        method: 'PATCH',
+      }),
+
+    // Approve and save generated timetable tasks.
+    approveTasks: (planId, taskData) =>
+      request(`/study-plans/${planId}/tasks/approve`, {
+        method: 'POST',
+        body: JSON.stringify(taskData),
+      }),
+
+    // Get all tasks, optionally filtered by date.
+    getTasks: (planId, date) => {
+      const query = date
+        ? `?date=${encodeURIComponent(date)}`
+        : '';
+
+      return request(`/study-plans/${planId}/tasks${query}`);
+    },
+
+    // Update a task's status.
+    updateTaskStatus: (planId, taskId, status) =>
+      request(`/study-plans/${planId}/tasks/${taskId}/status`, {
+        method: 'PATCH',
+        body: JSON.stringify({ status }),
+      }),
+
+    // Delete pending tasks while preserving completed tasks.
+    deletePendingTasks: (planId) =>
+      request(`/study-plans/${planId}/tasks/pending`, {
+        method: 'DELETE',
+      }),
+  },
+
+  // =========================================================
+  // Personal Study Tracking APIs
+  // =========================================================
+
+  studyTracking: {
+
+    // Start a personal study session.
+    start: (sessionData) =>
+      request('/study-tracking/start', {
+        method: 'POST',
+        body: JSON.stringify(sessionData),
+      }),
+
+    // Pause an active session.
+    pause: (sessionId) =>
+      request(`/study-tracking/${sessionId}/pause`, {
+        method: 'POST',
+      }),
+
+    // Resume a paused session.
+    resume: (sessionId) =>
+      request(`/study-tracking/${sessionId}/resume`, {
+        method: 'POST',
+      }),
+
+    // Finish a session.
+    finish: (sessionId) =>
+      request(`/study-tracking/${sessionId}/finish`, {
+        method: 'POST',
+      }),
+
+    // Get the current session.
+    getCurrent: () =>
+      request('/study-tracking/current'),
+
+    // Get personal session history.
+    getHistory: () =>
+      request('/study-tracking/history'),
+  },
+
+  // =========================================================
+  // Study Activity APIs
+  // =========================================================
+
+  studyActivity: {
+
+    // Get daily study activity for the selected date range.
+    getDaily: (from, to) => {
+      const params = new URLSearchParams({
+        from,
+        to,
+      });
+
+      return request(`/study-activity/daily?${params.toString()}`);
+    },
+  },
+
 
   // =========================================================
   // Notifications APIs

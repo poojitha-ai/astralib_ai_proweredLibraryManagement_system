@@ -70,3 +70,9 @@ catalogue/*.log
 # Resolver scratch files
 catalogue/.resolve-cache.json
 catalogue/resolve.log
+# Local user-uploaded documents
+data/student_documents/
+data/study_hall_documents/
+
+# Backup files
+*.bak

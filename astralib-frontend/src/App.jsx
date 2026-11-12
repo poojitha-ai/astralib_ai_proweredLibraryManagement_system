@@ -84,7 +84,7 @@ import {
 import {
   StudyRoomPage,
 } from './pages/user/StudyRoomPage';
-
+import StudyPlannerPage from './pages/user/StudyPlannerPage';
 import {
   NotificationsPage,
 } from './pages/user/NotificationsPage';
@@ -283,7 +283,10 @@ export function App() {
                 path="/study-hall/:groupId/room"
                 element={<StudyRoomPage />}
               />
-
+              <Route
+  path="/study-planner"
+  element={<StudyPlannerPage />}
+/>
               {/* ============================================
                   USER SETTINGS
               ============================================= */}
